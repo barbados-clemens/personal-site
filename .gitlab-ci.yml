@@ -1,0 +1,110 @@
+cache:
+  paths:
+    - node_modules/
+
+#testing:
+#  image: trion/ng-cli-karma
+#  stage: test
+#  before_script:
+#    - yarn global add @angular/cli
+#    - yarn install
+#  script:
+#    - yarn lint
+#    - yarn test:no-watch
+#    - yarn e2e
+#    - mv coverage/dragDraft codecoverage/
+#  artifacts:
+#    paths:
+#      - codecoverage
+#    expire_in: 30 days
+
+bundle:
+  image: node:8.15.0
+  stage: build
+  environment: prod
+  only:
+    - master
+  before_script:
+    - yarn install
+  script:
+    - yarn build
+  artifacts:
+    paths:
+      - dist
+    expire_in: 30 days
+
+
+dependency_scanning:
+  image: docker:stable
+  variables:
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  services:
+    - docker:stable-dind
+  script:
+    - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
+    - docker run
+      --env DEP_SCAN_DISABLE_REMOTE_CHECKS="${DEP_SCAN_DISABLE_REMOTE_CHECKS:-false}"
+      --volume "$PWD:/code"
+      --volume /var/run/docker.sock:/var/run/docker.sock
+      "registry.gitlab.com/gitlab-org/security-products/dependency-scanning:$SP_VERSION" /code
+  artifacts:
+    reports:
+      dependency_scanning: gl-dependency-scanning-report.json
+
+sast:
+  image: docker:stable
+  variables:
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  services:
+    - docker:stable-dind
+  script:
+    - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
+    - docker run
+      --env SAST_CONFIDENCE_LEVEL="${SAST_CONFIDENCE_LEVEL:-3}"
+      --volume "$PWD:/code"
+      --volume /var/run/docker.sock:/var/run/docker.sock
+      "registry.gitlab.com/gitlab-org/security-products/sast:$SP_VERSION" /app/bin/run /code
+  artifacts:
+    reports:
+      sast: gl-sast-report.json
+
+
+dast:
+  image: registry.gitlab.com/gitlab-org/security-products/zaproxy
+  variables:
+    website: "https://calebukle.com"
+  allow_failure: true
+  script:
+    - mkdir /zap/wrk/
+    - /zap/zap-baseline.py -J gl-dast-report.json -t $website || true
+    - cp /zap/wrk/gl-dast-report.json .
+  artifacts:
+    reports:
+      dast: gl-dast-report.json
+
+#pages:
+#  image: alpine
+#  stage: deploy
+#  dependencies:
+#    - testing
+#  script:
+#    - mv codecoverage/ public/
+#  artifacts:
+#    paths:
+#      - public
+#    expire_in: 30 days
+
+publish:
+  image: node:8.15.0
+  stage: deploy
+  environment: prod
+  dependencies:
+    - bundle
+  only:
+    - master
+  script:
+    - yarn global add firebase-tools
+    - yarn install
+    - yarn deploy
