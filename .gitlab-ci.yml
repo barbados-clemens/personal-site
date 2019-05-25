@@ -25,6 +25,7 @@ bundle:
   only:
     - master
   before_script:
+    - yarn global add parcel-bundler
     - yarn install
   script:
     - yarn build
