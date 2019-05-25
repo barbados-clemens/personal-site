@@ -1,0 +1,45 @@
+@import "_vars";
+
+html {
+  color: rgba(var(--text-color));
+  font-size: var(--text-size);
+  line-height: 1.4;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
