@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Page Not Found</title>
+    <title>Caleb Ukle | Page Not Found</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
 
@@ -13,17 +13,14 @@
 
         html {
             color: #888;
-            display: table;
-            font-family: sans-serif;
-            height: 100%;
+            font-family: Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
-            width: 100%;
         }
 
         body {
-            display: table-cell;
-            vertical-align: middle;
-            margin: 2em auto;
+            display: grid;
+            place-items: center;
+            height: 100vh;
         }
 
         h1 {
@@ -35,6 +32,14 @@
         p {
             margin: 0 auto;
             width: 280px;
+        }
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
         }
 
         @media only screen and (max-width: 280px) {
@@ -53,8 +58,13 @@
     </style>
 </head>
 <body>
+<div>
     <h1>Page Not Found</h1>
+    <hr>
     <p>Sorry, but the page you were trying to view does not exist.</p>
+    <small>
+    <a href="/">Go Back</a>
+    </small>
+</div>
 </body>
 </html>
-<!-- IE needs 512+ bytes: https://blogs.msdn.microsoft.com/ieinternals/2010/08/18/friendly-http-error-pages/ -->

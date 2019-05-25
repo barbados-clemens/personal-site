@@ -3,20 +3,22 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Caleb Ukle</title>
+    <title>Caleb Ukle | About</title>
     <meta name="theme-color" content="#209cee">
 
-    <meta name="description" content="Official portfolio site of Caleb Ukle"/>
+    <meta name="description" content="Learn more about Caleb Ukle"/>
 
     <meta name="twitter:title" content="Caleb Ukle"/>
-    <meta name="twitter:description" content="Official portfolio site of Caleb Ukle"/>
-    <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
+    <meta name="twitter:description" content="Learn more about Caleb Ukle"/>
+    <meta name="twitter:image"
+          content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
     <meta name="twitter:site" content="@CU_Galaxy">
     <meta name="twitter:card" content="summary"/>
 
     <meta property="og:title" name="og:title" content="Caleb Ukle"/>
-    <meta property="og:description" name="og:description" content="Official portfolio site of Caleb Ukle"/>
-    <meta property="og:image" name="og:image" content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
+    <meta property="og:description" name="og:description" content="Learn more about Caleb Ukle"/>
+    <meta property="og:image" name="og:image"
+          content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
     <meta property="og:url" name="og:url" content="https://calebukle.com"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
@@ -33,10 +35,7 @@
     <a href="/contact.html">Contact</a>
 </nav>
 <main>
-    <img src="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"
-         alt="Image">
     <div class="content">
-
         <p>Aliquam eu sem blandit, ultrices felis sed, scelerisque libero. Pellentesque fermentum, metus sit amet mattis
             molestie, nisl nulla dictum ligula, maximus consequat dolor est sed lectus. Proin consectetur mollis
             elementum. Donec tempor varius ullamcorper. Duis aliquet vel felis vel euismod. Proin ac lectus imperdiet,
@@ -46,6 +45,12 @@
             Vestibulum nulla mi, iaculis a laoreet sed, vestibulum non libero. Integer tristique feugiat enim, vitae
             pulvinar lacus varius at. Donec ac ligula nunc. Suspendisse eleifend vestibulum cursus. Suspendisse egestas
             sollicitudin fringilla. Nulla tincidunt condimentum finibus. </p>
+        <p>
+            Fusce efficitur in tortor eu viverra. Praesent tristique volutpat nulla et volutpat. Curabitur auctor nunc
+            id eleifend luctus. Donec sapien orci, vehicula id risus nec, placerat efficitur magna. Morbi tristique
+            sagittis leo vitae vestibulum. Pellentesque lacinia lacus elit, eget volutpat tortor finibus a. Nulla sed
+            eleifend dolor. Aliquam ipsum quam, cursus eget quam vitae, porttitor euismod ligula.
+        </p>
     </div>
 
 </main>
@@ -63,9 +68,9 @@
     };
     firebase.initializeApp(firebaseConfig);
     var perf = firebase.performance();
-    var trace = perf.trace('mainPage');
+    var trace = perf.trace('aboutPage');
     trace.start();
-    window.onbeforeunload = function() {
+    window.onbeforeunload = function () {
         trace.stop();
         console.log('👋 Bye!');
     }

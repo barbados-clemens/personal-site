@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Caleb Ukle | Projects</title>
+    <meta name="theme-color" content="#209cee">
+
+    <meta name="description" content="Learn about Caleb Ukle's past and present projects"/>
+
+    <meta name="twitter:title" content="Caleb Ukle"/>
+    <meta name="twitter:description" content="Learn about Caleb Ukle's past and present projects"/>
+    <meta name="twitter:image"
+          content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
+    <meta name="twitter:site" content="@CU_Galaxy">
+    <meta name="twitter:card" content="summary"/>
+
+    <meta property="og:title" name="og:title" content="Caleb Ukle"/>
+    <meta property="og:description" name="og:description" content="Learn about Caleb Ukle's past and present projects"/>
+    <meta property="og:image" name="og:image"
+          content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
+    <meta property="og:url" name="og:url" content="https://calebukle.com"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="css/main.scss">
+</head>
+
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/contact.html">Contact</a>
+</nav>
+<main>
+    <div class="content">
+        <a href="https://gitlab.com/caleb-ukle">Caleb Ukle's GitLab Profile</a>
+    </div>
+
+</main>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-performance.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyC0CexIiWvUUArBN1Qwk0YLTrzxQ01LKAI",
+        authDomain: "portfolio-82e83.firebaseapp.com",
+        databaseURL: "https://portfolio-82e83.firebaseio.com",
+        projectId: "portfolio-82e83",
+        storageBucket: "portfolio-82e83.appspot.com",
+        messagingSenderId: "1053843841056",
+        appId: "1:1053843841056:web:4abbdf8b7fd00a72"
+    };
+    firebase.initializeApp(firebaseConfig);
+    var perf = firebase.performance();
+    var trace = perf.trace('projectPage');
+    trace.start();
+    window.onbeforeunload = function () {
+        trace.stop();
+        console.log('👋 Bye!');
+    }
+</script>
+<script src="js/main.ts"></script>
+</body>
+
+</html>
