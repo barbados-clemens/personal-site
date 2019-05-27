@@ -33,6 +33,10 @@
     border: 1px solid #d9d9d9;
     border-radius: 4px;
     opacity: 1;
+    &:hover {
+      border-color: var(--hover-border-color);
+      box-shadow: var(--hover-box-shadow)
+    }
     &--ng {
       background-color: #c3002e;
       color: white;
