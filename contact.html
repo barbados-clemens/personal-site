@@ -10,19 +10,22 @@
 
     <meta name="twitter:title" content="Caleb Ukle"/>
     <meta name="twitter:description" content="Contact Caleb Ukle"/>
-    <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
+    <meta name="twitter:image"
+          content="https://www.gravatar.com/avatar/c703b906e3b3a925544686e926a64684.jpg?s=50&d=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fportfolio-82e83.appspot.com%2Fo%2Fassets%252Fsoth%2520avi.jpg%3Falt%3Dmedia"/>
     <meta name="twitter:site" content="@CU_Galaxy">
     <meta name="twitter:card" content="summary"/>
 
     <meta property="og:title" name="og:title" content="Caleb Ukle"/>
     <meta property="og:description" name="og:description" content="Contact Caleb Ukle"/>
-    <meta property="og:image" name="og:image" content="https://firebasestorage.googleapis.com/v0/b/portfolio-82e83.appspot.com/o/assets%2Fsoth%20avi.jpg?alt=media"/>
+    <meta property="og:image" name="og:image"
+          content="https://www.gravatar.com/avatar/c703b906e3b3a925544686e926a64684.jpg?s=50&d=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fportfolio-82e83.appspot.com%2Fo%2Fassets%252Fsoth%2520avi.jpg%3Falt%3Dmedia"/>
     <meta property="og:url" name="og:url" content="https://calebukle.com"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="stylesheet" href="css/main.scss">
+    <link rel="stylesheet" href="css/contact.scss">
 </head>
 
 <body>
@@ -33,10 +36,19 @@
     <a href="/contact.html">Contact</a>
 </nav>
 <main>
-    <div class="content">
-        <a href="mailto:placeholder@somedomain.com">Some Email Address</a>
-        <a href="https://gitlab.com/caleb-ukle">Gitlab Account</a>
-        <a href="https://twitter.com/@CU_Galaxy">Twitter Account</a>
+    <div class="content container">
+        <a class="card" href="mailto:caleb@ukle.family">
+            <img src="img/at.svg" alt="email icon">
+            Send an email
+        </a>
+        <a href="https://gitlab.com/caleb-ukle" target="_blank" rel="noreferrer" class="card">
+            <img src="img/gitlab.svg" alt="Gitlab Logo">
+            @caleb-ukle on Gitlab</>
+
+        <a href="https://twitter.com/@CU_Galaxy" target="_blank" rel="noreferrer" class="card">
+            <img src="img/twitter.svg" alt="Twitter logo">
+            @CU_Galaxy on Twitter</a>
+
     </div>
 
 </main>
@@ -56,7 +68,7 @@
     var perf = firebase.performance();
     var trace = perf.trace('contactPage');
     trace.start();
-    window.onbeforeunload = function() {
+    window.onbeforeunload = function () {
         trace.stop();
         console.log('👋 Bye!');
     }

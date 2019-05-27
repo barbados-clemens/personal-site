@@ -1,11 +1,13 @@
 @import "_vars";
+
 * {
   -webkit-transition: 300ms ease;
-  -moz-transition: 300ms ease ;
-  -ms-transition: 300ms ease ;
-  -o-transition: 300ms ease ;
+  -moz-transition: 300ms ease;
+  -ms-transition: 300ms ease;
+  -o-transition: 300ms ease;
   transition: 300ms ease;
 }
+
 html {
   color: rgba(var(--text-color));
   font-size: var(--text-size);
@@ -20,35 +22,69 @@ body {
   grid-gap: var(--text-size);
   height: 100vh;
   justify-items: center;
-  grid-template:
-          " nav " 50px
-          " main " calc(100vh - 50px - var(--text-size))
+  grid-template: " nav " 50px " main " calc(100vh - 50px - var(--text-size))
 }
+
 nav {
   grid-area: nav;
   align-self: center;
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin: 0 var(--text-size) 0 0;
-    padding: var(--text-size) 0 0 0;
-    &:hover {
-      color: darken(#209cee, 20%);
-      text-decoration-line: underline;
-    }
-  };
 }
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 var(--text-size) 0 0;
+  padding: var(--text-size) 0 0 0;
+
+  &:hover {
+    color: darken(#209cee, 20%);
+    text-decoration-line: underline;
+  }
+}
+
 main {
   grid-area: main;
   text-align: center;
   max-width: 700px;
-  img {
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+
+  img.circle {
+    //-webkit-clip-path: circle(50% at 50% 50%);
+    //clip-path: circle(50% at 50% 50%);
+    //outline: 3px red solid;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
   }
-  div.content {
-    grid-area: content;
+
+}
+
+div.content {
+  grid-area: content;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: calc(2 * var(--text-size));
+
+  &:hover {
+    border-color: var(--hover-border-color);
+    box-shadow: var(--hover-box-shadow)
   }
+
+  .title {
+    font-size: calc(1.5 * var(--text-size));
+    font-weight: 400;
+  }
+
+  .body {
+    text-align: justify;
+  }
+}
+
+.buffer {
+  margin-bottom: calc(2 * var(--text-size));
 }
 
 hr {
