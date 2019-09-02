@@ -43,22 +43,16 @@ const Layout = ({ children }) => {
         <footer
           role="contentinfo"
           style={{
-            paddingBottom: '1rem'
+            paddingBottom: '1rem',
+            textAlign: 'center',
           }}
         >
-          <span style={{
-            float: "left",
-          }}>
          © {new Date().getFullYear()} Caleb Ukle | All Rights Reserved
-          </span>
-          <span style={{
-            float: "right"
-          }}>
+          <br/>
             {data.site.siteMetadata.social.map(({link, title}) => (
               <a className="social-link" href={link} rel="noreferrer noopener">{title}</a>
             ))}
 
-          </span>
         </footer>
       </div>
     </>
