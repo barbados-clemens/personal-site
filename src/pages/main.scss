@@ -1,0 +1,37 @@
+.greeting-container {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.card-container {
+  display: grid;
+  grid-gap: calc(var(--text-size) * 2);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding-bottom: var(--text-size);
+}
+
+
+form {
+  display: grid;
+  grid-gap: var(--text-size);
+  place-items: center;
+  input,textarea {
+    width: 100%;
+    max-width: 500px;
+    font-size: calc(var(--text-size) * 1.5);
+    padding: var(--text-size);
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: var(--text-size);
+  }
+  button {
+    width: 100%;
+    max-width: 500px;
+    background-color: lighten( #204969, 60% );
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black;
+    padding: calc(var(--text-size) * .5);
+    font-size: calc(var(--text-size) * 1.5);
+  }
+}
