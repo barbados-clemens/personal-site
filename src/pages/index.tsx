@@ -8,7 +8,7 @@ import Card from "../components/card"
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Home"/>
+      <SEO title="Home" description="Hi, My name is Caleb"/>
       <section id="greeting" className="greeting-container">
         <h1>👋 Hi, my name is Caleb</h1>
         <p>

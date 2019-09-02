@@ -106,8 +106,8 @@ module.exports = {
         name: `caleb-ukle-portfolio`,
         short_name: `caleb`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#204969`,
+        theme_color: `#204969`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },

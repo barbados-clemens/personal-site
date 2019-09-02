@@ -8,7 +8,7 @@ import Tags from "../components/tags"
 const AboutPage = () => {
   return (
     <Layout>
-      <SEO title="About"/>
+      <SEO title="About" description="Learn more about Caleb"/>
       <h1>About Caleb</h1>
 
       <h2>Projects</h2>
