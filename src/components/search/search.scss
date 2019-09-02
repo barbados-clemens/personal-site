@@ -1,0 +1,28 @@
+.line-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.search-card {
+  margin: auto;
+  margin-bottom: 12px;
+}
+ul {
+  padding: 0;
+}
+li.ais-Hits-item {
+  list-style: none;
+}
+.ais-PoweredBy {
+  text-align: right;
+}
+
+.results {
+  display: grid;
+  place-items: center;
+  grid-gap: var(--text-size);
+}
+// mark {
+//   background-color: var(--primary-color);
+// }

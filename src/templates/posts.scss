@@ -1,0 +1,89 @@
+.post {
+  padding: 0 10px;
+  &--title {
+  }
+  &__metadata {
+    display: grid;
+    grid-gap: var(--text-size);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    padding-bottom: 1.45rem;
+    &--title {
+      color: rgba($color: #000000, $alpha: .8);
+      font-size: small;
+    }
+  }
+
+  &--desc {
+    font-size: large;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  &--body {
+    font-size: large;
+    line-height: 1.5;
+  }
+}
+a.auto-link {
+  margin-left: -25px;
+  width: 24px;
+  svg {
+    fill: rgba($color: #000000, $alpha: .2);
+    visibility: visible;
+  }
+}
+h1 .auto-link svg, h2 .auto-link svg, h3 .auto-link svg, h4 .auto-link svg, h5 .auto-link svg, h6 .auto-link svg {
+  visibility: visible !important;
+}
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover,
+a.auto-link:hover {
+  svg {
+    fill: var(--link-color);
+  }
+}
+
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  border-radius: 4px;
+  padding: calc(var(--text-size) / 2) var(--text-size);
+  font-style: italic;
+}
+
+/* Adjust the position of the line numbers */
+.gatsby-highlight pre[class*="language-"].line-numbers {
+  padding-left: 2.8em;
+}
+
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+.gatsby-highlight {
+  background-color: #2d2d2d;
+  border-radius: 0.3em;
+  margin: 1.45em 0;
+  padding: 1em;
+  overflow: auto;
+}
+
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+  font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
+}
