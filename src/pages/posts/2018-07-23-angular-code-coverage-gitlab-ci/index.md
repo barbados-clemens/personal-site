@@ -30,7 +30,7 @@ Alright, so now your project is configured to display the code coverage in the c
 Next, head over to [Gitlab.com](https://gitlab.com) and head to *your project > Settings > CI/CD > General pipelines*. Scroll down until you see **Testing coverage parsing**.
 In here, you’ll want to include this regular expression. (Thanks to [this Stack Overflow post](https://stackoverflow.com/questions/39658439/how-do-i-extract-test-coverage-from-the-istanbul-text-summary-reporter-with-a-re) for the Regular Expression).
 
-```regex:title=regex
+```regex
 Statements.*?(\d+(?:\.\d+)?)%
 ```
 
