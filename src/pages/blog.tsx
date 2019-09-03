@@ -33,7 +33,7 @@ const Blog = () => {
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title="Blog" description="Content Created by Caleb" />
       <h1>Recent Posts</h1>
       <div className="card-container" style={{margin: 0, paddingBottom: '1.45rem'}}>
       {allMarkdownRemark.edges.map(({ node: post }) => (
