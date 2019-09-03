@@ -6,6 +6,7 @@ module.exports = {
     title: `Caleb Ukle`,
     description: `Get to know more info about Caleb`,
     author: `@CU_Galaxy`,
+    siteUrl: "https://calebukle.com",
     social: [
       { link: "https://twitter.com/CU_galaxy", title: "Twitter" },
       { link: "https://gitlab.com/caleb-ukle", title: "Gitlab" },
@@ -16,6 +17,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-sitemap`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
