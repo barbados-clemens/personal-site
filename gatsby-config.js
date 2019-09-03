@@ -9,7 +9,7 @@ module.exports = {
     social: [
       { link: "https://twitter.com/CU_galaxy", title: "Twitter" },
       { link: "https://gitlab.com/caleb-ukle", title: "Gitlab" },
-      { link: "https://instagram/calebukle", title: "Instagram" },
+      { link: "https://instagram.com/calebukle", title: "Instagram" },
     ]
   },
   plugins: [
