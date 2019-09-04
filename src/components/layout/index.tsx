@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
          © {new Date().getFullYear()} Caleb Ukle | All Rights Reserved
           <br/>
             {data.site.siteMetadata.social.map(({link, title}) => (
-              <a className="social-link" href={link} rel="noreferrer noopener">{title}</a>
+              <a key={title} className="social-link" href={link} rel="noreferrer noopener">{title}</a>
             ))}
 
         </footer>
