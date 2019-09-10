@@ -20,6 +20,14 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn: "https://2e9f90c609db4788b4fe4b647e15e83c@sentry.io/1723422",
+        environment: process.env.NODE_ENV,
+        enable: (() => ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)()
+      }
+    },
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
