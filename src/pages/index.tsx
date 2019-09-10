@@ -40,6 +40,11 @@ const IndexPage = ({ data }) => {
             />
           ))}
         </div>
+        <p style={{
+          textAlign: 'center'
+        }}>
+        <Link to="/blog">See more posts</Link>
+        </p>
       </section>
     </Layout>
   )
@@ -48,7 +53,7 @@ const IndexPage = ({ data }) => {
 export const topTenPostsQuery = graphql`
     query TopTenBlogs {
         allMarkdownRemark(
-            limit: 10
+            limit: 4
             filter: { frontmatter: { publish: { eq: true } } }
             sort: { fields: frontmatter___date, order: DESC }
         ) {
