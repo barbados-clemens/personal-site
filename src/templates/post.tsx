@@ -48,7 +48,7 @@ const Template = ({ data }) => {
           <Tags tags={post.frontmatter.tags} />
         </div>
         <p className="post post--desc">{post.frontmatter.description}</p>
-        <p
+        <div
           className="post post--body"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
