@@ -52,7 +52,6 @@ const Layout = ({ children }) => {
             {data.site.siteMetadata.social.map(({link, title}) => (
               <a key={title} className="social-link" href={link} rel="noreferrer noopener">{title}</a>
             ))}
-
         </footer>
       </div>
     </>

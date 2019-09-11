@@ -87,3 +87,11 @@ blockquote {
   min-width: 100%; /* 2 */
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
 }
+
+.share-sheet {
+  text-align: center;
+  a {
+    margin-right: 12px;
+    cursor: pointer;
+  }
+}
