@@ -1,18 +1,21 @@
 .card {
   cursor: pointer;
+  background-color: var(--app-card-bg);
   display: flex;
   flex-direction: column;
-  border: 1px solid #e8e8e8;
   border-radius: 24px;
   padding: 1em;
   max-width: 500px;
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--app-text-color);
   text-decoration: none;
-  border-color: rgba(0, 0, 0, 0.09);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border: 1px solid var(--theme-black-border);
+
+  box-shadow: 0 2px 8px  rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px var(--theme-black-border);
   &--title {
     padding-bottom: 0.5em;
-    color: var(--link-color);
+    color: var(--app-link-color);
     text-decoration: underline;
   }
   &--subtitle {
@@ -27,5 +30,8 @@
   &:hover {
     border-color: rgba(0, 0, 0, 0.09);
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+
+    border-color: var(--theme-black-border);
+    box-shadow: 0px 2px 15px var(--theme-black-border-shadow);
   }
 }
