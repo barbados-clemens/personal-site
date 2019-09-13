@@ -61,7 +61,7 @@
   --app-tag-border: var(--dark-tag-border);
 }
 * {
-  transition: box-shadow, background-color, border-color, .2s;
+  transition: background-color .2s;
   transition-timing-function: var(--app-timing-function);
 }
 a {
