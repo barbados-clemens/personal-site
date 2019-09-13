@@ -13,8 +13,15 @@ ul {
 li.ais-Hits-item {
   list-style: none;
 }
-.ais-PoweredBy {
-  text-align: right;
+.algolia-insta-search {
+  color: var(--app-text-color);
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  font-size: small;
+  svg {
+    margin: 0 1em;
+  }
 }
 
 .results {

@@ -35,5 +35,8 @@ form {
     color: var(--app-text-color);
     padding: calc(var(--text-size) * .5);
     font-size: calc(var(--text-size) * 1.5);
+    svg {
+      fill: var(--app-text-color);
+    }
   }
 }

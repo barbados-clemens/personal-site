@@ -77,10 +77,9 @@ class ThemeToggle extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div aria-label="Click to change theme" title="Change Theme" className="button-theme-toggler" onClick={this.changeTheme}>
-        {this.state.theme === 'light' ? '🌑' : '☀️' }
+        {this.state.theme === 'light' ? '🌚' : '🌞' }
         ️</div>
     )
 
