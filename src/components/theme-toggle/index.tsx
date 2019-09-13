@@ -51,7 +51,11 @@ class ThemeToggle extends React.Component {
   }
 
   getTheme = () => {
-    return localStorage.getItem('theme');
+    try {
+      return localStorage.getItem('theme');
+    } catch (e) {
+      return null;
+    }
   }
 
   setLightTheme() {
