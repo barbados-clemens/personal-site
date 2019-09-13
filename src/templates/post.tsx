@@ -51,7 +51,7 @@ const Template = ({ data }) => {
           >
             Home
           </Link>{" "}
-          / <Link to="/blog">Blogs</Link> /
+          / <Link to="/blog">Blog</Link> /
           <h1 className="post post--title"> {post.frontmatter.title}</h1>
           <div className="post post__metadata">
             <div className="item">
