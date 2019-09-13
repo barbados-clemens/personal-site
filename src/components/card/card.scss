@@ -1,4 +1,5 @@
 .card {
+  transition-property: background-color, box-shadow;
   cursor: pointer;
   background-color: var(--app-card-bg);
   display: flex;
