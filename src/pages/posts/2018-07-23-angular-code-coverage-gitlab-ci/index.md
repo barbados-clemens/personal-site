@@ -46,7 +46,7 @@ As promised, I’ll talk a little about setting up a Gitlab pipeline for testing
 
 ![.gitlab-ci.yml file](/img/gitlab-config.png)
 
-The trick for me was figuring out how to run the tests in a docker container. Because if you try running in just a node:latest container, it won’t work since Karma is looking for Chrome. Luckily someone has already done the hard work in solving that problem. A huge shout out to [this docker container](https://hub.docker.com/r/trion/ng-cli-karma/) and its maintainer. So with that piece of the puzzle you’re able to run ng test --watch=false and ng e2e without issues.
+The trick for me was figuring out how to run the tests in a docker container. Because if you try running in just a node:latest container, it won’t work since Karma is looking for Chrome. Luckily someone has already done the hard work in solving that problem. A huge shout out to [this docker container](https://hub.docker.com/r/trion/ng-cli-karma/) and its maintainer. So with that piece of the puzzle you’re able to run `ng test --watch=false` and `ng e2e` without issues.
 
 The eagle-eyed reader will notice a *Pages* build step. I am using [Gitlab Pages](https://about.gitlab.com/features/pages/) to host the HTML output of [my code coverage](https://caleb-ukle.gitlab.io/shop-the-fridge/). It’s very easy and simple to do. You can follow along with the build steps.
 

@@ -57,6 +57,14 @@ blockquote {
   font-style: italic;
 }
 
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  color: #e91e63;
+  background: #f5f5f5;
+  border-radius: 5px;
+  padding: 0 8px;
+  font-family: Menlo, Courier, monospace;
+}
+
 /* Adjust the position of the line numbers */
 .gatsby-highlight pre[class*="language-"].line-numbers {
   padding-left: 2.8em;
