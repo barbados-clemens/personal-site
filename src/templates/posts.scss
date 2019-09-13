@@ -8,7 +8,8 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     padding-bottom: 1.45rem;
     &--title {
-      color: rgba($color: #000000, $alpha: .8);
+      color: var(--app-text-color);
+      opacity: .8;
       font-size: small;
     }
   }
@@ -25,10 +26,11 @@
   }
 }
 a.auto-link {
-  margin-left: -25px;
-  width: 24px;
+  //margin-left: -25px;
+  //width: 24px;
   svg {
-    fill: rgba($color: #000000, $alpha: .2);
+    fill: var(--app-text-color);
+    opacity: .2;
     visibility: visible;
   }
 }
@@ -43,12 +45,13 @@ h5:hover,
 h6:hover,
 a.auto-link:hover {
   svg {
-    fill: var(--link-color);
+    fill: var(--app-link-color);
+    opacity: 1;
   }
 }
 
 blockquote {
-  border-left: 4px solid var(--primary-color);
+  border-left: 4px solid var(--app-primary-color);
   border-radius: 4px;
   padding: calc(var(--text-size) / 2) var(--text-size);
   font-style: italic;

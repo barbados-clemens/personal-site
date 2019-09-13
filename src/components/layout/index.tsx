@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../header"
 import "./layout.scss"
+import ThemeToggle from "../theme-toggle"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -54,6 +55,7 @@ const Layout = ({ children }) => {
             ))}
         </footer>
       </div>
+      <ThemeToggle/>
     </>
   )
 }

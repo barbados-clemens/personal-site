@@ -1,20 +1,70 @@
 :root {
-  // --text-size: 12px;
-  // --primary-color: #49beb7;  // rebeccapurple;
-  // --secondary-color: #fcf9ea; // white;
-  // --link-color: #ff8a5c;
+
 
   --text-size: 12px;
-  --primary-color: #204969;
-  --secondary-color: #fff7f7;
-  --link-color: #005e32; // #09ad60;
+  --theme-blue: #204969;
+  --theme-light-blue: #cedde8; // 60% lighten
+  --theme-green: #005e32;
+  --theme-off-white: #fff7f4;
+  --theme-alt-off-white: #eee;
+  --theme-white: white;
+  --theme-black: #222;
+  --theme-alt-black: hsla(0, 0%, 0%, 0.8);
+  --theme-black-border: rgba(0, 0, 0, 0.09);
+  --theme-black-border-shadow: rgba(0, 0, 0, 0.2);
+
+  --light-primary-color: var(--theme-blue);
+  --light-bg-color: var(--theme-white);
+  --light-link-color: var(--theme-green);
+  --light-text-color: var(--theme-black);
+  --light-card-bg: var(--theme-off-white);
+  --light-tag-bg: var(--theme-light-blue);
+  --light-tag-border: var(--app-primary-color);
+
+  --dark-primary-color: var(--theme-blue);
+  --dark-bg-color: var(--theme-black);
+  --dark-text-color: var(--theme-off-white);
+  --dark-link-color: #3fa86a;
+  --dark-card-bg: #46474a;
+  --dark-tag-bg: #2e3235;
+  --dark-tag-border: #24282b;
+
+
+  // Light theme
+  --app-primary-color: var(--light-primary-color);
+  --app-secondary-color: var(--light-bg-color); // #fff7f7;
+  --app-link-color: var(--light-link-color);
+  --app-text-color: var(--light-text-color);
+  --app-card-bg: var(--theme-white);
+  --app-tag-bg: var(--theme-light-blue);
+  --app-tag-border: var(--app-primary-color);
+
+  // Dark theme
+  //--app-primary-color: var(--dark-primary-color);
+  //--app-secondary-color: var(--dark-bg-color);
+  //--app-link-color: var(--dark-link-color);
+  //--app-text-color: var(--dark-text-color);
+  //--app-card-bg: var(--dark-card-bg);
+  //--app-tag-bg: var(--dark-tag-bg);
+  //--app-tag-border: var(--dark-tag-border);
+}
+
+// TODO Figure out dark theme
+@media (prefers-color-scheme: dark) {
+  --app-primary-color: var(--dark-primary-color);
+  --app-secondary-color: var(--dark-bg-color);
+  --app-link-color: var(--dark-link-color);
+  --app-text-color: var(--dark-text-color);
+  --app-card-bg: var(--dark-card-bg);
+  --app-tag-bg: var(--dark-tag-bg);
+  --app-tag-border: var(--dark-tag-border);
 }
 * {
   transition: all .3s;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 a {
-  color: var(--link-color);
+  color: var(--app-link-color);
 }
 html {
   font-family: -system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
@@ -26,6 +76,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--app-secondary-color);
+  color: var(--app-text-color);
 }
 
 .social-link {
@@ -224,7 +276,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
+  color: var(--app-text-color);
   font-family: -system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
   font-weight: normal;
   word-wrap: break-word;
