@@ -29,6 +29,7 @@
   --dark-tag-bg: #2e3235;
   --dark-tag-border: #24282b;
 
+  --app-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 
   // Light theme
   --app-primary-color: var(--light-primary-color);
@@ -60,8 +61,8 @@
   --app-tag-border: var(--dark-tag-border);
 }
 * {
-  transition: all .2s;
-  transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: background-color .2s;
+  transition-timing-function: var(--app-timing-function);
 }
 a {
   color: var(--app-link-color);
