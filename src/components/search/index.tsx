@@ -30,7 +30,7 @@ const Search = () => {
         className="algolia-insta-search">
         Search by Algolia
         <br/>
-        <svg viewBox="0 0 50 50" width="30" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 50 50" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
           <g fill="none">
             <path
               d="M6.502 0h36.379c3.58 0 6.502 2.92 6.502 6.529v36.53c0 3.596-2.908 6.528-6.502 6.528H6.502C2.922 49.587 0 46.669 0 43.06V6.512C0 2.92 2.905 0 6.502 0"
