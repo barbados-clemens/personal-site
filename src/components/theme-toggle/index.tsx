@@ -52,9 +52,18 @@ class ThemeToggle extends React.Component {
 
   getTheme = () => {
     try {
-      return localStorage.getItem('theme');
+      const storedTheme = localStorage.getItem('theme');
+      if (!!storedTheme) {
+        return storedTheme
+      }
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+      } else {
+        return 'light'
+      }
+
     } catch (e) {
-      return null;
+      return 'light';
     }
   }
 
