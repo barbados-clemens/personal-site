@@ -4,7 +4,7 @@ export SENTRY_ORG="caleb-ukle"
 export SENTRY_PROJECT="portfolio"
 
 
-VERSION="v1.0.0:$VERSION_HASH"
+export VERSION="v1.0.0:$VERSION_HASH"
 
 if [ "$CONTEXT" = 'production' ]; then
   echo "Creating releases $VERSION"

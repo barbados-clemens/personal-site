@@ -1,6 +1,7 @@
 const queries = require("./src/utils/algolia");
 require('dotenv').config();
 
+console.log(process.env)
 module.exports = {
   siteMetadata: {
     title: `Caleb Ukle`,
@@ -24,7 +25,8 @@ module.exports = {
       options: {
         dsn: "https://2e9f90c609db4788b4fe4b647e15e83c@sentry.io/1723422",
         environment: process.env.NODE_ENV,
-        enable: (() => ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)()
+        enable: (() => ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)(),
+        release: process.env.VERSION
       }
     },
     {
