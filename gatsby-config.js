@@ -1,7 +1,6 @@
 const queries = require("./src/utils/algolia");
 require('dotenv').config();
 
-console.log(process.env)
 module.exports = {
   siteMetadata: {
     title: `Caleb Ukle`,
