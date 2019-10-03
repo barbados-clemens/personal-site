@@ -1,8 +1,11 @@
 import React from 'react';
 
 import './theme-toggle.scss';
+import { getFirebaseInstance } from "../../utils/firebase"
 
 class ThemeToggle extends React.Component {
+  analytics: any;
+  perf: any;
 
   darkTheme: { [appStyleName: string]: string } = {
     ['--app-primary-color']: '--dark-primary-color',
@@ -31,23 +34,44 @@ class ThemeToggle extends React.Component {
 
   componentDidMount(): void {
     const selectedTheme = this.getTheme();
-
     if (selectedTheme === 'dark') {
+
       this.setDarkTheme();
     } else {
       this.setLightTheme();
     }
+    const fireApp = import('firebase/app');
+    const fireAnalytics = import('firebase/analytics');
+    const firePerf = import('firebase/performance');
+
+    Promise.all([fireApp, fireAnalytics, firePerf])
+      .then(([firebase]) => {
+        this.analytics = getFirebaseInstance(firebase).analytics();
+        this.perf = getFirebaseInstance(firebase).performance();
+        this.analytics.logEvent('theme_set', { value: selectedTheme } )
+      })
+      .catch(err => {
+        console.error('Issue loading Firebase sdk', err)
+        throw err;
+      })
   }
 
   changeTheme = ($event) => {
     $event.preventDefault();
+    const trace = this.perf.trace('switch_theme');
+    trace.start();
+
     const selectedTheme = this.getTheme();
+
+    this.analytics.logEvent('switch_theme', { value: selectedTheme === 'light' ? 'dark' : 'light' })
 
     if (selectedTheme === 'light') {
       this.setDarkTheme()
     } else {
       this.setLightTheme()
     }
+
+    trace.stop();
   }
 
   getTheme = () => {
