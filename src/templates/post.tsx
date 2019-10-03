@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import Tags from "../components/tags"
 import "./posts.scss"
 import "./../components/layout/layout.scss";
+import { getFirebaseInstance } from "../utils/firebase"
 
 const copyToClipBoard = ($event) => {
   $event.preventDefault();
@@ -27,11 +28,27 @@ const copyToClipBoard = ($event) => {
   document.removeEventListener("copy", listener, false);
 }
 
+
 const Template = ({ data }) => {
   const { markdownRemark: post } = data
 
   const shareTitle = encodeURI(post.frontmatter.title)
   const shareUrl = encodeURI(`https://calebukle.com${post.frontmatter.path}`)
+
+  useEffect(() => {
+    const fireApp = import('firebase/app');
+    const fireAnalytics = import('firebase/analytics');
+
+    Promise.all([fireApp, fireAnalytics])
+      .then(([firebase]) => {
+        const analytics = getFirebaseInstance(firebase).analytics();
+        analytics.logEvent('page_view', {value: post.frontmatter.title})
+      })
+      .catch(err => {
+        console.error('issue loading analytics', err)
+        throw err;
+      })
+  },[post.frontmatter.title])
 
   return (
     <Layout>
