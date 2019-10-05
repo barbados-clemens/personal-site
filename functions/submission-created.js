@@ -6,7 +6,9 @@ require("dotenv").config()
 exports.handler = (event, context, callback) => {
  const body = JSON.parse(event.body);
 
- console.log(body);
+ console.log(event);
+ console.log(context);
+ console.log(callback);
 
   mail.setApiKey(process.env.SENDGRID_API_KEY)
 
