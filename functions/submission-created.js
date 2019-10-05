@@ -1,4 +1,6 @@
 const mail = require('@sendgrid/mail');
+const firebase = require('firebase/app');
+
 require("dotenv").config()
 
 exports.handler = (event, context, callback) => {
@@ -9,7 +11,7 @@ exports.handler = (event, context, callback) => {
   mail.setApiKey(process.env.SENDGRID_API_KEY)
 
   const msg = {
-    to: body.to,
+    to: 'caleb.ukle@gmail.com',
     from: "hey@calebukle.com",
     templateId: "d-d2a15662396d4364b6c4782da6615fd9",
     dynamic_template_data: {
@@ -19,5 +21,5 @@ exports.handler = (event, context, callback) => {
 
   mail.send(msg)
   .then(res => console.log('success'))
-  .catch(err => Promise.reject(err));
+  .catch(err => console.error(err));
 }
