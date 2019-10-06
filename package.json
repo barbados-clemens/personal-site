@@ -76,7 +76,7 @@
     "graph": "graphql get-schema --project blog",
     "deploy": "npm run test:ci",
     "sentry": "sentry-cli",
-    "deploy:functions": "firebase deploy --only functions"
+    "deploy:functions": "firebase deploy --token $FIREBASE_TOKEN --only functions"
   },
   "repository": {
     "type": "git",

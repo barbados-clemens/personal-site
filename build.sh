@@ -7,22 +7,22 @@ export SENTRY_PROJECT="portfolio"
 export VERSION="v1.0.0:$VERSION_HASH"
 
 if [ "$CONTEXT" = 'production' ]; then
-  echo "Creating releases $VERSION"
+  echo ">>>>>> Creating releases $VERSION <<<<<"
 
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" new --version "$VERSION"
   #sentry-cli releases set-commits "$VERSION" -c "caleb-ukle/portfolio@$VERSION_HASH"
 fi
 
-echo "Running Build"
+echo ">>>>>> Running Build <<<<<<"
 npm run build
 
 if [ "$CONTEXT" = 'production' ]; then
-  echo "Deploying Firebase Functions Functions"
-  npm run deploy:functions -- --token "$FIREBASE_TOKEN"
+  echo ">>>>>> Deploying Firebase Functions <<<<<<"
+  npm run deploy:functions
 
-  echo "Uploading sourcemaps"
+  echo ">>>>>> Uploading sourcemaps <<<<<"
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./public
 
-  echo "Finalizing release"
+  echo ">>>>>> Finalizing release <<<<<"
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" finalize "$VERSION"
 fi
