@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 VERSION_HASH=$(sentry-cli releases propose-version)
 export SENTRY_ORG="caleb-ukle"
 export SENTRY_PROJECT="portfolio"
@@ -18,7 +20,8 @@ npm run build
 
 if [ "$CONTEXT" = 'production' ]; then
   echo ">>>>>> Deploying Firebase Functions <<<<<<"
-  npm run deploy:functions
+
+  firebase deploy --token $FIREBASE_TOKEN --only functions
 
   echo ">>>>>> Uploading sourcemaps <<<<<"
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./public
