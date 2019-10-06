@@ -15,7 +15,11 @@ fi
 
 echo "Running Build"
 npm run build
+
 if [ "$CONTEXT" = 'production' ]; then
+  echo "Deploying Firebase Functions Functions"
+  npm run deploy:functions -- --token "$FIREBASE_TOKEN"
+
   echo "Uploading sourcemaps"
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./public
 
