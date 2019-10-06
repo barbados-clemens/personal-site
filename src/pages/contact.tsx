@@ -1,10 +1,14 @@
-import React from "react"
+import React, { Component } from "react"
 import { navigate } from "gatsby-link"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import './main.scss';
+import { getFirebaseInstance } from "../utils/firebase"
 
-export default class Contact extends React.Component {
+export default class Contact extends Component {
+  fireFunctions: any;
+  fireAnalytics: any;
+
   constructor(props) {
     super(props)
     this.state = { isValidated: false }
@@ -17,12 +21,20 @@ export default class Contact extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
-
     const data = new FormData(form)
 
     data.append('form-name', form.getAttribute('name'));
 
-    console.log(data);
+    this.fireAnalytics.logEvent('contact_form', {
+      ...this.state
+    });
+    const callable = this.fireFunctions.httpsCallable("contact_form");
+
+    callable({
+      created_at: new Date(),
+      ...this.state
+    }).then(res => console.log(res))
+      .catch(err => console.error(err));
 
     fetch("/", {
       method: "POST",
@@ -30,6 +42,18 @@ export default class Contact extends React.Component {
     })
       .then(() => navigate(form.getAttribute("action")))
       .catch(error => alert(error))
+  }
+
+  componentDidMount(): void {
+    const lazyApp = import('firebase/app');
+    const lazyFunctions = import('firebase/functions');
+
+    Promise.all([lazyApp, lazyFunctions])
+      .then(([firebase]) => {
+        this.fireFunctions = getFirebaseInstance(firebase).functions();
+
+        this.fireAnalytics = getFirebaseInstance(firebase).analytics();
+      })
   }
 
   render() {
