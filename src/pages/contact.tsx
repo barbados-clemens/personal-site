@@ -11,11 +11,23 @@ export default class Contact extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { isValidated: false }
+    this.state = { isFocus: false, isSubmit: false }
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+
+    if (this.state.isFocus) {
+      this.fireAnalytics.logEvent('contact_form', {
+        isFocus: true
+      })
+    }
+
+
+    this.setState({
+      [e.target.name]: e.target.value,
+      isFocus: true,
+      ...this.state
+    })
   }
 
   handleSubmit = e => {
@@ -27,14 +39,14 @@ export default class Contact extends Component {
 
     if (!!this.fireAnalytics){
       this.fireAnalytics.logEvent('contact_form', {
-        ...this.state
+        isSubmit: true
       });
     }
+
     if (!!this.fireFunctions) {
       const callable = this.fireFunctions.httpsCallable("contactForm");
 
       callable({
-        created_at: new Date(),
         ...this.state
       })
         .then(res => console.log(res))
@@ -45,7 +57,14 @@ export default class Contact extends Component {
       method: "POST",
       body: data
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => {
+        this.setState({
+          isSubmit: true,
+          isFocus: true,
+          ...this.state
+        })
+        navigate(form.getAttribute("action"))
+      })
       .catch(error => alert(error))
   }
 
