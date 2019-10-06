@@ -25,16 +25,21 @@ export default class Contact extends Component {
 
     data.append('form-name', form.getAttribute('name'));
 
-    this.fireAnalytics.logEvent('contact_form', {
-      ...this.state
-    });
-    const callable = this.fireFunctions.httpsCallable("contact_form");
+    if (!!this.fireAnalytics){
+      this.fireAnalytics.logEvent('contact_form', {
+        ...this.state
+      });
+    }
+    if (!!this.fireFunctions) {
+      const callable = this.fireFunctions.httpsCallable("contact_form");
 
-    callable({
-      created_at: new Date(),
-      ...this.state
-    }).then(res => console.log(res))
-      .catch(err => console.error(err));
+      callable({
+        created_at: new Date(),
+        ...this.state
+      })
+        .then(res => console.log(res))
+        .catch(err => console.error(err));
+    }
 
     fetch("/", {
       method: "POST",
@@ -47,12 +52,15 @@ export default class Contact extends Component {
   componentDidMount(): void {
     const lazyApp = import('firebase/app');
     const lazyFunctions = import('firebase/functions');
+    const lazyAnalytics = import('firebase/analytics');
 
-    Promise.all([lazyApp, lazyFunctions])
+    Promise.all([lazyApp, lazyFunctions, lazyAnalytics])
       .then(([firebase]) => {
         this.fireFunctions = getFirebaseInstance(firebase).functions();
-
         this.fireAnalytics = getFirebaseInstance(firebase).analytics();
+      })
+      .catch(err => {
+        console.warn('issue loading module(s)', err)
       })
   }
 
