@@ -1,19 +1,14 @@
-import * as functions from "firebase-functions"
-import * as admin from "firebase-admin"
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+import * as functions from "firebase-functions";
+import * as admin from "firebase-admin";
 
-admin.initializeApp()
-const db = admin.firestore()
+admin.initializeApp();
+const db = admin.firestore();
 
-exports.contactForm = functions.https.onCall((data, context) => {
-  console.log(data)
+exports.contactForm = functions.https.onCall((data: any, context: any) => {
+  console.log(data);
 
-  return db.collection("contact")
+  return db
+    .collection("contact")
     .add({
       created_at: new Date(),
       ...data,
@@ -22,6 +17,6 @@ exports.contactForm = functions.https.onCall((data, context) => {
     .catch(err => {
       console.error(err)
       return new functions.https.HttpsError("unknown", err)
-    })
+    });
 
 })

@@ -21,13 +21,20 @@ fi
 
 echo "${CYAN}>>>>>> Running Build <<<<<<${NC}"
 
-npm run build
-
-if [ "$CONTEXT" = 'production' ]; then
+# npm run build
   echo "${CYAN}>>>>>> Deploying Firebase Functions <<<<<<${NC}"
 
-  echo "${RED}$FIREBASE_TOKEN${NC}"
+
+  cd functions
+
+  npm install
+
+  cd ..
+
   node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
+
+if [ "$CONTEXT" = 'production' ]; then
+
 
   echo "${CYAN}>>>>>> Uploading sourcemaps <<<<<${NC}"
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./public
