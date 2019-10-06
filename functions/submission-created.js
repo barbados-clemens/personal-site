@@ -1,27 +1,36 @@
-const mail = require('@sendgrid/mail');
-const firebase = require('firebase/app');
-
 require("dotenv").config()
+const admin = require("firebase-admin");
 
-exports.handler = (event, context, callback) => {
- const body = JSON.parse(event.body);
+const serviceAccount = {
+  type: "service_account",
+  project_id: "portfolio-82e83",
+  private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
+  private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  client_email: process.env.FIREBASE_CLIENT_EMAIL,
+  client_id: process.env.FIREBASE_CLIENT_ID,
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://oauth2.googleapis.com/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-s3e2y%40portfolio-82e83.iam.gserviceaccount.com"
+}
 
- console.log(event);
- console.log(context);
- console.log(callback);
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://portfolio-82e83.firebaseio.com"
+});
 
-  mail.setApiKey(process.env.SENDGRID_API_KEY)
+const db = admin.firestore();
 
-  const msg = {
-    to: 'caleb.ukle@gmail.com',
-    from: "hey@calebukle.com",
-    templateId: "d-d2a15662396d4364b6c4782da6615fd9",
-    dynamic_template_data: {
+exports.handler = async event => {
+ const body = JSON.parse(event.body).payload
 
-    },
-  }
-
-  mail.send(msg)
-  .then(res => console.log('success'))
-  .catch(err => console.error(err));
+  db.collection('contacts')
+    .add({
+      created_at: new Date(),
+      ...body
+    })
+    .then(res => {
+        console.log('document added')
+      })
+    .catch(err => console.error('issue adding document', err));
 }

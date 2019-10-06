@@ -4,12 +4,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import './main.scss';
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
-
 export default class Contact extends React.Component {
   constructor(props) {
     super(props)
@@ -23,13 +17,16 @@ export default class Contact extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
+
+    const data = new FormData(form)
+
+    data.append('form-name', form.getAttribute('name'));
+
+    console.log(data);
+
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state,
-      }),
+      body: data
     })
       .then(() => navigate(form.getAttribute("action")))
       .catch(error => alert(error))
