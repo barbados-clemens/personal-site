@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import './main.scss';
 import { getFirebaseInstance } from "../utils/firebase"
+import { Debugger } from "inspector"
 
 export default class Contact extends Component {
   fireFunctions: any;
@@ -24,7 +25,6 @@ export default class Contact extends Component {
 
 
     this.setState({
-      [e.target.name]: e.target.value,
       isFocus: true,
       ...this.state
     })
@@ -33,7 +33,13 @@ export default class Contact extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
+    console.log(form);
     const data = new FormData(form)
+
+    const honeyPot = form[1].value;
+    const name = form[2].value;
+    const email = form[3].value;
+    const msg = form[4].value;
 
     data.append('form-name', form.getAttribute('name'));
 
@@ -43,11 +49,13 @@ export default class Contact extends Component {
       });
     }
 
-    if (!!this.fireFunctions) {
+    if (!!this.fireFunctions && !honeyPot) {
       const callable = this.fireFunctions.httpsCallable("contactForm");
 
       callable({
-        ...this.state
+        name,
+        email,
+        msg,
       })
         .then(res => console.log(res))
         .catch(err => console.error(err));
