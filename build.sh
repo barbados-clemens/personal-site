@@ -20,8 +20,9 @@ if [ "$CONTEXT" = 'production' ]; then
 fi
 
 echo "${CYAN}>>>>>> Running Build <<<<<<${NC}"
+npm run build
 
-# npm run build
+if [ "$CONTEXT" = 'production' ]; then
   echo "${CYAN}>>>>>> Deploying Firebase Functions <<<<<<${NC}"
 
 
@@ -32,8 +33,6 @@ echo "${CYAN}>>>>>> Running Build <<<<<<${NC}"
   cd ..
 
   node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
-
-if [ "$CONTEXT" = 'production' ]; then
 
 
   echo "${CYAN}>>>>>> Uploading sourcemaps <<<<<${NC}"
