@@ -4,25 +4,23 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import './main.scss';
 import { getFirebaseInstance } from "../utils/firebase"
-import { Debugger } from "inspector"
+
 
 export default class Contact extends Component {
-  fireFunctions: any;
-  fireAnalytics: any;
+  fireFunctions: firebase.functions.Functions | undefined;
+  fireAnalytics: firebase.analytics.Analytics | undefined;
 
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props)
     this.state = { isFocus: false, isSubmit: false }
   }
 
-  handleChange = e => {
-
-    if (this.state.isFocus) {
+  handleChange = () => {
+    if (this.state.isFocus && !!this.fireAnalytics) {
       this.fireAnalytics.logEvent('contact_form', {
         isFocus: true
       })
     }
-
 
     this.setState({
       isFocus: true,
@@ -30,7 +28,7 @@ export default class Contact extends Component {
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e: any) => {
     e.preventDefault()
     const form = e.target
     console.log(form);
@@ -80,11 +78,13 @@ export default class Contact extends Component {
     const lazyApp = import('firebase/app');
     const lazyFunctions = import('firebase/functions');
     const lazyAnalytics = import('firebase/analytics');
+    const lazyDb = import('firebase/firestore');
 
-    Promise.all([lazyApp, lazyFunctions, lazyAnalytics])
+    Promise.all([lazyApp, lazyFunctions, lazyAnalytics, lazyDb])
       .then(([firebase]) => {
         this.fireFunctions = getFirebaseInstance(firebase).functions();
         this.fireAnalytics = getFirebaseInstance(firebase).analytics();
+
       })
       .catch(err => {
         console.warn('issue loading module(s)', err)
