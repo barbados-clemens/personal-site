@@ -1,7 +1,7 @@
 import { HttpsError } from "firebase-functions/lib/providers/https"
 
 // @ts-ignore
-const cors = require('cors')({origin: true})
+// const cors = require('cors')({origin: true})
 
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";

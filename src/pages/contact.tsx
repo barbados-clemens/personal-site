@@ -31,7 +31,7 @@ export default class Contact extends Component {
       });
     }
     if (!!this.fireFunctions) {
-      const callable = this.fireFunctions.httpsCallable("contact_form");
+      const callable = this.fireFunctions.httpsCallable("contactForm");
 
       callable({
         created_at: new Date(),
