@@ -12,6 +12,7 @@
     "firebase": "^7.1.0",
     "firebase-admin": "^8.6.0",
     "gatsby": "^2.13.64",
+    "gatsby-cli": "^2.8.13",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-algolia": "^0.3.3",
     "gatsby-plugin-manifest": "^2.2.5",
@@ -56,6 +57,7 @@
     "firebase-tools": "^7.4.0",
     "graphql-cli": "^3.0.14",
     "netlify-lambda": "^1.6.2",
+    "npm-check": "^5.9.0",
     "prettier": "^1.18.2",
     "start-server-and-test": "^1.10.0",
     "typescript": "^3.5.3"
@@ -76,7 +78,9 @@
     "graph": "graphql get-schema --project blog",
     "deploy": "npm run test:ci",
     "sentry": "sentry-cli",
-    "deploy:functions": "firebase deploy --token $FIREBASE_TOKEN --only functions"
+    "deploy:functions": "firebase deploy --token $FIREBASE_TOKEN --only functions",
+    "update": "npm-check --update",
+    "gatsby": "gatsby"
   },
   "repository": {
     "type": "git",
