@@ -12,12 +12,12 @@ export SENTRY_PROJECT="portfolio"
 
 export VERSION="v1.0.0:$VERSION_HASH"
 
-if [ "$CONTEXT" = 'production' ]; then
+#if [ "$CONTEXT" = 'production' ]; then
   echo "${CYAN}>>>>>> Creating releases $VERSION <<<<<${NC}"
 
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" new --version "$VERSION"
   #sentry-cli releases set-commits "$VERSION" -c "caleb-ukle/portfolio@$VERSION_HASH"
-fi
+#fi
 
 echo "${CYAN}>>>>>> Running Build <<<<<<${NC}"
 npm run build
@@ -32,8 +32,8 @@ if [ "$CONTEXT" = 'production' ]; then
 
   cd ..
 
-  node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
-
+#  node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
+  echo "${RED}>>>>>> SKIPPING FIREBASE DEPLOY <<<<<<${NC}"
 
   echo "${CYAN}>>>>>> Uploading sourcemaps <<<<<${NC}"
   sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./public
