@@ -1,0 +1,21 @@
+
+.tag-container {
+  margin-bottom: 1.15rem
+}
+
+.tag {
+  color: var(--theme-off-white);
+  border-radius: 1.3em;
+  padding: .1em .75em;
+  margin-right: 10px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: .6em;
+  background-color: var(--theme-blue);
+  transition: box-shadow 250ms var(--theme-transistion-curve);
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--app-box-shadow);
+    color: var(--theme-off-white);
+  }
+}

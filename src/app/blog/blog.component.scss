@@ -1,0 +1,29 @@
+@import "../../styles/fira_code.css";
+
+:host {
+  max-width: 960px;
+  display: block;
+  margin: auto;
+}
+
+p > img {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+
+  font-family: 'Fira Code Retina', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+
+  @supports (font-variant-ligatures: normal) {
+    font-family: 'Fira Code VF', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+    font-variant-ligatures: normal !important;
+  }
+}
+
+.token.keyword {
+  color: #66d9ef !important;
+}

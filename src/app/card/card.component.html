@@ -1,0 +1,9 @@
+<div [routerLink]="cardInfo?.route" class="card" [attr.aria-label]="'Click to go to blog' + cardInfo?.title">
+  <h4>{{ cardInfo?.title }}</h4>
+  <p class="text_small">{{ cardInfo?.date | date: 'longDate' }}</p>
+  <p>
+    {{ cardInfo?.description }}
+  </p>
+  <div class="card--spacer"></div>
+  <app-tags [tags]="cardInfo?.tags"></app-tags>
+</div>

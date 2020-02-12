@@ -1,0 +1,10 @@
+<app-search></app-search>
+<pre>Query Param {{ query$ | async }}</pre>
+
+<code>TODO: Figure out Algolia Search</code>
+
+
+
+<div class="post-container">
+  <app-card *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
+</div>

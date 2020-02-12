@@ -1,37 +1,27 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Caleb Ukle Icon" src="https://calebukle.com/img/favicon.png" width="100" />
-  </a>
-</p>
-<h1 align="center">
-  Caleb Ukle Portfolio Site
-</h1>
+# ScullyTest
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b8f3e82f-7ba7-40e9-a9d9-5221a773f2e3/deploy-status)](https://app.netlify.com/sites/caleb-portfolio/deploys)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
-Built on top of Gatsby Starter
-Content from `.md` files in `/pages/posts`
+## Development server
 
-See Live site [here](https://calebukle.com)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## 🚀 Quick start
+## Code scaffolding
 
-1. Clone repo
-1. `npm install` install deps
-1. `npm start` run dev instance
-1. Navigate to http://localhost:8000/
-    - http://localhost:8000/___graphql for GraphiQL IDE
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-- `npm run serve` to see production instance locally
-- `npm run test` to run cypress tests
+## Build
 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-> This site is built with [Gatsby](https://gatsbjs.com)
+## Running unit tests
 
-## 🎓 More Info About Gatsby
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+## Running end-to-end tests
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
