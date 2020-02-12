@@ -49,7 +49,7 @@
   --app-font-family: 'Montserrat', sans-serif;
   --app-card-bg: #fff;
   --app-border-color: #D5D5D5;
-  --app-box-shadow-color: rgba(0,0,0,.35);
+  --app-box-shadow-color: rgba(0, 0, 0, .35);
   --app-box-shadow: 0 1px 10px var(--app-box-shadow-color);
   --app-quote-bg: var(--theme-off-white);
 }
@@ -69,9 +69,11 @@ a:active,
   display: inline-block;
   color: var(--theme-green);
   text-decoration: none;
+
   &:hover {
     color: var(--theme-light-green);
   }
+
   &::after {
     content: "";
     display: block;
@@ -80,6 +82,7 @@ a:active,
     background: var(--theme-light-green);
     transition: width 0.3s;
   }
+
   &:hover::after,
   &:focus::after {
     width: 100%;

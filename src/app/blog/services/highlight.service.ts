@@ -3,7 +3,7 @@ import {PLATFORM_ID} from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
 
 import 'clipboard';
-import * as Prism from 'prismjs';
+import { highlightAll} from 'prismjs';
 import 'prismjs/plugins/toolbar/prism-toolbar.min';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min';
 import 'prismjs/components/prism-css.min';
@@ -22,7 +22,7 @@ export class HighlightService {
   highlightAll() {
     if (isPlatformBrowser(this.platformId)) {
       console.log('highlighted');
-      Prism.highlightAll();
+      highlightAll();
     }
   }
 }
