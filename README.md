@@ -1,10 +1,27 @@
-# ScullyTest
+<p style="text-align: center">
+  <a href="https://calebukle.com.">
+    <img alt="Caleb Ukle Icon" src="https://media.calebukle.com/uploads/icon-48x48.png"/>
+  </a>
+</p>
+<h1 style="text-align: center">
+  Caleb Ukle Portfolio Site
+</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b8f3e82f-7ba7-40e9-a9d9-5221a773f2e3/deploy-status)](https://app.netlify.com/sites/caleb-portfolio/deploys)
+
+Built on top of [Scully](https://github.com/scullyio/scully/blob/master/docs/getting-started.md) Blog Starter
+Content from `.md` files in `/blog`
+
+See Live site [here](https://calebukle.com)
+
+
+> This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Run `npm run b:s` to build and serve the static built site on `http://localhost:1668`
 
 ## Code scaffolding
 
@@ -12,7 +29,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `run run build:prod` for a production build.
 
 ## Running unit tests
 
