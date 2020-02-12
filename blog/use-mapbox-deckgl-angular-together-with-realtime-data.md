@@ -8,6 +8,7 @@ tags:
     - Deck.gl
     - Data Science
 publish: true
+image: https://media.calebukle.com/uploads/update-viz.gif
 --- 
 [Link to fireship.io tutorial](https://fireship.io/lessons/deckgl-google-maps-tutorial/)
 

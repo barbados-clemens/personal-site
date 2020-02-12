@@ -7,6 +7,7 @@ tags:
   - Gitlab
   - Continuous Integration
 publish: true
+image: https://media.calebukle.com/uploads/badges.png
 ---
 
 >_This post originally appeared on [Medium on July 23, 2018](https://medium.com/@caleb.ukle/code-coverage-badge-with-angular-karma-istanbul-on-gitlab-ci-9611b69ad7e)._

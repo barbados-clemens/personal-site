@@ -7,6 +7,7 @@ tags:
   - Object Detection
   - ONNX
 publish: true
+image: https://media.calebukle.com/uploads/buck-ai-predict.png
 ---
 
 ![Image Object Detection](https://media.calebukle.com/uploads/buck-ai-predict.png)
