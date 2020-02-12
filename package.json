@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && scully && npm run move",
+    "build": "ng build && scully",
     "move": "mkdir -p public && cp -rf dist/static/* public",
     "build:prod": "ng build --prod && scully",
     "test": "ng test",
