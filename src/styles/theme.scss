@@ -1,3 +1,8 @@
+@import "~prismjs/themes/prism-okaidia.css";
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import "lists";
+@import "buttons";
+
 
 /* montserrat-regular - latin */
 @font-face {
@@ -27,37 +32,70 @@
   url('../assets/montserrat-v14-latin-italic.svg#Montserrat') format('svg'); /* Legacy iOS */
 }
 
-@import "~prismjs/themes/prism-okaidia.css";
 
 :root {
-  --app-text-color: #333;
+
+
+  --theme-blue: #4687F6;
+  --theme-off-white: #ECECEC;
+  --theme-transistion-curve: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --theme-green: #72BE47;
+  --theme-light-green: #B4DC9D;
+  --theme-red: #ED655A;
+  --theme-gray-1: #2F3134;
+
+  --app-text-color: var(--theme-gray-1);
   --app-bg-color: #fff;
   --app-font-family: 'Montserrat', sans-serif;
   --app-card-bg: #fff;
   --app-border-color: #D5D5D5;
   --app-box-shadow-color: rgba(0,0,0,.35);
   --app-box-shadow: 0 1px 10px var(--app-box-shadow-color);
-  --theme-blue: #4687f6;
-  --theme-off-white: #eee;
-  --theme-transistion-curve: cubic-bezier(0.4, 0.0, 0.2, 1);
-  --theme-green: #72BE47;
-  --theme-light-green: #B4DC9D;
+  --app-quote-bg: var(--theme-off-white);
 }
 
 [data-theme="dark"] {
-  --app-bg-color: #222;
+  --app-bg-color: var(--theme-gray-1);
   --app-text-color: var(--theme-off-white);
   --app-border-color: #222;
   --app-card-bg: var(--app-box-shadow-color);
+  --app-quote-bg: var(--app-box-shadow-color);
 }
 
 a,
 a:visited,
 a:active,
 {
+  display: inline-block;
   color: var(--theme-green);
+  text-decoration: none;
   &:hover {
     color: var(--theme-light-green);
   }
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--theme-light-green);
+    transition: width 0.3s;
+  }
+  &:hover::after,
+  &:focus::after {
+    width: 100%;
+    background: var(--theme-light-green);
+  }
 }
+
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  cursor: pointer;
+}
+
+div.code-toolbar {
+  margin-bottom: 1.15rem;
+}
+
 

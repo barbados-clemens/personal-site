@@ -4,6 +4,7 @@
   max-width: 960px;
   display: block;
   margin: auto;
+  --app-code-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 p > img {
@@ -13,17 +14,36 @@ p > img {
 }
 
 
-code[class*="language-"],
-pre[class*="language-"] {
+code,
+pre {
 
-  font-family: 'Fira Code Retina', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+  font-family: 'Fira Code Retina', var(--app-code-font-family);
 
   @supports (font-variant-ligatures: normal) {
-    font-family: 'Fira Code VF', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
-    font-variant-ligatures: normal !important;
+    font-family: 'Fira Code VF', var(--app-code-font-family);
+    font-variant-ligatures: normal;
   }
 }
 
-.token.keyword {
-  color: #66d9ef !important;
+blockquote > p {
+  border-left: .65em solid var(--theme-blue);
+  border-radius: 0.3em;
+  padding: 1em;
+  font-style: italic;
+  background-color: var(--app-quote-bg);
+  color: var(--app-text-color);
+  box-shadow: var(--app-box-shadow);
 }
+
+blockquote {
+  margin: 2.3rem 0;
+}
+
+p > code {
+  color: var(--theme-red);
+  background: var(--theme-off-white);
+  border-radius: .3em;
+  padding: 0 .4em;
+}
+
+

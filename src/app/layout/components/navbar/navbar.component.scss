@@ -3,10 +3,10 @@
   background-color: var(--theme-blue);
   padding: .3em 1em;
 }
-.active::after {
+a.active::after {
   width: 100% !important;
 }
-.nav-link {
+a.nav-link {
   margin: 0 1em 0 0;
   display: inline-block;
   color: var(--theme-off-white);

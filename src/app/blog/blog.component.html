@@ -1,6 +1,13 @@
+<a class="no-decoration" routerLink="/blog">Go Back</a>
+
 <h1>{{ (meta$ | async)?.title }}</h1>
+
 <p class="text_small">{{ (meta$ | async)?.date | date:"longDate" }}</p>
+
 <app-tags [tags]="(meta$ | async)?.tags"></app-tags>
+
 <p> {{ (meta$ | async)?.description }}</p>
+
 <scully-content></scully-content>
+
 <app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>

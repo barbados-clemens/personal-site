@@ -36,8 +36,8 @@ Awesome, now let's get started.
 
 ## Setup 
 
-Run `ng new mapbox-deck-viz --style=scss --routing` in the terminal to generate a new angular app
-now let's install some dependencies, we are only working with a scatter plot today, but you want other layer types make sure to import that library if needed. i.e. aggregation-layers for Hexagon Layers
+Run `ng new mapbox-deck-viz --style=scss --routing` in the terminal to generate a new angular app.
+Now let's install some dependencies, we are only working with a scatter plot today, but you want other layer types make sure to import that library if needed. i.e. aggregation-layers for Hexagon Layers
 
 ```bash
 npm install @deck.gl/{core,layers,mapbox} mapbox-gl @types/mapbox-gl
@@ -87,7 +87,7 @@ getData(file = 1): Observable<any> {
 
 Back to our `app.component.ts`. Add the following code in `AppComponent` and add any missing imports
 
-> Hint Map and Navigation Control are from 'mapbox-gl' node module
+> Hint: Map and Navigation Control are from 'mapbox-gl' node module
 
 ```ts
 @ViewChild('mapEl', {static: true})
