@@ -14,6 +14,12 @@
     "scully:s": "scully serve",
     "b:s": "npm run build && npm run scully:s"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint -- --fix",
+      "pre-push": "npm run lint"
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.0.0",
@@ -43,6 +49,7 @@
     "@types/node": "^12.11.1",
     "@types/prismjs": "^1.16.0",
     "codelyzer": "^5.1.2",
+    "husky": "^4.2.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
