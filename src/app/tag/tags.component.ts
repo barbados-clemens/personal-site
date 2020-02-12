@@ -8,6 +8,6 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TagsComponent {
 
   @Input()
-  tags: string[] = []
+  tags: string[] = [];
   constructor() { }
 }
