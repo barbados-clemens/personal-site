@@ -1,0 +1,11 @@
+:host {
+  display: block
+}
+
+div {
+  background-color: var(--cal--tooltip-background);
+  color: var(--cal--tooltip-text-color);
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--cal--border-radius) / 2);
+  box-shadow: var(--cal--box-shadow);
+}
