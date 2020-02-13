@@ -2,7 +2,7 @@ import { AfterContentChecked, ChangeDetectionStrategy, Component, ViewEncapsulat
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { shareReplay, tap } from 'rxjs/operators';
-import { HighlightService } from './services/highlight.service';
+import { HighlightService } from './services/highlight/highlight.service';
 import { MetadataService } from '../layout/services/metadata/metadata.service';
 
 declare var ng: any;
