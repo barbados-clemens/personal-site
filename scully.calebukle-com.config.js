@@ -1,3 +1,5 @@
+require('./plugins/addLinksToHeader.plugin.js')
+
 exports.config = {
   projectRoot: "./src",
   projectName: "calebukle-com",
@@ -5,6 +7,7 @@ exports.config = {
   routes: {
     '/blog/:slug': {
       type: 'contentFolder',
+      postRenderers: ['addLinksToHeader'],
       slug: {
         folder: "./blog"
       }

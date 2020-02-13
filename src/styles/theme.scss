@@ -101,4 +101,21 @@ div.code-toolbar {
   margin-bottom: 1.15rem;
 }
 
-
+.header-link {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1em;
+  width: 24px;
+  display: inline-block;
+  cursor: pointer;
+  > svg {
+    fill:   var(--theme-green);
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    > svg {
+      fill: var(--theme-light-green)
+    }
+  }
+}
