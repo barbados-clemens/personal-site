@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import {CardComponent} from './card.component';
 import {TagModule} from '../tag/tag.module';
 import {RouterModule} from '@angular/router';
+import { SearchResultCardComponent } from './search-result-card/search-result-card.component';
 
 @NgModule({
   declarations: [
-    CardComponent
+    CardComponent,
+    SearchResultCardComponent
   ],
   exports: [
-    CardComponent
+    CardComponent,
+    SearchResultCardComponent,
   ],
   imports: [
     CommonModule,

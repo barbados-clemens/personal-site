@@ -9,6 +9,7 @@ import {TagModule} from '../tag/tag.module';
 import {BlogOverviewComponent} from './components/blog-overview/blog-overview.component';
 import {SearchComponent} from './components/search/search.component';
 import {CardModule} from '../card/card.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {CardModule} from '../card/card.module';
     ScullyLibModule,
     TagModule,
     CardModule,
+    ReactiveFormsModule,
   ],
 })
 export class BlogModule {

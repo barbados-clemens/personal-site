@@ -35,12 +35,13 @@
     "@scullyio/init": "0.0.22",
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "latest",
+    "algoliasearch": "^4.0.2",
+    "firebase": "^7.8.0",
     "prismjs": "^1.19.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "xstate": "^4.7.8",
-    "zone.js": "~0.10.2",
-    "firebase": "^7.8.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.1",
