@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../services/search/search.service';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { debounceTime, filter, switchMap, tap } from 'rxjs/operators';
+import { debounceTime, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
 export class SearchComponent implements OnInit {
 
   searchControl: FormControl;
-searchResults$: Observable<any>;
+  searchResults$: Observable<any>;
+
   constructor(
     private searchService: SearchService,
     private fb: FormBuilder,
