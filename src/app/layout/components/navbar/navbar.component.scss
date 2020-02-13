@@ -9,7 +9,7 @@ a.active::after {
 a.nav-link {
   margin: 0 1em 0 0;
   display: inline-block;
-  color: var(--theme-off-white);
+  color: white;//var(--theme-off-white);
   text-decoration: none;
   font-weight: bold;
   transition: all 250ms var(--theme-transistion-curve);
@@ -18,18 +18,18 @@ a.nav-link {
     display: block;
     width: 0;
     height: 2px;
-    background: var(--theme-off-white);
+    background: white; //var(--theme-off-white);
     transition: width 0.3s;
   }
   &:hover::after,
   &:focus::after {
     width: 100%;
-    color: var(--theme-off-white);
+    color: white;// var(--theme-off-white);
   }
 }
 
 a.nav-link:hover,
 a.nav-link:focus,
 a.nav-link:active {
-  color: var(--theme-off-white);
+  color: white;// var(--theme-off-white);
 }
