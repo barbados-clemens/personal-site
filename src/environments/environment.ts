@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   algolia: {
-    apiKey: 'EX7MUSC1F5',
-    apiId: '715e2f2e918e2d13a8e24904388c7798',
+    apiKey: '715e2f2e918e2d13a8e24904388c7798',
+    apiId: 'EX7MUSC1F5',
   },
   firebaseConfig: {
     apiKey: 'AIzaSyC0CexIiWvUUArBN1Qwk0YLTrzxQ01LKAI',
