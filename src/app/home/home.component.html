@@ -16,13 +16,13 @@
 <section id="recent-posts">
   <h3 style="text-align: center;">Here are some recent things I've written</h3>
   <div class="blog-container">
-    <app-card tabindex="0" [cardInfo]="{
+    <app-card [cardInfo]="{
       tags: ['Personal', 'Gear', 'Setup'],
       title: 'My /uses info',
       description: 'Curious to know what I use on a daily basis? Fret no more. Just check it out here 😃',
       route: '/uses',
       date: 'January 23, 2020'
     }"></app-card>
-    <app-card tabindex="0" *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
+    <app-card *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
   </div>
 </section>
