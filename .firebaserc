@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "portfolio-82e83": {
+      "hosting": {
+        "calebukle-com": [
+          "portfolio-82e83"
+        ]
+      }
+    }
+  }
+}

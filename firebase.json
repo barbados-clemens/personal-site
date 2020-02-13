@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "calebukle-com",
+      "public": "dist/calebukle-com",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

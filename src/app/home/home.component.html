@@ -9,20 +9,20 @@
     I've been a problem solver for as long as I can remember, and I am
     always trying to find new things to learn.
   </p>
-  <p>Learn more <a routerLink="/about">about me</a></p>
+  <p>Learn more <a tabindex="0" routerLink="/about">about me</a></p>
 </section>
 
 
 <section id="recent-posts">
   <h3 style="text-align: center;">Here are some recent things I've written</h3>
   <div class="blog-container">
-    <app-card [cardInfo]="{
+    <app-card tabindex="0" [cardInfo]="{
       tags: ['Personal', 'Gear', 'Setup'],
       title: 'My /uses info',
       description: 'Curious to know what I use on a daily basis? Fret no more. Just check it out here 😃',
       route: '/uses',
       date: 'January 23, 2020'
     }"></app-card>
-    <app-card *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
+    <app-card tabindex="0" *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
   </div>
 </section>
