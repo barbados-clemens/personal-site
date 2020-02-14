@@ -1,13 +1,17 @@
-<label>
-  Search
-  <input type="text" placeholder="Search" [formControl]="searchControl">
+<label class="search" aria-label="Search for blog post">
+  <input type="text" placeholder="Search" [formControl]="searchControl" autofocus>
 </label>
 <ng-container *ngIf="searchResults$ | async as res">
   <div *ngIf="res?.error; else showResults">
     <pre>{{ res.error | json }}</pre>
   </div>
 
+  <div *ngIf="res?.hits?.length <= 0" style="text-align: center">
+    <h3>No results 🙁</h3>
+  </div>
+
   <ng-template #showResults>
+    <h3>Results: {{res?.hits?.length}}</h3>
     <app-search-result-card *ngFor="let r of res?.hits" [searchResult]="r"></app-search-result-card>
   </ng-template>
 </ng-container>

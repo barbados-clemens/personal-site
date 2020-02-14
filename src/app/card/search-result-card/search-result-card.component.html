@@ -1,8 +1,6 @@
-<div tabindex="0" [routerLink]="searchResult.path" class="card search-result-card"
+<div tabindex="0" [@simpleFadeAnimation]="'in'" [routerLink]="searchResult.path" class="card search-result-card"
      [attr.aria-label]="'Click to go to blog' + searchResult?.title">
   <h4 [innerHTML]="searchResult?._highlightResult?.title.value || searchResult.title"></h4>
   <p class="text_small">{{ searchResult?.date | date: 'longDate' }}</p>
   <p [innerHTML]="searchResult?._highlightResult?.description?.value || searchResult.description"></p>
-  <div class="card--spacer"></div>
-  <app-tags [tags]="searchResult.tags"></app-tags>
 </div>

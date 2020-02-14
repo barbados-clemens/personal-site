@@ -1,6 +1,14 @@
 <app-search></app-search>
 
 
+<h3 class="title">Recent Posts</h3>
 <div class="post-container">
+  <app-card [cardInfo]="{
+      tags: ['Personal', 'Gear', 'Setup'],
+      title: 'My /uses info',
+      description: 'Curious to know what I use on a daily basis? Fret no more. Just check it out here 😃',
+      route: '/uses',
+      date: 'January 23, 2020'
+    }"></app-card>
   <app-card *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
 </div>

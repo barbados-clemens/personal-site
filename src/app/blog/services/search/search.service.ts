@@ -13,7 +13,7 @@ export class SearchService {
 
   private client = algoliasearch(environment.algolia.apiId, environment.algolia.apiKey);
 
-  private index = this.client.initIndex('Posts');
+  private index = this.client.initIndex('Blog_Posts');
 
   results$ = this.searchTextSub.asObservable()
     .pipe(
