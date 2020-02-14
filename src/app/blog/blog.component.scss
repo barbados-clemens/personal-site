@@ -47,3 +47,15 @@ p > code {
 }
 
 
+@media (min-width: calc(960px + 2.3em)) {
+
+  blockquote {
+    margin: 2.3rem -2.3rem;
+  }
+
+  div.code-toolbar {
+    transform: translateX(2.3rem);
+  }
+
+}
+
