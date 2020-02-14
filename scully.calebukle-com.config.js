@@ -1,4 +1,5 @@
 require('./plugins/addLinksToHeader.plugin.js')
+require('dotenv').config();
 
 exports.config = {
   projectRoot: "./src",
