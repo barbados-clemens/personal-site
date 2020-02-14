@@ -1,4 +1,5 @@
 require('./plugins/addLinksToHeader.plugin.js')
+require('./plugins/updateAlgoliaIndex.plugin.js');
 require('dotenv').config();
 
 exports.config = {
@@ -8,7 +9,7 @@ exports.config = {
   routes: {
     '/blog/:slug': {
       type: 'contentFolder',
-      postRenderers: ['addLinksToHeader'],
+      postRenderers: ['addLinksToHeader', 'updateAlgoliaIndex'],
       slug: {
         folder: "./blog"
       }
