@@ -46,8 +46,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://calebukle.com/thanks/</loc>
+    <loc>https://calebukle.com/blog/scully-plugins-for-algolia-search-and-html-header-tag-links</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://calebukle.com/blog/moving-from-gatsby-to-scully-the-angular-static-site-generator</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
