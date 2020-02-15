@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,10 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
+
+  @ViewChild('contactFormRef')
+  contactFormRef: ElementRef<HTMLFormElement>;
+
   contactForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
+    private contactFormSrv: ContactService,
   ) {
   }
 
@@ -20,7 +26,7 @@ export class ContactComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required]],
       msg: ['', [Validators.required]],
-      bot: ['']
+      bot: [''],
     });
   }
 
@@ -29,7 +35,11 @@ export class ContactComponent implements OnInit {
       alert('form not valid');
     }
 
-    alert('submit form');
+    this.contactFormSrv.submit(this.contactFormRef.nativeElement)
+      .subscribe(t => {
+        console.log(t);
+        alert('submit form');
+      });
   }
 
 }
