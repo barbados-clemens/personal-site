@@ -6,7 +6,9 @@ form {
   input {
     line-height: 1.15;
     font-size: .9em;
-    border: 1px solid var(--app-card-bg);
+    border: 1px solid var(--app-border-color);
+    background-color: var(--app-card-bg);
+    color: var(--app-text-color);
     border-radius: .3rem;
     padding: 1em;
     margin-bottom: 1em;
