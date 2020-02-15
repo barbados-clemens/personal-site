@@ -1,5 +1,6 @@
+
 const { registerPlugin } = require("@scullyio/scully")
-const { log, yellow, green, red, logError } = require("@scullyio/scully/utils/log")
+const { log, logWarn, orange, green, red, logError } = require("@scullyio/scully/utils/log")
 const algoliasearch = require("algoliasearch")
 
 
@@ -25,6 +26,11 @@ const INDEX_NAME = `Blog_Posts`
  * @returns {Promise<string>}
  */
 const updateAlgoliaIndex = async (html, options) => {
+  if (process.env.DO_SEARCH_INDEX === 'false' || process.env.DO_SEARCH_INDEX === 'FALSE') {
+    logWarn(orange("Not performing index, set DO_SEARCH_INDEX environment variable to TRUE"))
+    return html
+  }
+
   try {
     const client = initAlgoliaClient()
     const payload = buildPayload(options)

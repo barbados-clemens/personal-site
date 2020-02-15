@@ -24,7 +24,7 @@ const addLinksToHeader = async (html, route) => {
         link.title = `Link to this point`
 
         link.classList.add(`header-link`)
-        h.insertAdjacentElement(`afterend`, link)
+        h.appendChild(link)
       }
     })
 
