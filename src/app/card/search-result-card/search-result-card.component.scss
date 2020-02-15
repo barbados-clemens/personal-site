@@ -3,3 +3,10 @@
 .search-result-card {
   margin-bottom: 1.15rem;
 }
+
+:host ::ng-deep em {
+  background-color: #F7C151;
+  color: var(--theme-gray-1);
+  padding-left: .3em;
+  padding-right: .1em;
+}

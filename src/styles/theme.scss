@@ -105,13 +105,15 @@ div.code-toolbar {
 .header-link {
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 1em;
+  margin-left: .3em;
   width: 24px;
   display: inline-block;
   cursor: pointer;
+
   > svg {
-    fill:   var(--theme-green);
+    fill: var(--theme-green);
   }
+
   &:hover,
   &:focus,
   &:active {
@@ -121,10 +123,28 @@ div.code-toolbar {
   }
 }
 
+a.clean_link,
+a.clean_link:visited,
+a.clean_link:active {
+  display: inline-block;
+  color: var(--app-text-color);
+  text-decoration: none;
 
-em {
-  background-color: #F7C151;
-  color: var(--theme-gray-1);
-  padding-left: .3em;
-  padding-right: .1em;
+  &:hover {
+    color: var(--app-text-color);
+  }
+  &::after {
+    content: none;
+    display: inherit;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 0;
+    background: transparent;
+  }
+
 }

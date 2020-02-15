@@ -3,9 +3,18 @@
   max-width: 960px;
   margin: auto;
 }
+
 .post-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1em;
+  gap: 2em;
   grid-auto-rows: 550px;
+  margin-bottom: 1.15rem;
 }
+
+#search {
+  margin-bottom: 2.4rem;
+  display: grid;
+  gap: 1em;
+}
+

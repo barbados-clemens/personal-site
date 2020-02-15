@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import algoliasearch from 'algoliasearch';
 import { environment } from '../../../../environments/environment';
 import { of, ReplaySubject } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 
 @Injectable({

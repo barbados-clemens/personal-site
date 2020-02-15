@@ -3,4 +3,5 @@
   <h4 [innerHTML]="searchResult?._highlightResult?.title.value || searchResult.title"></h4>
   <p class="text_small">{{ searchResult?.date | date: 'longDate' }}</p>
   <p [innerHTML]="searchResult?._highlightResult?.description?.value || searchResult.description"></p>
+  <app-tags [tags]="searchResult?.tags"></app-tags>
 </div>
