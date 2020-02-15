@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-export interface ContactForm {
-  honeyPot: any;
-  name: string;
-  email: string;
-  msg: string;
-
-}
+import { catchError, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +18,21 @@ export class ContactService {
 
     data.append('form-name', form.getAttribute('name'));
 
-    return this.http.post<any>(form.getAttribute('name'), data);
+    // @ts-ignore
+    return this.http.post<any>(form.getAttribute('name'), data, { responseType: 'text' })
+      .pipe(
+        map(_ => {
+          return {
+            action: form.getAttribute('action'),
+          };
+        }),
+        catchError(e => {
+          console.error('issue posting form', e);
+          return of({
+            error: 'Try Again',
+          });
+        }),
+      );
 
     // fetch('/', {
     //   method: 'POST',

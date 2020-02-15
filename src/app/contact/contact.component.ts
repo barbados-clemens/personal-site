@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from './contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -17,6 +18,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private contactFormSrv: ContactService,
+    private router: Router,
   ) {
   }
 
@@ -37,8 +39,13 @@ export class ContactComponent implements OnInit {
 
     this.contactFormSrv.submit(this.contactFormRef.nativeElement)
       .subscribe(t => {
-        console.log(t);
-        alert('submit form');
+        if (t?.error) {
+          alert('error. check console');
+        } else {
+          console.log(t);
+          alert('submit form');
+          this.router.navigateByUrl(t?.action ?? '/');
+        }
       });
   }
 

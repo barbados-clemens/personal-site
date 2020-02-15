@@ -3,9 +3,9 @@
 }
 
 div {
-  background-color: var(--cal--tooltip-background);
-  color: var(--cal--tooltip-text-color);
+  background-color: var(--theme-black);
+  color: var(--theme-off-white);
   padding: 0.5rem 1rem;
-  border-radius: calc(var(--cal--border-radius) / 2);
-  box-shadow: var(--cal--box-shadow);
+  border-radius: .3rem;
+  box-shadow: var(--app-box-shadow)
 }
