@@ -13,10 +13,9 @@ export class HomeComponent implements OnInit {
 
   links$: Observable<any> = this.scully.available$
     .pipe(
-      tap(l => console.log(l)),
-      map(links => links.filter(l => l.route.startsWith('/blog/')).splice(0, 10)),
       map(posts => posts
-        .sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1))
+        .sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
+      map(links => links.filter(l => l.route.startsWith('/blog/')).splice(0, 10)),
     );
 
   constructor(

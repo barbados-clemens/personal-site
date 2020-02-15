@@ -12,8 +12,8 @@ export class BlogOverviewComponent implements OnInit {
 
   links$ = this.scully.available$
     .pipe(
-      map(links => links.filter(l => l.route.startsWith('/blog/')).slice(0, 10)),
       map(posts => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
+      map(links => links.filter(l => l.route.startsWith('/blog/')).slice(0, 10)),
     );
 
   query$ = this.route.queryParamMap
