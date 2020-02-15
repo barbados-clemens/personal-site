@@ -40,10 +40,9 @@ export class ContactComponent implements OnInit {
     this.contactFormSrv.submit(this.contactFormRef.nativeElement)
       .subscribe(t => {
         if (t?.error) {
-          alert('error. check console');
+          alert('Issue submitting form 🙁. Try again.');
         } else {
           console.log(t);
-          alert('submit form');
           this.router.navigateByUrl(t?.action ?? '/');
         }
       });
