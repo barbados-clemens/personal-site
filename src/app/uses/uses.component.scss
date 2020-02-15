@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  max-width: 960px;
+  margin: auto;
+}
+
+blockquote > p {
+  border-left: .65em solid var(--theme-blue);
+  border-radius: 0.3em;
+  padding: 1em;
+  font-style: italic;
+  background-color: var(--app-quote-bg);
+  color: var(--app-text-color);
+  box-shadow: var(--app-box-shadow);
+}
+
+blockquote {
+  margin: 2.3rem 0;
+}
+
+
+@media (min-width: calc(960px + 4.6em)) {
+
+  blockquote {
+    margin: 2.3rem -2.3rem;
+  }
+}

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UsesRoutingModule } from './uses-routing.module';
 import { UsesComponent } from './uses.component';
 import {TagModule} from '../tag/tag.module';
+import { ShareSheetModule } from '../share-sheet/share-sheet.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {TagModule} from '../tag/tag.module';
   imports: [
     CommonModule,
     UsesRoutingModule,
-    TagModule
-  ]
+    TagModule,
+    ShareSheetModule
+  ],
 })
 export class UsesModule { }
