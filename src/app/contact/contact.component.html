@@ -6,6 +6,7 @@
   data-netlify-honeypot="bot-field"
   [formGroup]="contactForm"
   (ngSubmit)="onSubmit()"
+  #contactFormRef
 >
   <input type="hidden" name="form-name" value="contact"/>
   <div hidden>
