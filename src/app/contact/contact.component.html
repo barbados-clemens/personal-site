@@ -1,1 +1,77 @@
-<pre>TODO put contact form here</pre>
+<form
+  name="contact"
+  method="post"
+  action="/blog/"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  [formGroup]="contactForm"
+>
+  <input type="hidden" name="form-name" value="contact"/>
+  <div hidden>
+    <label>
+      Don’t fill this out:
+      <input name="bot-field" formControlName="bot"/>
+    </label>
+  </div>
+
+  <label>
+
+  <input
+    aria-label="Input your name"
+    Name="input"
+    type="text"
+    name="name"
+    formControlName="name"
+    id="name"
+    placeholder="Your Name"
+  />
+  <ng-container *ngIf="contactForm.get('name').errors && contactForm.get('name').dirty">
+    <small class="input-error" *ngIf="contactForm.get('name').hasError('required')">
+      A name is required
+    </small>
+  </ng-container>
+  </label>
+
+  <label>
+
+  <input
+    aria-label="Input your email"
+    class="input"
+    type="email"
+    name="email"
+    formControlName="email"
+    id="email"
+    placeholder="Your Email"
+  />
+
+  <ng-container *ngIf="contactForm.get('email').errors && contactForm.get('email').dirty">
+    <small class="input-error" *ngIf="contactForm.get('email').hasError('required')">
+      An email is required
+    </small>
+    <small class="input-error" *ngIf="contactForm.get('email').hasError('email')">
+      Invalid email
+    </small>
+  </ng-container>
+  </label>
+
+  <label>
+  <textarea
+    aria-label="Input your message"
+    class="textarea"
+    name="msg"
+    formControlName="msg"
+    id="message"
+    placeholder="Your Message"
+    rows=10></textarea>
+    <ng-container *ngIf="contactForm.get('msg').errors && contactForm.get('msg').dirty">
+      <small class="input-error" *ngIf="contactForm.get('msg').hasError('required')">
+        A message is required
+      </small>
+    </ng-container>
+
+  </label>
+  <button tabindex="0" aria-label="Submit form" type="submit" [disabled]="!contactForm.valid">
+    Send
+  </button>
+</form>
+
