@@ -1,7 +1,7 @@
 ---
-title: Scully Plugins for Algolia Search and HTML Header Tag Links
-date: 2020-2-20
-description: While converting this blog over to Scully, I ended up writing plugins for updating an Algoia index and providing links to header locations 
+title: Scully Plugins for Algolia Search and HTML Header Tag Links and More!
+date: 2020-2-16
+description: While converting this blog over to Scully, I ended up writing plugins for updating an Algoia index and providing links to header locations and a some other help ones. Check them all out here.
 tags:
   - Scully
   - Algoila
@@ -10,18 +10,29 @@ publish: false
 image: https://media.calebukle.com/uploads/scullyio-logo.png
 ---
 
-> Disclaimer: At the time of writing this [scully](https://github.com/scullyio/scully) is in a beta period. So things are likely to change. I will provide any updates once a v1 release is made.
+> Disclaimer: At the time of writing this [scully](https://github.com/scullyio/scully) is in a beta period. So things are likely to change. I will provide any updates once a v1 release is made if needed.
 
 
-If you want to learn more about the move from Gatsby to Scully or want to know what scully even is check out my post [here](https://calebukle.com/blog/moving-from-gatsy-to-scully).
+If you want to learn more about the move from Gatsby to Scully or want to know what scully even is check out my post [here](/blog/moving-from-gatsby-to-scully-the-angular-static-site-generator).
+
+
+First thing to note before getting into the plugins, each plugin has to be registered with a validator function. For all these plugins the validator wasn't needed so an empty array in return. I show all the registration and usage for each plugin. That is what the last couple lines per plugin is about. 
+
+## Plugin Overview
+Jump to each plugins location for what you need
+- [Adding Links](/blog/scully-plugins-for-algolia-search-and-html-header-tag-links#adding-links)
+- [Algolia Search](/blog/scully-plugins-for-algolia-search-and-html-header-tag-links#algolia-search)
+- [Firebase Firestore](/blog/scully-plugins-for-algolia-search-and-html-header-tag-links#firebase-firestore)
+- [Using Plugins](/blog/scully-plugins-for-algolia-search-and-html-header-tag-links#using-plugins) 
 
 ## Adding Links
+> This plugin requires jsdom, `npm i -D jsdom`
 
 I like the ability to directly link to a section of an article , and I wanted to keep that functionality for my site. With scully being so new I couldn't find a plugin that already did this work for me. So below you'll find the code that adds the hash/pound/number/octothorpe or whatever your preferred name the icon/symbol you see next to all the headers on this site.
 
 
-```typescript
 
+```typescript
 /* addLinksToHeader.plugin.js */
 
 const { registerPlugin } = require("@scullyio/scully")
@@ -53,8 +64,6 @@ const addLinksToHeader = async (html, route) => {
         link.href = `${route.route}#${h.id}`
         link.title = `Link to this point`
 
-
-
         // custom class for styling
         link.classList.add(`header-link`)
         h.appendChild(link)
@@ -70,9 +79,6 @@ const addLinksToHeader = async (html, route) => {
 }
 
 
-
-// there are requirements for scully's plugin system
-
 const validator = async conf => []
 registerPlugin("render", "addLinksToHeader", addLinksToHeader, validator)
 
@@ -81,14 +87,16 @@ module.exports.addLinkToHeader = addLinksToHeader
 ```
 
 
-
 ## Algolia Search
+> This plugin requires algolia search, `npm i algoliasearch`
 
-Another feature I needed is the ability to update the sites search index when a new post is created. I use Algolia to power my blog post search.
+Another feature I needed is the ability to update the sites search index when a new post is created. I use [Algolia](https://www.algolia.com/?utm_source=instantsearch-js&utm_medium=website&utm_content=calebukle.com&utm_campaign=customlink) to power my searching needs. I highly recommend the service and they have a generous free tier. 
 
+This plugin is about updating your algolia post index, if you want to see the how I implemented search you can check out the source code [here](https://gitlab.com/caleb-ukle/portfolio/-/tree/release/src/app/blog/components/search)
+
+A lot of the code for this was ripped straight from the algolia gatsby plugin source code, found [here](https://github.com/algolia/gatsby-plugin-algolia/blob/master/gatsby-node.js)
 
 ```typescript
-
 /* updateAlgoliaIndex.plugin.js */
 
 const { registerPlugin } = require("@scullyio/scully")
@@ -98,7 +106,7 @@ const algoliasearch = require("algoliasearch")
 
 const SETTINGS = { attributesToSnippet: [`excerpt: 20`] }
 
-const INDEX_NAME = `Blog_Posts`
+const INDEX_NAME = `Blog_Posts` // set your index name here
 
 
 /**
@@ -117,6 +125,7 @@ const updateAlgoliaIndex = async (html, options) => {
     const index = client.initIndex(INDEX_NAME)
     const mainIndexExists = await indexExists(index)
     // you can use a temp index and then copy that into your main index. I don't do this
+    // check the gatsby plugin to see how it's used https://github.com/algolia/gatsby-plugin-algolia/
     const tmpIndex = client.initIndex(`${INDEX_NAME}_tmp`)
     const indexToUse = index; // mainIndexExits ? index : tmpIndex
 
@@ -144,8 +153,7 @@ const updateAlgoliaIndex = async (html, options) => {
 
     log(green(`Updated index for [${payload.title}]`))
   } catch (e) {
-    // shit broke
-    logError(JSON.stringify(e))
+    logError(red(JSON.stringify(e, null, 2)))
   }
 
   return html
@@ -252,36 +260,86 @@ module.exports.updateAlgoliaIndex = updateAlgoliaIndex
 
 ```
 
-Now that you have these plugins defined. We need to tell scully to use them. 
+A specific thing to note about the algolia search plugin, each objectId is a hash of the blog post title. If you change the title of the post, you'll get a new item in your index. You'll need to manually delete the old item from the algolia web console. Otherwise, you'll have multiple items pointing to the same place, 
 
+## Firebase Firestore
+> This plugin requires the firebase admin sdk, `npm i -D firebase-admin`
+
+I also save the posts in Firestore which powers the like/heart/favorite feature you see on these posts.
+ 
 
 ```typescript
+/* addPostToFirebase.plugin.js */
 
+const { registerPlugin } = require("@scullyio/scully")
+const { log, logError, red, green } = require("@scullyio/scully/utils/log")
+const admin = require("firebase-admin")
+// service account json you can download from the firebase console.
+// Make sure to save it all as one line in your .env file
+const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG) 
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "", // Add you're database url here
+})
+const db = admin.firestore()
+
+const addPostToFirebase = async (html, route) => {
+  try {
+    // Add to Firestore based on route of blog
+    await db.doc(`${route.route}`).set(route, { merge: true })
+      log(green(`Added ${route.route} to Firebase`))
+  } catch (e) {
+    logError(red(`Issue adding ${route.route} to Firebase`))
+    logError(red(JSON.stringify(e, null, 2)))
+  }
+
+  return html
+}
+
+
+const validator = async conf => []
+
+registerPlugin("render", "addPostToFirebase", addPostToFirebase, validator)
+
+module.exports.addPostToFirebase = addPostToFirebase
+
+```
+
+## Using Plugins
+
+Now that you have these plugins defined. We need to tell scully to use them. 
+All of the plugins shown are _render_ plugins. There are other plugins such as _router_ or _fileHandler_
+
+```typescript
 /* scully.{your-project}.config.js */
+// Set env variables
+require("dotenv").config()
 
-
-// import the custom plugins
-require('./plugins/addLinksToHeader.plugin.js')
-require('./plugins/updateAlgoliaIndex.plugin.js');
-
-// set our .env file into our environment variables
-require('dotenv').config();
-
+// import plugins
+require("./plugins/addLinksToHeader.plugin.js")
+require("./plugins/updateAlgoliaIndex.plugin.js")
+require("./plugins/addPostToFirebase.plugin.js")
 exports.config = {
   projectRoot: "./src",
   projectName: "calebukle-com",
-  outDir: './dist/static',
+  outDir: "./dist/static",
   routes: {
-    '/blog/:slug': {
-      type: 'contentFolder',
-      // we will use these as post render plugins
-      postRenderers: ['addLinksToHeader', 'updateAlgoliaIndex'],
+    "/blog/:slug": {
+      type: "contentFolder",
+      // Render plugins go here. Should match the export name
+      postRenderers: ["addLinksToHeader", "updateAlgoliaIndex", "addPostToFirebase"],
       slug: {
-        folder: "./blog"
-      }
+        folder: "./blog",
+      },
     },
-  }
-};
+  },
+}
+
 ```
 
-More information about scully plugins can be found [here](https://github.com/scullyio/scully/blob/master/docs/plugins.md) and you can find some examples of plugins [here](https://github.com/scullyio/scully/tree/master/extraPlugin)
+I hope that helps you with making your own custom Scully plugins. If you want more information about Scully plugins, you can check out the official docs [here](https://github.com/scullyio/scully/blob/master/docs/plugins.md) and you can find some examples of plugins [here](https://github.com/scullyio/scully/tree/master/extraPlugin).
+
+If you want to know more about my thoughts on Scully then check out this post [here](/blog/moving-from-gatsby-to-scully-the-angular-static-site-generator).
+
+Thanks for reading!
