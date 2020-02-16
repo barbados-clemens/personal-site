@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ScullyRoutesService} from '@scullyio/ng-lib';
-import {Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
-import {MetadataService} from '../layout/services/metadata/metadata.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { MetadataService } from '../layout/services/metadata/metadata.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
 

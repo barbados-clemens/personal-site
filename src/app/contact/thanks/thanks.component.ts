@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { map } from 'rxjs/operators';
 
@@ -6,8 +6,9 @@ import { map } from 'rxjs/operators';
   selector: 'app-thanks',
   templateUrl: './thanks.component.html',
   styleUrls: ['./thanks.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ThanksComponent implements OnInit {
+export class ThanksComponent {
 
   cardInfo$ = this.scully.available$
     .pipe(
@@ -19,9 +20,6 @@ export class ThanksComponent implements OnInit {
   constructor(
     private scully: ScullyRoutesService,
   ) {
-  }
-
-  ngOnInit(): void {
   }
 
 }

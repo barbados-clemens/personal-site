@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-share-sheet',
   templateUrl: './share-sheet.component.html',
-  styleUrls: ['./share-sheet.component.scss']
+  styleUrls: ['./share-sheet.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShareSheetComponent {
 

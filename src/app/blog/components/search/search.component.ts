@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { SearchService } from '../../services/search/search.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, filter, map, takeUntil, tap } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent implements OnInit, OnDestroy {
   @ViewChild('searchInput')

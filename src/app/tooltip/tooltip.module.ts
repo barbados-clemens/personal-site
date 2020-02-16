@@ -7,7 +7,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
-    TooltipComponent, TooltipDirective,
+    TooltipComponent,
+    TooltipDirective,
   ],
   imports: [
     CommonModule,
