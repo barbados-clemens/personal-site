@@ -10,7 +10,10 @@ import { SearchComponent } from './components/search/search.component';
 import { CardModule } from '../card/card.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShareSheetModule } from '../share-sheet/share-sheet.module';
-
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LikeModule } from '../like/like.module';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import 'firebase/firestore';
 @NgModule({
   declarations: [
     BlogComponent,
@@ -25,7 +28,10 @@ import { ShareSheetModule } from '../share-sheet/share-sheet.module';
     TagModule,
     CardModule,
     ReactiveFormsModule,
-    ShareSheetModule
+    ShareSheetModule,
+    AngularFirestoreModule,
+    AngularFireFunctionsModule,
+    LikeModule,
   ],
 })
 export class BlogModule {

@@ -1,0 +1,4 @@
+  <div class="heart" appTooltip [toolTipText]="hoverMessage" position="top" (click)="addLike()" #like ></div>
+<span *ngIf="isAnimating">
+  {{count}}
+</span>

@@ -21,7 +21,6 @@ export class HighlightService {
 
   highlightAll() {
     if (isPlatformBrowser(this.platformId)) {
-      console.log('highlighted');
       highlightAll();
     }
   }

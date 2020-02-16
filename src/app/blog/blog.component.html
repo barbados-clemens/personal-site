@@ -2,6 +2,7 @@
 
 <h1>{{ (meta$ | async)?.title }}</h1>
 
+<app-like-ui *ngIf="(meta$ | async) as meta" (like)="addLike(meta.route)" [count]="likes$ | async"></app-like-ui>
 <p class="text_small">{{ (meta$ | async)?.date | date:"longDate" }}</p>
 
 <app-tags [tags]="(meta$ | async)?.tags"></app-tags>

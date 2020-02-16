@@ -10,6 +10,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from './tooltip/tooltip.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,9 @@ import { TooltipModule } from './tooltip/tooltip.module';
     LayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     TooltipModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireFunctionsModule,
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

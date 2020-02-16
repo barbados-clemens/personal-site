@@ -39,4 +39,4 @@ const addLinksToHeader = async (html, route) => {
 const validator = async conf => []
 registerPlugin("render", "addLinksToHeader", addLinksToHeader, validator)
 
-module.exports.addLinkToHeader = addLinksToHeader
+module.exports.addLinksToHeader = addLinksToHeader
