@@ -26,7 +26,7 @@ if [ "$CONTEXT" = 'production' ]; then
 
   echo "${CYAN}> Deploying Firebase functions${NC}"
 
-  cd ../functions
+  cd functions
 
   npm install
 
