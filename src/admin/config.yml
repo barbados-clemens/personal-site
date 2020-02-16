@@ -2,7 +2,14 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: "images/uploads"
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: dkylns8gp
+    api_key: 923858561757833
+
+site_url: https://calebukle.com
+logo_url: https://media.calebukle.com/uploads/icon-512x512.png
 
 collections:
   - name: "blog"
@@ -10,10 +17,11 @@ collections:
     folder: "blog"
     create: true
     slug: "{{slug}}"
+    preview_path: "blog/{{filename}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Featured Image", name: "image", widget: "string", default: "https://media.calebukle.com/uploads/"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Is Published", name: "publish", widget: "boolean", default: false }
       - {label: "Tags", name: "tags", widget: "list"}
