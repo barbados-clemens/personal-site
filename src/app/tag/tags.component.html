@@ -1,0 +1,5 @@
+<div class="tag-container">
+  <span routerLink="/blog" [queryParams]="{tag: t}" *ngFor="let t of tags" class="tag text_small">
+    {{ t }}
+  </span>
+</div>

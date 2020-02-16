@@ -1,0 +1,22 @@
+<section id="greeting" class="greeting-container">
+  <h1>👋 Hi, my name is Caleb</h1>
+  <p>
+    I'm a software developer, technology enthusiast, and simply enjoy learning new things.
+  </p>
+  <p>
+    I've been a professional software developer since 2017, right before
+    starting my career, I graduated with a B.S. in Electrical Engineering.
+    I've been a problem solver for as long as I can remember, and I am
+    always trying to find new things to learn.
+  </p>
+  <p>Learn more <a tabindex="0" routerLink="/about">about me</a></p>
+</section>
+
+
+<section id="recent-posts">
+  <h3 style="text-align: center;">Here are some recent things I've written</h3>
+  <div class="blog-container">
+    <app-card *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
+  </div>
+  <p style="text-align: center;"> If you want to know what I use on a semi daily basis check out my <a routerLink="/uses">/uses</a> page</p>
+</section>

@@ -1,37 +1,44 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Caleb Ukle Icon" src="https://calebukle.com/img/favicon.png" width="100" />
+<p style="text-align: center">
+  <a href="https://calebukle.com.">
+    <img alt="Caleb Ukle Icon" src="https://media.calebukle.com/uploads/icon-48x48.png"/>
   </a>
 </p>
-<h1 align="center">
+<h1 style="text-align: center">
   Caleb Ukle Portfolio Site
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b8f3e82f-7ba7-40e9-a9d9-5221a773f2e3/deploy-status)](https://app.netlify.com/sites/caleb-portfolio/deploys)
 
-Built on top of Gatsby Starter
-Content from `.md` files in `/pages/posts`
+Built on top of [Scully](https://github.com/scullyio/scully/blob/master/docs/getting-started.md) Blog Starter
+Content from `.md` files in `/blog`
 
 See Live site [here](https://calebukle.com)
 
-## 🚀 Quick start
 
-1. Clone repo
-1. `npm install` install deps
-1. `npm start` run dev instance
-1. Navigate to http://localhost:8000/
-    - http://localhost:8000/___graphql for GraphiQL IDE
+> This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
-- `npm run serve` to see production instance locally
-- `npm run test` to run cypress tests
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-> This site is built with [Gatsby](https://gatsbjs.com)
+Run `npm run b:s` to build and serve the static built site on `http://localhost:1668`
 
-## 🎓 More Info About Gatsby
+## Code scaffolding
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+## Build
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `run run build:prod` for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

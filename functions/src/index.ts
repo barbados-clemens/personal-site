@@ -1,26 +1,23 @@
-import { HttpsError } from "firebase-functions/lib/providers/https"
-import * as functions from "firebase-functions"
-import * as admin from "firebase-admin"
+import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
 
-admin.initializeApp()
-const db = admin.firestore()
+const { firestore } = admin;
 
-exports.contactForm = functions.https.onCall(async (data: any, context: any) => {
+const db = admin.initializeApp().firestore();
+// // Start writing Firebase Functions
+// // https://firebase.google.com/docs/functions/typescript
+//
+// export const helloWorld = functions.https.onRequest((request, response) => {
+//  response.send("Hello from Firebase!");
+// });
 
-  console.log(data)
+export const likePost = functions.https.onCall((data, context) => {
+  console.log('function data => ', JSON.stringify(data, null, 2));
+  if ((typeof data.route !== 'string') || data.route.length === 0) {
+    throw new functions.https.HttpsError('invalid-argument', 'The function must be called with one arguments "route" containing the route to the firestore doc');
+  }
 
-  return db.collection("contact")
-    .add({
-      created_at: new Date(),
-      ...data,
-    })
-    .then(res => {
-      return {
-        ...data,
-      }
-    })
-    .catch(err => {
-      console.error("runtime error saving to db", err)
-      return new HttpsError("internal", err, "Something went wrong with saving data to database. View server logs to see what went wrong")
-    })
-})
+  return db.doc(data.route).update({
+    likes: firestore.FieldValue.increment(1),
+  });
+});

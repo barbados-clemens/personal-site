@@ -1,5 +1,5 @@
 [build]
-  publish = "public"
-  command = "sh build.sh run"
+  publish = "dist/static"
+  command = "sh ./scripts/build.sh"
   functions = "net-functions"
 
