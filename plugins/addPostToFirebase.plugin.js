@@ -11,12 +11,18 @@ const db = admin.firestore()
 
 const addPostToFirebase = async (html, route) => {
   try {
-    // console.log(JSON.stringify(route, null, 2))
+    if (process.env.DO_SEARCH_INDEX === "false" || process.env.DO_SEARCH_INDEX === "FALSE") {
+      logWarn(orange("Not performing db insert, set DO_SEARCH_INDEX environment variable to TRUE"))
+      return html
+    }
+
     await db.doc(`${route.route}`).set(route, { merge: true })
-      log(green(`Added ${route.route} to Firebase`))
+
+    log(green(`Added ${route.route} to Firebase`))
+
   } catch (e) {
     logError(red(`Issue adding ${route.route} to Firebase`))
-    logError(e)
+    logError(red(JSON.stringify(e, null, 2)))
   }
 
   return html
