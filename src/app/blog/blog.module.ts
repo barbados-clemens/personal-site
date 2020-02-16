@@ -14,6 +14,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { LikeModule } from '../like/like.module';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import 'firebase/firestore';
+import { TooltipModule } from '../tooltip/tooltip.module';
 @NgModule({
   declarations: [
     BlogComponent,
@@ -32,6 +33,7 @@ import 'firebase/firestore';
     AngularFirestoreModule,
     AngularFireFunctionsModule,
     LikeModule,
+    TooltipModule,
   ],
 })
 export class BlogModule {

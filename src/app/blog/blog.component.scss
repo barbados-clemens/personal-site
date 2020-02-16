@@ -59,3 +59,13 @@ p > code {
 
 }
 
+
+.top-link {
+  position: fixed;
+  right: 25px;
+  bottom: 100px;
+  font-size: 2rem;
+  cursor: pointer;
+  //box-shadow: var(--app-box-shadow);
+  background-color: transparent;
+}

@@ -1,6 +1,6 @@
 <a class="no-decoration" routerLink="/blog">Go Back</a>
 
-<h1>{{ (meta$ | async)?.title }}</h1>
+<h1 id="top">{{ (meta$ | async)?.title }}</h1>
 
 <app-like-ui *ngIf="(meta$ | async) as meta" (like)="addLike(meta.route)" [count]="likes$ | async"></app-like-ui>
 <p class="text_small">{{ (meta$ | async)?.date | date:"longDate" }}</p>
@@ -11,4 +11,5 @@
 
 <scully-content></scully-content>
 
+<a appTooltip position="start" toolTipText="Back To Top" class="top-link clean_link" href="{{(meta$ | async)?.route}}#top">⏫</a>
 <app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>
