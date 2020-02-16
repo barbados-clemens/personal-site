@@ -1,0 +1,14 @@
+.btn {
+  padding: .3em .6em;
+  transition: color, background-color 200ms var(--theme-transistion-curve);
+  &--outline {
+    border: 1px solid var(--theme-green);
+    border-radius: .3em;
+    color: var(--theme-green);
+    background-color: transparent;
+    &:hover {
+      background-color: var(--theme-green);
+      color: var(--theme-gray-1);
+    }
+  }
+}

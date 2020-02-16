@@ -1,0 +1,33 @@
+button {
+  color: var(--theme-black);
+  background-color: var(--theme-light-green);
+  border: 1px solid var(--theme-green);
+  border-radius: .3rem;
+  font-size: 1.15rem;
+  box-shadow: var(--app-box-shadow);
+  cursor: pointer;
+}
+
+.heart {
+  cursor: pointer;
+  height: 32px;
+  width: 48px;
+  background-image: url("/assets/Heart-Fav.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 4200%;
+  display: inline-block;
+}
+
+.heart:hover {
+  background-position:right;
+}
+
+.is_animating {
+  animation: heart-burst .8s steps(39) 1;
+}
+
+@keyframes heart-burst {
+  from {background-position:left;}
+  to { background-position:right;}
+}

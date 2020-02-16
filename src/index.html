@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="theme-color" content="#4687F6"/>
+  <title>Caleb Ukle</title>
+  <meta name="description" content="Hey, my name is Caleb">
+  <meta property="og:title" content="Home">
+  <meta property="og:description" content="Hey, my name is Caleb">
+  <meta property="og:url" content="https://calebukle.com">
+  <meta property="og:image" content="https://calebukle.com/icons/icon-48x48.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@CU_Galaxy">
+  <meta name="twitter:title" content="Home">
+  <meta name="twitter:image" content="https://calebukle.com/icons/icon-48x48.png">
+  <meta name="twitter:description" content="Hey, my name is Caleb">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+
+    body {
+      line-height: 1;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+  </style>
+  <style>
+    body {
+      transition: background-color, color 350ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+  </style>
+</head>
+<body data-theme="light">
+<script>
+  const preferDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const existingTheme = localStorage.getItem('theme');
+
+  if (!!existingTheme) {
+    setTheme(existingTheme);
+  } else {
+    if (!!preferDark && preferDark.matches) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }
+
+  function setTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+
+</script>
+<app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+</html>

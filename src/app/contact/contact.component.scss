@@ -1,0 +1,64 @@
+
+.wrapper {
+  display: grid;
+  place-items: center;
+}
+
+form {
+  display: grid;
+  gap: 2em;
+  place-items: center;
+  grid-auto-columns: 500px;
+
+  label {
+    width: 100%;
+  }
+
+  input, textarea {
+    width: 100%;
+    font-size: 1.5em;
+    padding: .3em 3px;
+    border: 1px solid var(--app-border-color);
+    background-color: var(--app-card-bg);
+    color: var(--app-text-color);
+    border-radius: .3em;
+  }
+
+  button {
+    width: 100%;
+    border: 1px solid var(--app-border-color);
+    background-color: var(--app-card-bg);
+    color: var(--app-text-color);
+    border-radius: .3em;
+    padding: .3em .6em;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 250ms var(--theme-transistion-curve);
+
+    &:hover:enabled {
+      background-color: var(--theme-blue);
+      box-shadow: var(--app-box-shadow);
+    }
+
+    &:disabled {
+      background-color: lightgray;
+      color: var(--theme-gray-1);
+      cursor: not-allowed;
+    }
+
+    &:enabled {
+      background-color: var(--theme-blue);
+      color: var(--theme-gray-1);
+    }
+  }
+}
+
+.input-error {
+  color: var(--theme-red)
+}
+
+@media (max-width: 960px) {
+  form {
+    grid-auto-columns: 300px;
+  }
+}

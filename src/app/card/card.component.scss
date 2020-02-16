@@ -1,0 +1,28 @@
+a {
+  color: var(--app-text-color);
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: var(--app-text-color)
+  }
+}
+
+.card {
+  height: 100%;
+  border: 1px solid var(--app-border-color);
+  border-radius: 1em;
+  padding: 0 1em;
+  background-color: var(--app-card-bg);
+  transition: box-shadow 300ms var(--theme-transistion-curve);
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  &--spacer {
+    display: flex;
+    flex: 1;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--app-box-shadow);
+  }
+}
