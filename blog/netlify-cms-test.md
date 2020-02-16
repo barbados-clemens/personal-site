@@ -13,12 +13,18 @@ tags:
 This is a test body message to see what's going on.
 
 here is a code block
+
 ```typescript
 let something = 'another'
 ```
 
-## here is a title 
+## here is a title
+
+
+
+![](https://res.cloudinary.com/dkylns8gp/image/upload/v1546462242/samples/cloudinary-group.jpg)
 
 Idk
-  - what's
-  - going on
+
+* what's
+* going on
