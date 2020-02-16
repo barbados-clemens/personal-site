@@ -12,13 +12,13 @@ export SENTRY_PROJECT="portfolio"
 export VERSION="v2.0.0:$VERSION_HASH"
 
 
-
 if [ "$CONTEXT" = 'production' ]; then
   echo "${CYAN}> Running production build ${NC}"
   echo "${CYAN}> Creating releases $VERSION ${NC}"
 
-  sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" new --version "$VERSION"
-  sentry-cli releases set-commits "$VERSION" -c "caleb-ukle/portfolio@$VERSION_HASH"
+#  sentry-cli releases new -p $SENTRY_PROJECT $VERSION
+
+#  sentry-cli releases set-commits --auto $VERSION
 
   export DO_SEARCH_INDEX="TRUE"
 
@@ -26,7 +26,7 @@ if [ "$CONTEXT" = 'production' ]; then
 
   echo "${CYAN}> Deploying Firebase functions${NC}"
 
-  cd functions
+  cd ../functions
 
   npm install
 
@@ -36,10 +36,10 @@ if [ "$CONTEXT" = 'production' ]; then
 
   echo "${CYAN}> Uploading sourcemaps ${NC}"
 
-  sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./dist/static
+#  sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./dist/static
 
   echo "${CYAN}> Finalizing release${NC}"
-  sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" finalize "$VERSION"
+#  sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" finalize "$VERSION"
 
 else
   echo "${CYAN}> Running non production build ${NC}"
