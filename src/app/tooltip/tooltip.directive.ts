@@ -22,6 +22,7 @@ export class TooltipDirective implements OnInit {
   ) {
   }
 
+  @HostListener('focus')
   @HostListener('mouseenter')
   show() {
     const tooltipPortal = new ComponentPortal(TooltipComponent);
@@ -31,6 +32,7 @@ export class TooltipDirective implements OnInit {
     tooltipRef.instance.text = this.toolTipText;
   }
 
+  @HostListener('blur')
   @HostListener('mouseout')
   hide() {
     this.overlayRef.detach();
