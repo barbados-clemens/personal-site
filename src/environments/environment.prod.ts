@@ -1,5 +1,9 @@
 export const environment = {
   production: true,
+  sentry: {
+    envName: 'prod',
+    dns: 'https://2e9f90c609db4788b4fe4b647e15e83c@sentry.io/1723422',
+  },
   algolia: {
     apiKey: 'EX7MUSC1F5',
     apiId: '715e2f2e918e2d13a8e24904388c7798',

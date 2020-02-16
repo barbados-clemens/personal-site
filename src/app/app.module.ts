@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,7 @@ import { TooltipModule } from './tooltip/tooltip.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { ErrorHandlerService } from './error-handler.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
     AngularFireFunctionsModule,
     AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: ErrorHandlerService }],
   bootstrap: [AppComponent],
 })
 export class AppModule {
