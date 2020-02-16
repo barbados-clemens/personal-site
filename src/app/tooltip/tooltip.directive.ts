@@ -2,7 +2,6 @@ import { ComponentRef, Directive, ElementRef, HostListener, Input, OnInit } from
 import { ConnectedPosition, Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { TooltipComponent } from './tooltip.component';
-import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Directive({
   selector: '[appTooltip]',
@@ -20,27 +19,40 @@ export class TooltipDirective implements OnInit {
     private overlay: Overlay,
     private positionBuilder: OverlayPositionBuilder,
     private elRef: ElementRef,
-    private bp: BreakpointObserver,
   ) {
   }
 
   @HostListener('focus')
   @HostListener('mouseenter')
   show() {
-    const tooltipPortal = new ComponentPortal(TooltipComponent);
+    try {
+      const tooltipPortal = new ComponentPortal(TooltipComponent);
 
-    const tooltipRef: ComponentRef<TooltipComponent> = this.overlayRef.attach(tooltipPortal);
+      const tooltipRef: ComponentRef<TooltipComponent> = this.overlayRef.attach(tooltipPortal);
 
-    tooltipRef.instance.text = this.toolTipText;
-    setTimeout(() => {
-      this.overlayRef.detach();
-    }, 5000);
+      tooltipRef.instance.text = this.toolTipText;
+      setTimeout(() => {
+        this.overlayRef.detach();
+      }, 5000);
+    } catch (e) {
+      if (!e.message.includes('Host already has a portal attached')) {
+        console.warn(e);
+      }
+      throw e;
+    }
   }
 
   @HostListener('blur')
   @HostListener('mouseout')
   hide() {
-    this.overlayRef.detach();
+    try {
+      this.overlayRef.detach();
+    } catch (e) {
+      if (!e.message.includes('Host already has a portal attached')) {
+        console.warn(e);
+      }
+      throw e;
+    }
   }
 
   ngOnInit() {
