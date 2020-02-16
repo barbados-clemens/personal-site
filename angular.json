@@ -28,7 +28,12 @@
               "src/assets",
               "src/sitemap.xml",
               "src/robots.txt",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              {
+                "input": "src/admin/",
+                "glob": "**/*",
+                "output": "./admin/"
+              }
             ],
             "styles": [
               "src/styles/styles.scss"
