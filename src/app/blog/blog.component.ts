@@ -42,7 +42,9 @@ export class BlogComponent implements AfterContentChecked {
   }
 
   ngAfterContentChecked() {
-    this.highlightSrv.highlightAll();
+    setTimeout(() => {
+      this.highlightSrv.highlightAll();
+    }, 500);
   }
 
   addLike(route) {
