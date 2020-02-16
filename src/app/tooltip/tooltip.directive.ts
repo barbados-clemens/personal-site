@@ -1,10 +1,11 @@
-import {ComponentRef, Directive, ElementRef, HostListener, Input, OnInit} from '@angular/core';
-import {ConnectedPosition, Overlay, OverlayPositionBuilder, OverlayRef} from '@angular/cdk/overlay';
-import {ComponentPortal} from '@angular/cdk/portal';
-import {TooltipComponent} from './tooltip.component';
+import { ComponentRef, Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import { ConnectedPosition, Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { TooltipComponent } from './tooltip.component';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Directive({
-  selector: '[appTooltip]'
+  selector: '[appTooltip]',
 })
 export class TooltipDirective implements OnInit {
   @Input()
@@ -19,6 +20,7 @@ export class TooltipDirective implements OnInit {
     private overlay: Overlay,
     private positionBuilder: OverlayPositionBuilder,
     private elRef: ElementRef,
+    private bp: BreakpointObserver,
   ) {
   }
 
@@ -30,6 +32,9 @@ export class TooltipDirective implements OnInit {
     const tooltipRef: ComponentRef<TooltipComponent> = this.overlayRef.attach(tooltipPortal);
 
     tooltipRef.instance.text = this.toolTipText;
+    setTimeout(() => {
+      this.overlayRef.detach();
+    }, 5000);
   }
 
   @HostListener('blur')
@@ -47,7 +52,7 @@ export class TooltipDirective implements OnInit {
           originY: 'bottom',
           overlayX: 'center',
           overlayY: 'top',
-          offsetY: 10
+          offsetY: 10,
         };
         break;
       case 'top':
@@ -56,7 +61,7 @@ export class TooltipDirective implements OnInit {
           originY: 'top',
           overlayX: 'center',
           overlayY: 'bottom',
-          offsetY: -10
+          offsetY: -10,
         };
         break;
       case 'end':
@@ -65,7 +70,7 @@ export class TooltipDirective implements OnInit {
           originY: 'center',
           overlayX: 'start',
           overlayY: 'center',
-          offsetX: 10
+          offsetX: 10,
         };
         break;
       case 'start':
@@ -74,7 +79,7 @@ export class TooltipDirective implements OnInit {
           originY: 'center',
           overlayX: 'end',
           overlayY: 'center',
-          offsetX: -10
+          offsetX: -10,
         };
         break;
       default:
@@ -84,7 +89,7 @@ export class TooltipDirective implements OnInit {
     const positionStrategy = this.positionBuilder
       .flexibleConnectedTo(this.elRef)
       .withPositions([tooltipPosition]);
-    this.overlayRef = this.overlay.create({positionStrategy});
+    this.overlayRef = this.overlay.create({ positionStrategy });
   }
 
 }
