@@ -1,5 +1,5 @@
 const { registerPlugin } = require("@scullyio/scully")
-const { log, logError, red, green } = require("@scullyio/scully/utils/log")
+const { log, logError, red, green, logWarn, orange } = require("@scullyio/scully/utils/log")
 const admin = require("firebase-admin")
 const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
 
@@ -12,7 +12,7 @@ const db = admin.firestore()
 const addPostToFirebase = async (html, route) => {
   try {
     if (process.env.DO_SEARCH_INDEX === "false" || process.env.DO_SEARCH_INDEX === "FALSE") {
-      logWarn(orange("Not performing db insert, set DO_SEARCH_INDEX environment variable to TRUE"))
+      logWarn(orange("Not performing DB Update, set DO_SEARCH_INDEX environment variable to TRUE"))
       return html
     }
 

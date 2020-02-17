@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import algoliasearch from 'algoliasearch';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../environments/environment';
 import { of, ReplaySubject } from 'rxjs';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class SearchService {
   searchTextSub = new ReplaySubject<string>(1);
 
   private client = algoliasearch(environment.algolia.apiId, environment.algolia.apiKey);
 
-  private index = this.client.initIndex('Blog_Posts');
+  private index;
 
   results$ = this.searchTextSub.asObservable()
     .pipe(
@@ -22,6 +20,10 @@ export class SearchService {
     );
 
   constructor() {
+  }
+
+  initIndex(index: string) {
+    this.index = this.client.initIndex(index);
   }
 }
 

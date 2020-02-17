@@ -26,6 +26,7 @@ ingredients:
   - Chicken Cutlets (10 oz)
   - Sour Cream (4 TBSP)
   - Hot Honey (1/4 oz)
+recipeUrl: https://www.hellofresh.com/recipes/crispy-hot-honey-chicken-5c702c1ce3f3390f984cea22
 ---
 ## Steps
 

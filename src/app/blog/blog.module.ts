@@ -6,7 +6,6 @@ import { BlogComponent } from './blog.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TagModule } from '../tag/tag.module';
 import { BlogOverviewComponent } from './components/blog-overview/blog-overview.component';
-import { SearchComponent } from './components/search/search.component';
 import { CardModule } from '../card/card.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShareSheetModule } from '../share-sheet/share-sheet.module';
@@ -15,12 +14,13 @@ import { LikeModule } from '../like/like.module';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import 'firebase/firestore';
 import { TooltipModule } from '../tooltip/tooltip.module';
+import { SearchModule } from '../search/search.module';
+
 @NgModule({
   declarations: [
     BlogComponent,
     HeaderComponent,
     BlogOverviewComponent,
-    SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +34,7 @@ import { TooltipModule } from '../tooltip/tooltip.module';
     AngularFireFunctionsModule,
     LikeModule,
     TooltipModule,
+    SearchModule,
   ],
 })
 export class BlogModule {

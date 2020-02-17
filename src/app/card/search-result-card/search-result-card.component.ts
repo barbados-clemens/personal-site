@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ISearchResult } from '../../blog/services/search/search.service';
+import { ISearchResult } from '../../search/search.service';
 import { animate, stagger, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
