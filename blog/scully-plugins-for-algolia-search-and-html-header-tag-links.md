@@ -1,16 +1,19 @@
 ---
 title: Scully Plugins for Algolia Search and HTML Header Tag Links and More!
 date: 2020-2-16
-description: While converting this blog over to Scully, I ended up writing plugins for updating an Algoia index and providing links to header locations and a some other help ones. Check them all out here.
+image: 'https://media.calebukle.com/uploads/scullyio-logo.png'
+description: >-
+  While converting this blog over to Scully, I ended up writing plugins for
+  updating an Algoia index and providing links to header locations and a some
+  other help ones. Check them all out here.
+publish: false
 tags:
   - Scully
   - Algoila
   - Plugins
-publish: false
-image: https://media.calebukle.com/uploads/scullyio-logo.png
 ---
 
-> Disclaimer: At the time of writing this [scully](https://github.com/scullyio/scully) is in a beta period. So things are likely to change. I will provide any updates once a v1 release is made if needed.
+> Disclaimer: At the time of writing this [scully](https://github.com/scullyio/scully) is in a Alpha period. So things are likely to change. I will provide any updates once a beta/v1 release is made if needed.
 
 
 If you want to learn more about the move from Gatsby to Scully or want to know what scully even is check out my post [here](/blog/moving-from-gatsby-to-scully-the-angular-static-site-generator).
