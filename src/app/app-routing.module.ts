@@ -20,6 +20,7 @@ const routes: Routes = [
   {
     path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
   },
+  { path: 'recipe', loadChildren: () => import('./recipe/recipe.module').then(m => m.RecipeModule) },
   {
     path: '**',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)

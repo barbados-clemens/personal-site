@@ -1,18 +1,21 @@
 ---
 title: Moving From Gatsby to Scully (The Angular Static Site Generator)
-date: 2020-02-16
-description: When originally building this site, I used Gatsby. But with the release of Scully, I jumped ship so I can use my favorite web framework, Angular instead of React. 
+date: 2020-02-16T00:00:00.000Z
+image: 'https://media.calebukle.com/uploads/scullyio-logo.png'
+description: >-
+  When originally building this site, I used Gatsby. But with the release of
+  Scully, I jumped ship so I can use my favorite web framework, Angular instead
+  of React.
+publish: true
 tags:
   - Angular
   - Gatsby
   - Scully
   - Static Site Generator
-publish: false
-image: https://media.calebukle.com/uploads/scullyio-logo.png
 ---
 
 
-> Scully is in a beta version at the time of writing this. So things are likely to change. I will update this post if anything changes in a v1 release.
+> Scully is in a alpha version at the time of writing this. So things are likely to change. I will update this post if anything changes in a beta/v1 release.
 
 If you're reading this that means I have finally moved this site from Gatsby to Scully! 🎉
 

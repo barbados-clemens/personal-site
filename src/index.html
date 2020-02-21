@@ -62,37 +62,83 @@
 </head>
 <body data-theme="light">
 <script>
-  const preferDark = window.matchMedia('(prefers-color-scheme: dark)');
-  const existingTheme = localStorage.getItem('theme');
+  const preferDark = window.matchMedia("(prefers-color-scheme: dark)")
+  const existingTheme = localStorage.getItem("theme")
 
   if (!!existingTheme) {
-    setTheme(existingTheme);
+    setTheme(existingTheme)
   } else {
     if (!!preferDark && preferDark.matches) {
-      setTheme('dark');
+      setTheme("dark")
     } else {
-      setTheme('light');
+      setTheme("light")
     }
   }
 
   function setTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    document.body.setAttribute("data-theme", theme)
+    localStorage.setItem("theme", theme)
   }
 
 </script>
 <app-root></app-root>
-  <noscript>This site works best with Javascript enabled.</noscript>
+<noscript>This site works best with Javascript enabled.</noscript>
 <script>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {
         window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
+          document.location.href = "/admin/"
+        })
       }
-    });
+    })
   }
+
+  // const audioCtx = new window.AudioContext();
+  // const oscillator = audioCtx.createOscillator();
+  // oscillator.connect(audioCtx.destination);
+  // oscillator.type = "sine";
+  //
+  // let numItems = 0
+  //
+  // oscillator.frequency.setValueAtTime(
+  //   1,
+  //   audioCtx.currentTime
+  // );
+  //
+  // oscillator.start();
+  //
+  // const observer = new MutationObserver(function (mutationsList) {
+  //   numItems += mutationsList.length
+  //
+  //   oscillator.frequency.setValueAtTime(
+  //     Math.log(numItems + 1) * 440,
+  //     audioCtx.currentTime
+  //   );
+  //
+  //   setTimeout(() => {
+  //     numItems -= mutationsList.length
+  //     if (numItems === 0) {
+  //       oscillator.frequency.setValueAtTime(
+  //         1,
+  //         audioCtx.currentTime
+  //       )
+  //     } else {
+  //       oscillator.frequency.setValueAtTime(
+  //         Math.log(numItems + 1) * 440,
+  //         audioCtx.currentTime
+  //       )
+  //     }
+  //   }, 100)
+  // });
+  //
+  // observer.observe(document, {
+  //   attributes: true,
+  //   childList: true,
+  //   subtree: true,
+  //   characterData: true
+  // });
 </script>
+
 </body>
 </html>

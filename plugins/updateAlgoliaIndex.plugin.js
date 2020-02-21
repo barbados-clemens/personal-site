@@ -1,4 +1,3 @@
-
 const { registerPlugin } = require("@scullyio/scully")
 const { log, logWarn, orange, green, red, logError } = require("@scullyio/scully/utils/log")
 const algoliasearch = require("algoliasearch")
@@ -6,7 +5,7 @@ const algoliasearch = require("algoliasearch")
 
 const SETTINGS = { attributesToSnippet: [`excerpt: 20`] }
 
-const INDEX_NAME = `Blog_Posts`
+let INDEX_NAME = ''
 
 
 /**
@@ -26,12 +25,16 @@ const INDEX_NAME = `Blog_Posts`
  * @returns {Promise<string>}
  */
 const updateAlgoliaIndex = async (html, options) => {
-  if (process.env.DO_SEARCH_INDEX === 'false' || process.env.DO_SEARCH_INDEX === 'FALSE') {
+
+
+  if (process.env.DO_SEARCH_INDEX === "false" || process.env.DO_SEARCH_INDEX === "FALSE") {
     logWarn(orange("Not performing index, set DO_SEARCH_INDEX environment variable to TRUE"))
     return html
   }
 
   try {
+    INDEX_NAME = options.route.split('/')[1]
+    log(green(`Using index ${INDEX_NAME} from route`))
     const client = initAlgoliaClient()
     const payload = buildPayload(options)
 

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { SearchService } from '../../services/search/search.service';
+import { AfterContentInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
+import { SearchService } from './search.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { noop, Observable, Subject } from 'rxjs';
@@ -9,11 +9,15 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [SearchService],
 })
-export class SearchComponent implements OnInit, OnDestroy {
+export class SearchComponent implements AfterContentInit, OnDestroy {
   @ViewChild('searchInput')
   searchInput: ElementRef;
+
+  @Input()
+  index: string;
 
   searchForm: FormGroup;
   searchResults$: Observable<any>;
@@ -27,8 +31,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   ) {
   }
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
 
+    this.searchService.initIndex(this.index);
     this.searchForm = this.fb.group({
       text: [''],
     });

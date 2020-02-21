@@ -22,7 +22,26 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "image", widget: "string", default: "https://media.calebukle.com/uploads/"}
-      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
       - {label: "Is Published", name: "publish", widget: "boolean", default: false }
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "recipe"
+    label: "Recipe"
+    folder: "recipe"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "recipe/{{filename}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", hint: "Title of this awesome dish"}
+      - {label: "Description", name: "description", widget: "text", hint: "Quick description of recipe"}
+      - {label: "Featured Image", name: "image", widget: "string", default: "https://media.calebukle.com/uploads/", hint: "Money shot of recipe"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Serving Size", name: "servingSize", widget: "number", hint: "How many people will this feed?"}
+      - {label: "Difficulty", name: "level", widget: "select", options: ["Quick","Easy", "Medium", "Hard"], hint: "How easy is this meal?"}
+      - {label: "Is Published?", name: "publish", widget: "boolean", default: false}
+      - {label: "Tags", name: "tags", widget: "list", hint: "Comma separated list of tags for this recipe"}
+      - {label: "Bust Out", name: "bustOut", widget: "list", hint: "Comma separated list of pots, pans, and hardware needed"}
+      - {label: "Ingredients", name: "ingredients", widget: "list", hint: "Comma separated list of ingredient place amount in parenthesis"}
+      - {label: "Original Recipe Link", name: "recipeUrl", widget: "string", hint: "adding this link shows a disclaimer, and links to the original recipe", required: false}
+      - {label: "Steps", name: "body", widget: "markdown", hint: "Write numbered list of things to do"}

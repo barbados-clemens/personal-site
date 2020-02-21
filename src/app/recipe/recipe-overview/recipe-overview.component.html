@@ -1,0 +1,6 @@
+<pre *ngFor="let r of links$ | async">
+  {{r | json}}
+</pre>
+<section id="search">
+  <app-search index="recipe"></app-search>
+</section>
