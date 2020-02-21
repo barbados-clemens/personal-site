@@ -5,8 +5,8 @@ export const environment = {
     dns: 'https://2e9f90c609db4788b4fe4b647e15e83c@sentry.io/1723422',
   },
   algolia: {
-    apiKey: 'EX7MUSC1F5',
-    apiId: '715e2f2e918e2d13a8e24904388c7798',
+    apiKey: '715e2f2e918e2d13a8e24904388c7798',
+    apiId: 'EX7MUSC1F5',
   },
   firebaseConfig: {
     apiKey: 'AIzaSyC0CexIiWvUUArBN1Qwk0YLTrzxQ01LKAI',
