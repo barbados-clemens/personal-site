@@ -53,6 +53,8 @@
     "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
     "@gammastream/scully-regex": "^1.0.1",
+    "@notiz/scully-plugin-fouc": "^0.1.0",
+    "@notiz/scully-plugin-lazy-images": "^0.1.0",
     "@sentry/cli": "^1.51.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",

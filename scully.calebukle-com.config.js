@@ -1,7 +1,11 @@
-require("dotenv").config()
-require("./plugins/addLinksToHeader.plugin.js")
-require("./plugins/updateAlgoliaIndex.plugin.js")
-require("./plugins/addPostToFirebase.plugin.js")
+require("dotenv").config();
+require("./plugins/addLinksToHeader.plugin.js");
+require("./plugins/updateAlgoliaIndex.plugin.js");
+require("./plugins/addPostToFirebase.plugin.js");
+require("@notiz/scully-plugin-lazy-images");
+require("@notiz/scully-plugin-fouc");
+
+
 exports.config = {
   projectRoot: "./src",
   projectName: "calebukle-com",
@@ -16,7 +20,7 @@ exports.config = {
     },
     "/blog/:slug": {
       type: "contentFolder",
-      postRenderers: ["addLinksToHeader", "updateAlgoliaIndex", "addPostToFirebase"],
+      postRenderers: ["addLinksToHeader", "updateAlgoliaIndex", "addPostToFirebase", "lazyImages", "fouc"],
       slug: {
         folder: "./blog",
       },
