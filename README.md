@@ -12,7 +12,7 @@
 Built on top of [Scully](https://github.com/scullyio/scully/blob/master/docs/getting-started.md) Blog Starter
 Content from `.md` files in `/blog`
 
-See Live site [here](https://calebukle.com)
+See live site [here](https://calebukle.com)
 
 
 > This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.

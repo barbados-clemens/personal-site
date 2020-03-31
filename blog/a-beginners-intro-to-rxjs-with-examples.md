@@ -172,7 +172,7 @@ Stateful subjects are just stateful observables, meaning they are aware of previ
 
 There are three main stateful subjects,
 
-* Behavor Subject
+* Behavior Subject
 * Replay Subject
 * Async Subject
 
@@ -240,9 +240,7 @@ Alright, let's learn how to get the common types of data and events into streams
 
 
 
-## How to Get Existing Data into Observables
-
-
+## Getting Existing Data into Observables
 
 There are a handful of utility functions RxJS provides to turn data info streams. These are the ones we'll going to go over.
 
@@ -295,7 +293,7 @@ So if you need an initial emission or only want a single fire, then use a timer,
 
 Now that you know how to get data from existing types and events into observables, let's learn how to do work on those streams. 
 
-## How to Operate on Streams (aka piping)
+## Operate on Streams (aka piping)
 
 It's all starts with a method on all observables called `pipe()`. The pipe method takes functions called operators that do work on our stream. RxJS comes with a large assortment of operators built in for almost every situation, but you can make custom operators if the built-in ones don't meet your needs, but that's for another blog post. Let's stick to the basics for now. 
 
@@ -368,7 +366,7 @@ const example = source
 ```
 
 ### SwitchMap
-Here's a problem, how do I take a stream and start another stream say making an http call eevery 10 seconds. The initial thought is to just subscribe/do work inside inside in your subscription method. 
+Here's a problem, how do I take a stream and start another stream say making an http call every 10 seconds. The initial thought is to just subscribe/do work inside inside in your subscription method. 
 
 ```javascript
 const timer$ = interval(1000 * 10);
@@ -402,10 +400,9 @@ Now we are changing or switching streams to the fetch request. this allows for a
 
 
 ## Wrap Up
-I greatly enjoy RxJS and I recommend you try it too! The library is very daunting and complex, but taking it one operator at a time and giving them a try. It's okay if you don't understand parts of the library. I still don't know everything about RxJS. You'll get into the groove of your common operators, map, switchMap, filter, tap. You'll start using basic Subjects, then BehaviorSubjects. Adopting small parts of the library is the easiest way to ease into the library. Also, the offical [documentation](https://rxjs.dev/api) isn't the easiest way to learn. Check out my perferred resources below. 
+I greatly enjoy RxJS and I recommend you try it too! The library is very daunting and complex, but taking it one operator at a time and giving them a try. It's okay if you don't understand parts of the library. I still don't know everything about RxJS. You'll get into the groove of your common operators, map, switchMap, filter, tap. You'll start using basic Subjects, then BehaviorSubjects. Adopting small parts of the library is the easiest way to ease into the library. Also, the official [documentation](https://rxjs.dev/api) isn't the easiest way to learn. Check out my preferred resources below. 
 
 ## Resources
 Here are my favorite resources for RxJS
 - [https://www.learnrxjs.io/](https://www.learnrxjs.io/)
 - [https://reactive.how/](https://reactive.how/)
-
