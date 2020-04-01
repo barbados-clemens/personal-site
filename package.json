@@ -8,6 +8,7 @@
     "move": "mkdir -p public && cp -rf dist/static/* public",
     "build:prod": "ng build --prod && scully --nw --scan",
     "test": "ng test",
+    "test:ci": "ng test --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "scully": "scully",
@@ -17,7 +18,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint -- --fix",
-      "pre-push": "npm run lint && npm test"
+      "pre-push": "npm run lint && npm run test:ci"
     }
   },
   "private": true,
