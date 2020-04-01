@@ -1,6 +1,6 @@
 ---
 title: Scully Plugins for Algolia Search and HTML Header Tag Links and More!
-date: 2020-2-16
+date: 2020-02-16
 image: 'https://media.calebukle.com/uploads/scullyio-logo.png'
 description: >-
   While converting this blog over to Scully, I ended up writing plugins for
@@ -16,7 +16,7 @@ tags:
 > Disclaimer: At the time of writing this [scully](https://github.com/scullyio/scully) is in a Alpha period. So things are likely to change. I will provide any updates once a beta/v1 release is made if needed.
 
 
-If you want to learn more about the move from Gatsby to Scully or want to know what scully even is check out my post [here](/blog/moving-from-gatsby-to-scully-the-angular-static-site-generator).
+If you want to learn more about the move from Gatsby to Scully or want to know what scully even is check out my post [here](https://calebukle.com/blog/moving-from-gatsby-to-scully-the-angular-static-site-generator).
 
 
 First thing to note before getting into the plugins, each plugin has to be registered with a validator function. For all these plugins the validator wasn't needed so an empty array in return. I show all the registration and usage for each plugin. That is what the last couple lines per plugin is about. 

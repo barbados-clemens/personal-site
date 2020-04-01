@@ -5,11 +5,15 @@
 }
 
 .post-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2em;
-  grid-auto-rows: 600px;
-  margin-bottom: 1.15rem;
+  border-left: 4px solid var(--app-text-color);
+  padding: 0 1em;
+
+  .post {
+    margin-bottom: 1.25em;
+    display: block;
+  }
+
+  margin-bottom: 1.25rem;
 }
 
 #search {
