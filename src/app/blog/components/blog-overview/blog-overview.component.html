@@ -9,9 +9,11 @@
 <p>
   Thanks for reading!
 </p>
-<h3 class="title">Recent Posts</h3>
 <div class="post-container">
-  <app-card *ngFor="let l of links$ | async" [cardInfo]="l"></app-card>
+  <div *ngFor="let l of links$ | async; let isFirst = first">
+    <h3 [id]="l.date" class="title" [ngStyle]="{'margin-top': isFirst ? 0 : '1.953em'}" >{{ l.date }}</h3>
+    <app-card class="post" *ngFor="let p of l.posts" [cardInfo]="p"></app-card>
+  </div>
 </div>
 
 <p style="text-align: center"> If you want to know what I use on a semi daily basis check out my <a routerLink="/uses">/uses</a> page</p>

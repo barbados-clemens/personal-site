@@ -26,7 +26,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/sitemap.xml",
               "src/robots.txt",
               "src/manifest.webmanifest",
               {
@@ -50,7 +49,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,

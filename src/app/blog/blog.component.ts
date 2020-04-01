@@ -1,10 +1,10 @@
-import { AfterContentChecked, ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ScullyRoutesService } from '@scullyio/ng-lib';
-import { shareReplay, switchMap, take, tap } from 'rxjs/operators';
-import { HighlightService } from './services/highlight/highlight.service';
-import { MetadataService } from '../layout/services/metadata/metadata.service';
-import { BlogDbService } from './services/blogDb/blog-db.service';
+import {AfterContentChecked, Component, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ScullyRoutesService} from '@scullyio/ng-lib';
+import {switchMap, take, tap} from 'rxjs/operators';
+import {HighlightService} from './services/highlight/highlight.service';
+import {MetadataService} from '../layout/services/metadata/metadata.service';
+import {BlogDbService} from './services/blogDb/blog-db.service';
 
 @Component({
   selector: 'app-blog',
@@ -12,7 +12,6 @@ import { BlogDbService } from './services/blogDb/blog-db.service';
   styleUrls: ['./blog.component.scss'],
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogComponent implements AfterContentChecked {
   meta$ = this.scully.getCurrent()
@@ -23,7 +22,6 @@ export class BlogComponent implements AfterContentChecked {
         url: m.route,
         image: m?.image,
       })),
-      shareReplay(1),
     );
 
   likes$ = this.scully.getCurrent()
@@ -32,8 +30,6 @@ export class BlogComponent implements AfterContentChecked {
     );
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     private scully: ScullyRoutesService,
     private highlightSrv: HighlightService,
     private metaSrv: MetadataService,
@@ -47,9 +43,10 @@ export class BlogComponent implements AfterContentChecked {
     }, 500);
   }
 
-  addLike(route) {
-    this.blogDb.addLike(route)
+  addLike() {
+    this.meta$
       .pipe(
+        switchMap(m => this.blogDb.addLike(m.route)),
         take(1),
       )
       .subscribe(r => {
