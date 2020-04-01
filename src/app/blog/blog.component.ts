@@ -1,10 +1,10 @@
-import {AfterContentChecked, Component, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {AfterContentChecked, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
-import {switchMap, take, tap} from 'rxjs/operators';
+import {filter, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {HighlightService} from './services/highlight/highlight.service';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
 import {BlogDbService} from './services/blogDb/blog-db.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-blog',
@@ -13,9 +13,11 @@ import {BlogDbService} from './services/blogDb/blog-db.service';
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogComponent implements AfterContentChecked {
+export class BlogComponent implements AfterContentChecked, OnDestroy {
+  subs = new Subject();
   meta$ = this.scully.getCurrent()
     .pipe(
+      takeUntil(this.subs),
       tap(m => this.metaSrv.update({
         title: m.title,
         desc: m.description,
@@ -26,6 +28,7 @@ export class BlogComponent implements AfterContentChecked {
 
   likes$ = this.scully.getCurrent()
     .pipe(
+      takeUntil(this.subs),
       switchMap(m => this.blogDb.likes$(m.route)),
     );
 
@@ -38,6 +41,7 @@ export class BlogComponent implements AfterContentChecked {
   }
 
   ngAfterContentChecked() {
+    // TODO fix this hack
     setTimeout(() => {
       this.highlightSrv.highlightAll();
     }, 500);
@@ -46,10 +50,16 @@ export class BlogComponent implements AfterContentChecked {
   addLike() {
     this.meta$
       .pipe(
-        switchMap(m => this.blogDb.addLike(m.route)),
+        filter(m => !!m.route),
         take(1),
+        switchMap(m => this.blogDb.addLike(m.route)),
       )
       .subscribe(r => {
       });
+  }
+
+  ngOnDestroy(): void {
+    this.subs.next(true);
+    this.subs.complete();
   }
 }

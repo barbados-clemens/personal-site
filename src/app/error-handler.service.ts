@@ -19,8 +19,8 @@ export class ErrorHandlerService implements ErrorHandler {
   }
 
   handleError(error: any): void {
-    console.error(error);
-    // captureException(error);
-    // console.warn('error captured by sentry', error);
+    // console.error(error);
+    captureException(error);
+    console.warn('error captured by sentry', error);
   }
 }
