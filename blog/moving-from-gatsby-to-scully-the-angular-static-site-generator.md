@@ -1,6 +1,6 @@
 ---
 title: Moving From Gatsby to Scully (The Angular Static Site Generator)
-date: 2020-02-16T00:00:00.000Z
+date: 2020-02-16
 image: 'https://media.calebukle.com/uploads/scullyio-logo.png'
 description: >-
   When originally building this site, I used Gatsby. But with the release of

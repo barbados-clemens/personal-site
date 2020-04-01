@@ -1,6 +1,6 @@
 ---
 title: A Beginners Intro to RxJS with Examples
-date: 2020-03-20T02:09:13.779Z
+date: 2020-03-20
 image: 'https://media.calebukle.com/uploads/Rx_Logo-512-512.png'
 description: The RxJS library can be seen as intimidating or confusing initially. Here I
   hope to demystify and help you understand the core concepts of the library to
