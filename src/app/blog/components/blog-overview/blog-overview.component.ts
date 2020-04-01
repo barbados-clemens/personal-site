@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
 import {map} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-blog-overview',
@@ -9,9 +10,10 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./blog-overview.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class BlogOverviewComponent {
 
-  links$ = this.scully.available$
+  links$: Observable<any[]> = this.scully.available$
     .pipe(
       map(posts => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
       map(links => links.filter(l => l.route.startsWith('/blog/')).slice(0, 10)),
