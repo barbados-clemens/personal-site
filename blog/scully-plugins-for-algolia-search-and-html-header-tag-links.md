@@ -1,6 +1,6 @@
 ---
 title: Scully Plugins for Algolia Search and HTML Header Tag Links and More!
-date: 2020-2-16
+date: 2020-02-16
 image: 'https://media.calebukle.com/uploads/scullyio-logo.png'
 description: >-
   While converting this blog over to Scully, I ended up writing plugins for
