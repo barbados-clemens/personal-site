@@ -3,19 +3,31 @@ cache:
     - node_modules/
 
 test:
-  image: node:13
+  image: trion/ng-cli-karma
   stage: test
   environment: prod
   before_script:
     - npm install
   script:
     - npm run test:ci
+  artifacts:
+    paths:
+      - coverage
+    expire_in: 30 days
+
+pages:
+  image: alpine
+  stage: deploy
+  needs:
+    - test
+  environment: prod
+  script:
     - mkdir public
     - cp -R coverage public
   artifacts:
     paths:
       - public
-    expire_in: 30 days
+    expire_in: 60 days
 
 dependency_scanning:
   image: docker:stable
