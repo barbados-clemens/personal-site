@@ -11,9 +11,6 @@ NC='\033[0m' # No Color
 
 # export VERSION="v2.0.0:$VERSION_HASH"
 
-echo "${CYAN}> Runnings Tests${NC}"
-npm run test:ci
-
 if [ "$CONTEXT" = 'production' ]; then
   echo "${CYAN}> Running production build ${NC}"
   # echo "${CYAN}> Creating releases $VERSION ${NC}"
