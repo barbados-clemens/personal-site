@@ -2,19 +2,6 @@ cache:
   paths:
     - node_modules/
 
-bundle:
-  image: node:13
-  stage: build
-  environment: prod
-  before_script:
-    - npm install
-  script:
-    - npm run build
-  artifacts:
-    paths:
-      - public
-    expire_in: 30 days
-
 test:
   image: node:13
   stage: test
