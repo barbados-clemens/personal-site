@@ -58,7 +58,7 @@
       transition: background-color 350ms cubic-bezier(0.4, 0.0, 0.2, 1), color 400ms cubic-bezier(.4, 0,.2,1);
     }
   </style>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body data-theme="light">
 <script>
@@ -83,7 +83,7 @@
 </script>
 <app-root></app-root>
 <noscript>This site works best with Javascript enabled.</noscript>
-<script>
+<script defer>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {
