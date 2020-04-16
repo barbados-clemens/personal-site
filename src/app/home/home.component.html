@@ -1,28 +1,28 @@
 <section id="greeting" class="greeting-container">
-  <h1>👋 Hi, my name is Caleb</h1>
+  <h1>👋 Hi, I'm Caleb</h1>
   <p>
     I'm a software developer, technology enthusiast, and simply enjoy learning new things.
   </p>
   <p>
-    I've been a professional software developer since 2017, right before
+    I've been a professional software developer since 2017. Right before
     starting my career, I graduated with a B.S. in Electrical Engineering.
     I've been a problem solver for as long as I can remember, and I am
     always trying to find new things to learn.
   </p>
   <p>Learn more <a tabindex="0" routerLink="/about">about me</a></p>
+  <p>Check out my <a routerLink="/uses">/uses</a> page to see my gear.</p>
 </section>
 
 
 <section id="recent-posts">
-  <h3 style="text-align: center;">Check out my most recent post!</h3>
+  <h3 style="text-align: center;">Latest Posts</h3>
   <div class="blog-container">
-
-    <app-card class="post" *ngFor="let p of links$ | async" [cardInfo]="p"></app-card>
+    <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route">
+      {{ p.title }} &nbsp;
+      <app-tags style="display: inline-block;" *ngIf="isNewPost(p.date)" [tags]="['NEW']"></app-tags>
+    </div>
+    <p style="text-align: center;">
+      Check out more posts <a routerLink="/blog">here</a>.
+    </p>
   </div>
-
-  <!--    <div *ngFor="let l of links$ | async; let isFirst = first">-->
-  <!--      <h4 [id]="l.date" class="title" [ngStyle]="{'margin-top': isFirst ? 0 : '1.953em'}" >{{ l.date }}</h4>-->
-  <!--    </div>-->
-  <p style="text-align: center;"> If you want to know what I use on a semi daily basis check out my <a
-    routerLink="/uses">/uses</a> page</p>
 </section>

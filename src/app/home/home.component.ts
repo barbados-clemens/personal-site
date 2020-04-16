@@ -13,12 +13,13 @@ import {MetadataService} from '../layout/services/metadata/metadata.service';
 export class HomeComponent implements OnInit, OnDestroy {
 
   sub = new Subject();
+  oneMonthAgo = Date.now().valueOf() - 2629800000;
 
   links$ = this.scully.available$
     .pipe(
       takeUntil(this.sub),
       map(posts => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
-      map(links => links.filter(l => l.route.startsWith('/blog/')).slice(0, 1)),
+      map(links => links.filter(l => l.route.startsWith('/blog/')).slice(0, 4)),
       // map(posts => {
       //   const dates = new Set(posts.map(p => this.parseDateToTitle(p.date)));
       //   return Array.from(dates)
@@ -48,6 +49,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.next(true);
     this.sub.complete();
+  }
+
+  isNewPost(date: string): boolean {
+    return new Date(date).valueOf() > this.oneMonthAgo;
   }
 
   private parseDateToTitle(date: string) {
