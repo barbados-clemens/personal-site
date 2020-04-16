@@ -11,7 +11,6 @@ NC='\033[0m' # No Color
 
 # export VERSION="v2.0.0:$VERSION_HASH"
 
-
 if [ "$CONTEXT" = 'production' ]; then
   echo "${CYAN}> Running production build ${NC}"
   # echo "${CYAN}> Creating releases $VERSION ${NC}"

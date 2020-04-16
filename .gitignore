@@ -16,3 +16,5 @@ cypress/videos/
 env
 
 .firebase/
+
+coverage/
