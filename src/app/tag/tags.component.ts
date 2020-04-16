@@ -10,5 +10,6 @@ export class TagsComponent {
 
   @Input()
   tags: string[] = [];
+
   constructor() { }
 }
