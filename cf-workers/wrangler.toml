@@ -1,0 +1,10 @@
+name = "short-link"
+type = "webpack"
+account_id = "697a3348bd438314aba3fbc97d30b07f"
+workers_dev = false
+route = "https://link.calebukle.com/*"
+zone_id = "970a29adccc24a49be9791c603821af2"
+webpack_config = "webpack.config.js"
+kv-namespaces = [
+         { binding = "LINKS", id = "371365e3712347d492b303e5bf33b7fb" }
+]

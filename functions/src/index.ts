@@ -21,3 +21,4 @@ export const likePost = functions.https.onCall((data, context) => {
     likes: firestore.FieldValue.increment(1),
   });
 });
+
