@@ -1,5 +1,5 @@
 [build]
   publish = "dist/static"
   command = "sh ./scripts/build.sh"
-  functions = "net-functions"
+  functions = "netlify-fn"
 

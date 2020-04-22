@@ -13,9 +13,12 @@
     padding: .8em 1.25em;
     margin-bottom: 1.15rem;
     transition: box-shadow 250ms var(--theme-transistion-curve);
+    text-decoration: none;
+
     &:hover {
       box-shadow: var(--app-box-shadow);
       cursor: pointer;
+      //text-decoration: underline;
     }
   }
 
