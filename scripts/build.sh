@@ -48,4 +48,8 @@ else
 
 fi
 
+cd netlify-fn/twitter
+npm install
+cd ..
+
 echo "${CYAN}> Done ${NC}"

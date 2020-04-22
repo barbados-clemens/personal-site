@@ -61,8 +61,8 @@
   --app-bg-color: var(--theme-gray-1);
   --app-text-color: var(--theme-off-white);
   --app-border-color: #222;
-  --app-card-bg: var(--app-box-shadow-color);
-  --app-quote-bg: var(--app-box-shadow-color);
+  --app-card-bg: var(--theme-black);
+  --app-quote-bg: var(--theme-black);
 }
 
 a,
@@ -135,6 +135,7 @@ a.clean_link:active {
   &:hover {
     color: var(--app-text-color);
   }
+
   &::after {
     content: none;
     display: inherit;
