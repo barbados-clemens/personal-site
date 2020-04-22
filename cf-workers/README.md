@@ -9,6 +9,8 @@ Clicking [https://link.calebukle.com/ng-601e9](https://link.calebukle.com/ng-601
 
 See how much shorter that link is! Amazing! Wow! Pure Magic!
 
+> Note: Currently adding some query parameters for debugging/future client analytics if I want to go that route.
+
 ## Manage KV Store
 Cloudflare has a simple interface for adding keys, so for now I'm just manually adding the keys for each item I wish to link. I'll look at updating this to be automating this down the road, we'll see.
 
