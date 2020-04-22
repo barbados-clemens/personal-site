@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Tweet} from './tweet/tweet.component';
-import {AngularFireFunctions} from '@angular/fire/functions';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,12 @@ import {AngularFireFunctions} from '@angular/fire/functions';
 export class TwitterService {
 
   constructor(
-    private aFunc: AngularFireFunctions
+    private http: HttpClient
   ) {
   }
 
 
   getTweets(): Observable<Tweet[]> {
-    const func = this.aFunc.httpsCallable('getTweets');
-    return func({count: 3});
+    return this.http.get<Tweet[]>(`/.netlify/functions/twitter`);
   }
 }
