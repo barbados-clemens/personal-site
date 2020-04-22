@@ -48,7 +48,7 @@ else
 
 fi
 
-cd netlify-fn 
+cd netlify-fn/twitter
 npm install
 cd ..
 
