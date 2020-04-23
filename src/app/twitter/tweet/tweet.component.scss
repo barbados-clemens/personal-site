@@ -7,25 +7,30 @@
   border: 1px solid var(--app-border-color);
   color: var(--app-text-color);
   transition: transform 250ms var(--theme-transistion-curve);
+  position: relative;
 
-
-  //.tweet::before {
-  //  content: url("/assets/svg/twitter-logo-blue.svg");
-  //  width: 45px;
-  //  height: 45px;
-  //  font-size: 1.5rem;
-  //  display: inline-flex;
-  //  justify-content: center;
-  //  position: absolute;
-  //  right: -.9rem;
-  //  background: var(--app-card-bg);
-  //  border-radius: 50%;
-  //  align-items: center;
-  //  top: -.8rem;
-  //}
+  .tweet::before {
+    content: '';
+    width: 0;
+    height: 0;
+  }
 
   &:hover {
     transform: rotate(-5deg);
+    .tweet::before {
+      content: url("/assets/svg/twitter-logo-blue.svg");
+      width: 45px;
+      height: 45px;
+      font-size: 1.5rem;
+      display: inline-flex;
+      justify-content: center;
+      position: absolute;
+      right: -.9rem;
+      background: var(--app-card-bg);
+      border-radius: 50%;
+      align-items: center;
+      top: -.8rem;
+    }
   }
 }
 
