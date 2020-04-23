@@ -47,12 +47,6 @@ export class MetadataService {
     this.meta.updateTag({
       property: 'og:image', content: metadata.image || 'https://media.calebukle.com/uploads/icon-48x48.png'
     });
-
-    if (!!metadata.date) {
-      this.meta.updateTag({
-        name: 'published', content: metadata.date.toISOString()
-      });
-    }
   }
 }
 
@@ -62,5 +56,4 @@ export interface SeoMetadata {
   desc: string;
   url: string;
   image?: string;
-  date?: Date;
 }

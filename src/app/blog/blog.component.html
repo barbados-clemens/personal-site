@@ -3,7 +3,7 @@
 <h1 id="top">{{ (meta$ | async)?.title }}</h1>
 
 <app-like-ui (like)="addLike()" [count]="likes$ | async"></app-like-ui>
-<p class="text_small">{{ (meta$ | async)?.date | date:"longDate" }}</p>
+<p class="text_small published">{{ (meta$ | async)?.date | date:"longDate" }}</p>
 
 <app-tags [tags]="(meta$ | async)?.tags"></app-tags>
 

@@ -7,7 +7,8 @@
 package = "netlify-plugin-rss"
   [plugins.inputs]
   # required configs, customize as needed
-  dirToScan = "/dist/static/blog" # a subfolder to scan. "/" to scan all
+  # I think this is relative to the publish dir
+  dirToScan = "/blog" # a subfolder to scan. "/" to scan all
   authorName = "Caleb Ukle"
   site_url = "https://calebukle.com"
   title = "calebukle.com RSS Feed"
@@ -27,7 +28,7 @@ package = "netlify-plugin-rss"
   # # cheerio selectors for extractMetadataFromFile
   # # defaults shown
   contentSelector = "app-root"
-  publishDateSelector = "meta[name=publish]" # if not specified, we use the date of file creation
+  publishDateSelector = ".published" # if not specified, we use the date of file creation
   # descriptionSelector = "meta[name=description]" # probably no need to change
   # titleSelector = "title" # probably no need to change
 
