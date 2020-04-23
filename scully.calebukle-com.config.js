@@ -2,7 +2,7 @@ require("dotenv").config();
 require("./plugins/addLinksToHeader.plugin.js");
 require("./plugins/updateAlgoliaIndex.plugin.js");
 require("./plugins/addPostToFirebase.plugin.js");
-require("@notiz/scully-plugin-lazy-images");
+// require("@notiz/scully-plugin-lazy-images");
 // require("@notiz/scully-plugin-fouc");
 
 const {RouteTypes} = require('@scullyio/scully');
