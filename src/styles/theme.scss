@@ -48,7 +48,7 @@
   --theme-gray-1: #2F3134;
   --theme-black: #1F2022;
   --app-text-color: var(--theme-gray-1);
-  --app-bg-color: #fff;
+  --app-bg-color: var(--theme-off-white);
   --app-font-family: 'Montserrat', sans-serif;
   --app-card-bg: #fff;
   --app-border-color: #D5D5D5;
@@ -61,8 +61,8 @@
   --app-bg-color: var(--theme-gray-1);
   --app-text-color: var(--theme-off-white);
   --app-border-color: #222;
-  --app-card-bg: var(--app-box-shadow-color);
-  --app-quote-bg: var(--app-box-shadow-color);
+  --app-card-bg: var(--theme-black);
+  --app-quote-bg: var(--theme-black);
 }
 
 a,
@@ -135,6 +135,7 @@ a.clean_link:active {
   &:hover {
     color: var(--app-text-color);
   }
+
   &::after {
     content: none;
     display: inherit;

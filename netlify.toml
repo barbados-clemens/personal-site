@@ -1,5 +1,45 @@
 [build]
   publish = "dist/static"
   command = "sh ./scripts/build.sh"
-  functions = "net-functions"
+  functions = "functions"
+
+#[[plugins]]
+#package = "netlify-plugin-a11y"
+#  [plugins.inputs]
+#  # required config
+#  checkPaths = ['/']
+
+
+[[plugins]]
+package = "netlify-plugin-rss"
+  [plugins.inputs]
+  # required configs, customize as needed
+  # I think this is relative to the publish dir
+  dirToScan = "/blog" # a subfolder to scan. "/" to scan all
+  feed_url = "https://calebukle.com/rss.xml"
+  authorName = "Caleb Ukle"
+  site_url = "https://calebukle.com"
+  title = "Caleb Ukle Blog Posts"
+  rssDescription = "Caleb posts regularly about projects, and problems in a helpful manner so others can learn. Topics range from beginner guides in web dev to troubleshooting odd errors in IIS. Vist calebukle.com/blog to see the lastest"
+  categories = ['Technology', 'Web Development']
+
+  # # optional configs, defaults shown
+  rssFaviconUrl = "https://calebukle.com/favicon.ico"
+  # docs = "http://example.com/rss/docs.html"
+  # managingEditor = "authorName"
+  # webMaster = "authorName"
+  # copyright = "2020 ${authorName}"
+  # language = "en"
+  # pubDate = "new Date().toUTCString(),"
+  ttl = "1440" # aka refresh every hour
+
+  # # cheerio selectors for extractMetadataFromFile
+  # # defaults shown
+  contentSelector = ".post-content"
+  publishDateSelector = ".published" # if not specified, we use the date of file creation
+  # descriptionSelector = "meta[name=description]" # probably no need to change
+  # titleSelector = "title" # probably no need to change
+
+  # # developer configs
+  debugMode = true # (for development) turn true for extra diagnostic logging
 

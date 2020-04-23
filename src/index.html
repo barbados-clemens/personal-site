@@ -60,29 +60,28 @@
   </style>
   <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body data-theme="light">
-<script>
-  const preferDark = window.matchMedia("(prefers-color-scheme: dark)")
-  const existingTheme = localStorage.getItem("theme")
+<body data-theme="dark">
+<!--<script>-->
+<!--  // Everyone gets dark theme now. Light theme just looks meh-->
+<!--  const preferDark = window.matchMedia("(prefers-color-scheme: dark)")-->
+<!--  const existingTheme = localStorage.getItem("theme")-->
 
-  if (!!existingTheme) {
-    setTheme(existingTheme)
-  } else {
-    if (!!preferDark && preferDark.matches) {
-      setTheme("dark")
-    } else {
-      setTheme("light")
-    }
-  }
+<!--  if (!!existingTheme) {-->
+<!--    setTheme(existingTheme)-->
+<!--  } else {-->
+<!--    if (!!preferDark && preferDark.matches) {-->
+<!--      setTheme("dark")-->
+<!--    }-->
+<!--  }-->
 
-  function setTheme(theme) {
-    document.body.setAttribute("data-theme", theme)
-    localStorage.setItem("theme", theme)
-  }
+<!--  function setTheme(theme) {-->
+<!--    document.body.setAttribute("data-theme", theme)-->
+<!--    localStorage.setItem("theme", theme)-->
+<!--  }-->
 
-</script>
+<!--</script>-->
 <app-root></app-root>
-<noscript>This site works best with Javascript enabled.</noscript>
+<noscript>While this site should work without JS, a better </noscript>
 <script defer>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
@@ -94,6 +93,7 @@
     })
   }
 
+  // Fun with sounds
   // const audioCtx = new window.AudioContext();
   // const oscillator = audioCtx.createOscillator();
   // oscillator.connect(audioCtx.destination);

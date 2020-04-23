@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import {CardModule} from '../card/card.module';
 import {TagModule} from '../tag/tag.module';
+import {TwitterModule} from '../twitter/twitter.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import {TagModule} from '../tag/tag.module';
         HomeRoutingModule,
         CardModule,
         TagModule,
+        TwitterModule,
     ]
 })
 export class HomeModule { }
