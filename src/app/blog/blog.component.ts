@@ -23,6 +23,7 @@ export class BlogComponent implements AfterContentChecked, OnDestroy {
         desc: m.description,
         url: m.route,
         image: m?.image,
+        date: new Date(m?.date)
       })),
     );
 

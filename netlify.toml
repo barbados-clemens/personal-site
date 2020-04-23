@@ -3,3 +3,34 @@
   command = "sh ./scripts/build.sh"
   functions = "functions"
 
+[[plugins]]
+package = "netlify-plugin-rss"
+  [plugins.inputs]
+  # required configs, customize as needed
+  dirToScan = "/dist/static/blog" # a subfolder to scan. "/" to scan all
+  authorName = "Caleb Ukle"
+  site_url = "https://calebukle.com"
+  title = "calebukle.com RSS Feed"
+  rssDescription = "calebukle.com blog RSS Feed"
+  categories = ['Technology', 'Web Development']
+
+  # # optional configs, defaults shown
+  rssFaviconUrl = "https://calebukle.com/favicon.ico"
+  # docs = "http://example.com/rss/docs.html"
+  # managingEditor = "authorName"
+  # webMaster = "authorName"
+  # copyright = "2020 ${authorName}"
+  # language = "en"
+  # pubDate = "new Date().toUTCString(),"
+  # ttl = "60" # aka refresh every hour
+
+  # # cheerio selectors for extractMetadataFromFile
+  # # defaults shown
+  contentSelector = "app-root"
+  publishDateSelector = "meta[name=publish]" # if not specified, we use the date of file creation
+  # descriptionSelector = "meta[name=description]" # probably no need to change
+  # titleSelector = "title" # probably no need to change
+
+  # # developer configs
+  debugMode = true # (for development) turn true for extra diagnostic logging
+
