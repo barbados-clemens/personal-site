@@ -10,8 +10,6 @@ const auth = {
   consumer_secret: process.env.TWITTER_USER_SECRET,
 };
 
-console.log(auth);
-
 const client = new Twitter(auth);
 
 const cache = {
