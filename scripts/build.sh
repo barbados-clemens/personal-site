@@ -23,16 +23,6 @@ if [ "$CONTEXT" = 'production' ]; then
 
   npm run build:prod
 
-  echo "${CYAN}> Deploying Firebase functions${NC}"
-
-  cd functions
-
-  npm install
-
-  cd ..
-
-  node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
-
   echo "${CYAN}> Uploading sourcemaps ${NC}"
 
 #  sentry-cli releases --org "$SENTRY_ORG" --project "$SENTRY_PROJECT" files "$VERSION" upload-sourcemaps --validate --rewrite ./dist/static
@@ -48,8 +38,19 @@ else
 
 fi
 
-cd netlify-fn/twitter
+echo "${CYAN}> Installing deps for functions${NC}"
+
+cd functions/twitter
+
 npm install
+
 cd ..
+
+cd like
+
+npm install
+
+cd ../..
+
 
 echo "${CYAN}> Done ${NC}"

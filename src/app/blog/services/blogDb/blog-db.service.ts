@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireFunctions } from '@angular/fire/functions';
-import { map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {map} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,8 @@ export class BlogDbService {
 
   constructor(
     private afs: AngularFirestore,
-    private aFunc: AngularFireFunctions,
+    // private aFunc: AngularFireFunctions,
+    private http: HttpClient
   ) {
   }
 
@@ -22,11 +23,11 @@ export class BlogDbService {
 
 
   addLike(docPath: string): Observable<{ isMax: boolean, res: any }> {
+
     if (this.isLocalLikesMax(docPath)) {
-      return of({ isMax: true, res: null });
+      return of({isMax: true, res: null});
     }
-    const func = this.aFunc.httpsCallable('likePost');
-    return func({ route: docPath })
+    return this.http.post<any>(`/.netlify/functions/like`, {route: docPath})
       .pipe(
         map(res => {
           this.saveLocalLikes(docPath);
