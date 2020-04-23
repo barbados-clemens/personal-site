@@ -3,12 +3,20 @@
   command = "sh ./scripts/build.sh"
   functions = "functions"
 
+#[[plugins]]
+#package = "netlify-plugin-a11y"
+#  [plugins.inputs]
+#  # required config
+#  checkPaths = ['/']
+
+
 [[plugins]]
 package = "netlify-plugin-rss"
   [plugins.inputs]
   # required configs, customize as needed
   # I think this is relative to the publish dir
   dirToScan = "/blog" # a subfolder to scan. "/" to scan all
+  feed_url = "https://calebukle.com/rss.xml"
   authorName = "Caleb Ukle"
   site_url = "https://calebukle.com"
   title = "calebukle.com RSS Feed"
