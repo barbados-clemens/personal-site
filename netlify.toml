@@ -19,8 +19,8 @@ package = "netlify-plugin-rss"
   feed_url = "https://calebukle.com/rss.xml"
   authorName = "Caleb Ukle"
   site_url = "https://calebukle.com"
-  title = "calebukle.com RSS Feed"
-  rssDescription = "calebukle.com blog RSS Feed"
+  title = "Caleb Ukle Blog Posts"
+  rssDescription = "Caleb posts regularly about projects, and problems in a helpful manner so others can learn. Topics range from beginner guides in web dev to troubleshooting odd errors in IIS. Vist calebukle.com/blog to see the lastest"
   categories = ['Technology', 'Web Development']
 
   # # optional configs, defaults shown
@@ -31,7 +31,7 @@ package = "netlify-plugin-rss"
   # copyright = "2020 ${authorName}"
   # language = "en"
   # pubDate = "new Date().toUTCString(),"
-  # ttl = "60" # aka refresh every hour
+  ttl = "1440" # aka refresh every hour
 
   # # cheerio selectors for extractMetadataFromFile
   # # defaults shown

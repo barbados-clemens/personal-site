@@ -7,8 +7,8 @@
 
 <app-tags [tags]="(meta$ | async)?.tags"></app-tags>
 
-<p> {{ (meta$ | async)?.description }}</p>
 <section class="post-content">
+  <p> {{ (meta$ | async)?.description }}</p>
   <scully-content></scully-content>
 </section>
 <a appTooltip position="start" toolTipText="Back To Top" class="top-link clean_link"
