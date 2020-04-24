@@ -14,7 +14,7 @@
     "scully": "scully",
     "scully:s": "scully serve",
     "b:s": "npm run build && npm run scully:s",
-    "cf": "cd cf-workers && wranger publish"
+    "cf": "cd workers && lerna run deploy"
   },
   "husky": {
     "hooks": {
