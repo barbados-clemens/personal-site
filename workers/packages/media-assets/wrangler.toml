@@ -1,0 +1,10 @@
+name = "media-assets"
+type = "webpack"
+account_id = "697a3348bd438314aba3fbc97d30b07f"
+workers_dev = false
+route = "https://social.calebukle.com/*"
+zone_id = "970a29adccc24a49be9791c603821af2"
+webpack_config = "webpack.config.js"
+kv-namespaces = [
+         { binding = "ANALYTICS", id = "bc7bf063ff054036b39077eeb252fcd9" }
+]
