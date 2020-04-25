@@ -66,6 +66,7 @@
     "@types/node": "^12.11.1",
     "@types/prismjs": "^1.16.0",
     "@types/sharp": "^0.25.0",
+    "axios": "^0.19.2",
     "codelyzer": "^5.1.2",
     "dotenv": "^8.2.0",
     "firebase-admin": "^8.9.2",
