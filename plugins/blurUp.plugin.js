@@ -1,6 +1,6 @@
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-images/src/index.js
 
-const {newImgMarkUp, BLUR_UP_SCRIPT} = require("./blurUp.healper.plugin");
+const {newImgMarkUp} = require("./blurUp.healper.plugin");
 
 const {registerPlugin} = require("@scullyio/scully")
 const {log, yellow, green, red, logError} = require("@scullyio/scully/utils/log")

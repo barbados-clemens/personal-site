@@ -77,4 +77,3 @@ async function newImgMarkUp(imgUrl, caption) {
 }
 
 module.exports.newImgMarkUp = newImgMarkUp
-module.exports.BLUR_UP_SCRIPT = BLUR_UP_SCRIPT
