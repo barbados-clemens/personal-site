@@ -45,7 +45,6 @@ const blurUp = async (html, route) => {
     imgs[i].replaceWith(span);
   }
 
-  window.document.body.insertAdjacentHTML("afterend", BLUR_UP_SCRIPT);
   return dom.serialize();
 }
 
