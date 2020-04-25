@@ -7,7 +7,7 @@
 
 <app-tags [tags]="(meta$ | async)?.tags"></app-tags>
 
-<section class="post-content">
+<section class="post-content" appBlurUp>
   <p> {{ (meta$ | async)?.description }}</p>
   <scully-content></scully-content>
 </section>

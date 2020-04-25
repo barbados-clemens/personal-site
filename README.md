@@ -8,9 +8,7 @@
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b8f3e82f-7ba7-40e9-a9d9-5221a773f2e3/deploy-status)](https://app.netlify.com/sites/caleb-portfolio/deploys)
-
 [![coverage report](https://gitlab.com/caleb-ukle/portfolio/badges/master/coverage.svg)](https://gitlab.com/caleb-ukle/portfolio/-/commits/master)
-
 [![pipeline status](https://gitlab.com/caleb-ukle/portfolio/badges/master/pipeline.svg)](https://gitlab.com/caleb-ukle/portfolio/-/commits/master)
 
 

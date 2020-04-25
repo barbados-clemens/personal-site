@@ -55,7 +55,7 @@
   </style>
   <style>
     body {
-      transition: background-color 350ms cubic-bezier(0.4, 0.0, 0.2, 1), color 400ms cubic-bezier(.4, 0,.2,1);
+      transition: background-color 350ms cubic-bezier(0.4, 0.0, 0.2, 1), color 400ms cubic-bezier(.4, 0, .2, 1);
     }
   </style>
   <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -81,7 +81,9 @@
 
 <!--</script>-->
 <app-root></app-root>
-<noscript>While this site should work without JS, a better </noscript>
+<noscript style="text-align: center;">While this site should work without JavaScript, a better experience is provided
+  with JavaScript enabled
+</noscript>
 <script defer>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
