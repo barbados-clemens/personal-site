@@ -15,12 +15,14 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import 'firebase/firestore';
 import { TooltipModule } from '../tooltip/tooltip.module';
 import { SearchModule } from '../search/search.module';
+import { BlurUpDirective } from './blur-up.directive';
 
 @NgModule({
   declarations: [
     BlogComponent,
     HeaderComponent,
     BlogOverviewComponent,
+    BlurUpDirective,
   ],
   imports: [
     CommonModule,
