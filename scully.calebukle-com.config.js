@@ -2,6 +2,7 @@ require("dotenv").config();
 require("./plugins/addLinksToHeader.plugin.js");
 require("./plugins/updateAlgoliaIndex.plugin.js");
 require("./plugins/addPostToFirebase.plugin.js");
+require("./plugins/blurUp.plugin.js");
 // require("@notiz/scully-plugin-lazy-images");
 // require("@notiz/scully-plugin-fouc");
 
@@ -32,7 +33,7 @@ exports.config = {
     // },
     "/blog/:slug": {
       type: "contentFolder",
-      postRenderers: ["addLinksToHeader", "updateAlgoliaIndex", "addPostToFirebase", Sitemap],
+      postRenderers: ["addLinksToHeader", "updateAlgoliaIndex", "addPostToFirebase", Sitemap, "blurUp"],
       slug: {
         folder: "./blog",
       },
