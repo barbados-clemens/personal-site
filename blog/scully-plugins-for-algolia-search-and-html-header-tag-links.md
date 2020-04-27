@@ -19,6 +19,8 @@ tags:
 If you want to learn more about the move from Gatsby to Scully or want to know what scully even is check out my post [here](https://calebukle.com/blog/moving-from-gatsby-to-scully-the-angular-static-site-generator).
 
 
+> I just added a new plugin. Blur Up Images! You can learn more [here](https://calebukle.com/blog/blur-up-fade-in-images-without-gatsby-a-scully-plugin) 
+
 First thing to note before getting into the plugins, each plugin has to be registered with a validator function. For all these plugins the validator wasn't needed so an empty array in return. I show all the registration and usage for each plugin. That is what the last couple lines per plugin is about. 
 
 ## Plugin Overview
