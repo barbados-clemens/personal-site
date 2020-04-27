@@ -24,13 +24,6 @@ exports.config = {
   sitemapOptions,
   defaultPostRenderers: [Sitemap],
   routes: {
-    // '/recipe/:recipe': {
-    //   type: 'contentFolder',
-    //   postRenderers: ["addLinksToHeader", "updateAlgoliaIndex"],
-    //   recipe: {
-    //     folder: "./recipe"
-    //   }
-    // },
     "/blog/:slug": {
       type: "contentFolder",
       postRenderers: ["addLinksToHeader", "updateAlgoliaIndex", "addPostToFirebase", Sitemap, "blurUp"],

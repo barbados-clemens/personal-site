@@ -3,13 +3,18 @@
 const {newImgMarkUp} = require("./blurUp.healper.plugin");
 
 const {registerPlugin} = require("@scullyio/scully")
-const {log, yellow, green, red, logError} = require("@scullyio/scully/utils/log")
+const {log, yellow} = require("@scullyio/scully/utils/log")
 
 const jsdom = require("jsdom")
 const {JSDOM} = jsdom
 
 
-const blurUp = async (html, route) => {
+/**
+ *
+ * @param {string} html
+ * @return {Promise<string>}
+ */
+const blurUp = async (html) => {
 
   const dom = new JSDOM(html);
   const {window} = dom
@@ -52,3 +57,4 @@ const validator = async conf => [];
 
 registerPlugin('render', 'blurUp', blurUp, validator)
 module.exports.blurUp = blurUp;
+
