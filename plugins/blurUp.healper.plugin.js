@@ -5,41 +5,58 @@ const jsdom = require("jsdom")
 const {JSDOM} = jsdom
 
 
-
 /**
  *
  * @param {string} url
+ * @return {Promise<AxiosResponse<any>>}
  */
 async function download(url) {
+  console.log('downloading')
   return axios.get(url, {responseType: "arraybuffer"})
 }
 
-async function newImgMarkUp(imgUrl, caption) {
-
-  console.log('downloading')
-  const {data} = await download(imgUrl)
-
-  console.log(typeof data)
-  if (!data) {
-    throw Error('no image found')
-  }
-
-  // console.log(buf);
+/**
+ * @param {Buffer} data
+ * @return {Promise<Buffer>}
+ */
+async function resize(data) {
   console.log('resizing')
-  const resized = await sharp(data)
+  return sharp(data)
     .resize(20)
     .toBuffer()
+}
 
-
+/**
+ *
+ * @param {Buffer} data
+ * @return {string}
+ */
+function toBase64(data) {
   console.log('making base 64 image')
-  const b64 = Buffer.from(resized).toString('base64')
+  return Buffer.from(data).toString('base64');
+}
 
+/**
+ *
+ * @param {Buffer} data
+ * @return {Promise<number>}
+ */
+async function getImgPadding(data) {
   console.log('getting metadata');
-  const {height, width} = await sharp(resized)
+  const {height, width} = await sharp(data)
     .metadata();
+  return (height / width) * 100;
+}
 
-  const paddingBottom = (height / width) * 100;
-
+/**
+ *
+ * @param {number} paddingBottom
+ * @param {string}b64
+ * @param {string}caption
+ * @param {string}imgUrl
+ * @return {{children: [{tagName: string, props: {sizes: string, src: string, alt: string, style: string, title: string, srcset: string, class: string}}], tagName: string, props: {style: string, class: string}}}
+ */
+function buildAst({paddingBottom, b64, caption, imgUrl} = data) {
   const markup = {
     tagName: 'span',
     props: {
@@ -74,6 +91,24 @@ async function newImgMarkUp(imgUrl, caption) {
     ]
   }
   return markup;
+}
+
+async function newImgMarkUp(imgUrl, caption) {
+
+  const {data} = await download(imgUrl)
+
+  if (!data) {
+    throw Error('no image found')
+  }
+
+  const resized = await resize(data);
+
+  const b64 = toBase64(resized);
+
+  const paddingBottom = await getImgPadding(resized);
+
+  return buildAst({b64, paddingBottom, caption, imgUrl})
+
 }
 
 module.exports.newImgMarkUp = newImgMarkUp
