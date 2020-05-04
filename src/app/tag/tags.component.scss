@@ -2,19 +2,19 @@
 .tag-container {}
 
 .tag {
-  color: var(--theme-off-white);
+  color: var(--white);
   border-radius: 1.3em;
   text-decoration: none;
   padding: .1em .75em;
   margin-right: 10px;
-  text-decoration: none;
   display: inline-block;
   margin-bottom: .6em;
-  background-color: var(--theme-blue);
+  background: var(--v2-red);
   transition: box-shadow 250ms var(--theme-transistion-curve);
+  box-shadow: var(--elevate-1);
   &:hover {
     cursor: pointer;
-    box-shadow: var(--app-box-shadow);
-    color: var(--theme-off-white);
+    box-shadow: var(--elevate-2);
+    color: var(--white);
   }
 }

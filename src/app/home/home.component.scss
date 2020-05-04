@@ -7,20 +7,38 @@
 .blog-container {
 
   .post {
+    position: relative;
+    color: var(--app-card-text-color);
     background: var(--app-card-bg);
-    border: 1px solid var(--app-border-color);
-    border-radius: 1em;
+    border-radius: .5em;
     padding: .8em 1.25em;
     margin-bottom: 1.15rem;
-    transition: box-shadow 250ms var(--theme-transistion-curve);
+    transition-property: box-shadow, transform;
+    transition-duration: 250ms;
+    transition-timing-function: var(--theme-transistion-curve);
     text-decoration: none;
+    box-shadow: var(--elevate-1);
 
+    &:active,
     &:hover {
-      box-shadow: var(--app-box-shadow);
+      box-shadow: var(--elevate-2);
       cursor: pointer;
+      transform: translate(0, -4px);
       //text-decoration: underline;
     }
   }
 
   margin-bottom: 1.25rem;
+}
+
+.special-tag {
+  display: inline-block;
+  position: absolute;
+  top: -1em;
+  background: var(--dont-hate-blurpurp);
+  border-radius: 1em;
+  padding: 1px 9px;
+  left: 1em;
+  box-shadow: var(--elevate-3);
+  color: var(--white);
 }

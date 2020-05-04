@@ -19,7 +19,11 @@
   <div class="blog-container">
     <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route">
       {{ p.title }} &nbsp;
-      <app-tags style="display: inline-block;" *ngIf="isNewPost(p.date)" [tags]="['NEW']"></app-tags>
+      <span *ngIf="isNewPost(p.date)"
+            class="special-tag text_small"
+      >
+        NEW
+      </span>
     </div>
     <p style="text-align: center;">
       Check out more posts <a routerLink="/blog">here</a>.

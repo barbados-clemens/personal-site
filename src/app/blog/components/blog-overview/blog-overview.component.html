@@ -11,7 +11,7 @@
 </p>
 <div class="post-container">
   <div *ngFor="let l of links$ | async; let isFirst = first;">
-    <h4 [id]="l.date" class="title" [ngStyle]="{'margin-top': isFirst ? 0 : '1.953em'}" >{{ l.date }}</h4>
+    <h4 [id]="l.date" class="title" [ngClass]="{'first': isFirst}" >{{ l.date }}</h4>
     <app-card class="post" *ngFor="let p of l.posts" [cardInfo]="p"></app-card>
   </div>
 </div>

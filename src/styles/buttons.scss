@@ -1,14 +1,35 @@
 .btn {
-  padding: .3em .6em;
-  transition: color, background-color 200ms var(--theme-transistion-curve);
-  &--outline {
-    border: 1px solid var(--theme-green);
-    border-radius: .3em;
-    color: var(--theme-green);
-    background-color: transparent;
-    &:hover {
-      background-color: var(--theme-green);
-      color: var(--theme-gray-1);
-    }
+  border-radius: .5em;
+  cursor: pointer;
+  background-color: var(--rt-green);
+  font-size: var(--app-font-size);
+  padding: 4px 20px;
+  transition-property: color, background-color, box-shadow, translate;
+  transition-duration: 200ms;
+  transition-timing-function: var(--theme-transistion-curve);
+  box-shadow: var(--elevate-0);
+
+  &:disabled {
+    background: transparent;
+    border: 1px solid var(--v2-red);
+    color: var(--app-text-color);
+    cursor: not-allowed;
   }
+
+  &:hover:enabled {
+    background-color: var(--rt-green);
+    color: var(--white);
+    border-color: var(--rt-green);
+    box-shadow: var(--elevate-2);
+  }
+  &--jumper {
+    transform: translate(0, -4px);
+  }
+
+  &:enabled {
+    background-color: var(--rt-green);
+    color: var(--white);
+    border-color: var(--rt-green);
+  }
+
 }

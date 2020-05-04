@@ -2,7 +2,9 @@
 
 html {
   /*18px*/
+  /* double define for non custom prop support */
   font-size: 112.5%;
+  font-size: var(--app-font-size);
 }
 
 body {
@@ -20,6 +22,7 @@ p {
 
 h1, h2, h3, h4, h5 {
   margin: 2.75rem 0 1.05rem;
+  font-family: 'Montserrat', sans-serif;
   font-family: var(--app-font-family);
   font-weight: 400;
   line-height: 1.15;
@@ -54,4 +57,8 @@ h5 {
 
 small, .text_small {
   font-size: 0.8em;
+}
+
+.lil_guy {
+  font-size: .64em;
 }

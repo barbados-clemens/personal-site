@@ -1,0 +1,18 @@
+.textarea-input,
+.text-input {
+  font-size: var(--app-font-size);
+  border: 1px solid var(--white);
+  padding: 4px 9px;
+  border-radius: .5em;
+  background: transparent;
+  color: var(--app-text-color);
+  transition-property: font-size, box-shadow, background;
+  transition-duration: 200ms;
+  transition-timing-function: var(--theme-transistion-curve);
+  box-shadow: var(--elevate-0);
+  &:focus {
+    color: var(--app-card-text-color);
+    background: var(--white);
+    box-shadow: var(--elevate-1);
+  }
+}

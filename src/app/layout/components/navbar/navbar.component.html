@@ -1,3 +1,34 @@
-<a routerLink="/" class="nav-link h5" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-<a routerLink="/blog" class="nav-link h5" routerLinkActive="active">Blog</a>
-<a routerLink="/contact" class="nav-link h5" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Contact</a>
+<div class="container">
+  <a routerLink="/"
+     class="nav-link h5"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact: true}"
+  >
+    Home
+  </a>
+  <a routerLink="/about"
+     class="nav-link h5"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact: true}"
+  >
+    About
+  </a>
+  <a routerLink="/blog"
+     class="nav-link h5"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact: true}"
+  >
+    Blog
+  </a>
+
+  <div class="spacer"></div>
+
+
+  <a routerLink="/contact"
+     class="clean_link btn--special btn"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact:true}"
+  >
+    Contact
+  </a>
+</div>
