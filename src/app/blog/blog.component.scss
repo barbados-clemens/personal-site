@@ -1,5 +1,4 @@
 @import "../../styles/fira_code.css";
-
 :host {
   max-width: 960px;
   display: block;
@@ -30,13 +29,12 @@ pre {
 }
 
 blockquote > p {
-  border-left: .65em solid var(--theme-blue);
   border-radius: 0.3em;
   padding: 1em;
   font-style: italic;
-  background-color: var(--app-quote-bg);
-  color: var(--app-text-color);
-  box-shadow: var(--app-box-shadow);
+  background-color: var(--app-card-bg);
+  color: var(--app-card-text-color);
+  box-shadow: 5px 6px 0 var(--dont-hate-start);
 }
 
 blockquote {
@@ -44,8 +42,8 @@ blockquote {
 }
 
 p > code {
-  color: var(--theme-red);
-  background: var(--theme-off-white);
+  color: var(--v2-red);
+  background: var(--white);
   border-radius: .3em;
   padding: 0 .4em;
 }
