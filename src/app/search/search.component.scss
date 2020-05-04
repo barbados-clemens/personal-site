@@ -2,11 +2,7 @@ form {
   display: grid;
   place-items: center;
   gap: .5em;
-  padding: 0;
-  input {
-    width: 100%;
-    max-width: 500px;
-  }
+  padding: 1em 2em;
 }
 
 h3 {
@@ -15,7 +11,13 @@ h3 {
 
 
 .result-cards {
+  padding-top: 1.15em;
   display: grid;
   gap: 1.15em;
   margin-bottom: 1.15rem;
+}
+
+.algolia-insta-search {
+  display: flex;
+  align-items: center;
 }
