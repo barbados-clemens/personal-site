@@ -1,8 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {map, takeUntil} from 'rxjs/operators';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
+import {IBlogFrontmatter} from '../blog/blog.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   sub = new Subject();
   oneMonthAgo = Date.now().valueOf() - 2629800000;
 
-  links$ = this.scully.available$
+  links$: Observable<IBlogFrontmatter[]> = this.scully.available$
     .pipe(
       takeUntil(this.sub),
       map(posts => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
