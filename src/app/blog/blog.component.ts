@@ -4,7 +4,7 @@ import {filter, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {HighlightService} from './services/highlight/highlight.service';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
 import {BlogDbService} from './services/blogDb/blog-db.service';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 @Component({
   selector: 'app-blog',
@@ -15,13 +15,13 @@ import {Subject} from 'rxjs';
 })
 export class BlogComponent implements AfterContentChecked, OnDestroy {
   subs = new Subject();
-  meta$ = this.scully.getCurrent()
+  meta$: Observable<IBlogFrontmatter> = this.scully.getCurrent()
     .pipe(
       takeUntil(this.subs),
       tap(m => this.metaSrv.update({
         title: m.title,
         desc: m.description,
-        url: m.route,
+        url: `https://calebukle.com${m.route}`,
         image: m?.image,
       })),
     );
@@ -62,4 +62,15 @@ export class BlogComponent implements AfterContentChecked, OnDestroy {
     this.subs.next(true);
     this.subs.complete();
   }
+}
+
+
+export interface IBlogFrontmatter {
+  route: string;
+  title?: string;
+  date?: string;
+  image?: string;
+  description?: string;
+  publish?: boolean;
+  tags?: string[];
 }
