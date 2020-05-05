@@ -1,6 +1,3 @@
-import {APIGatewayProxyCallback, APIGatewayProxyEvent} from '@types/aws-lambda'
-
-
 /**
  *
  * @param {APIGatewayProxyEvent} event
@@ -10,7 +7,7 @@ import {APIGatewayProxyCallback, APIGatewayProxyEvent} from '@types/aws-lambda'
  */
 exports.handler = async function (event, context, callback) {
 
-  console.log(JSON.stringify(context))
+  console.log(JSON.stringify(context, null, 2), JSON.stringify(event, null, 2))
 
 
   callback(null, {
