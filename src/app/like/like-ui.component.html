@@ -1,3 +1,9 @@
-<p class="heart" (click)="addLike()" #like>
-  <span style="margin-left: 50px;">{{count}}</span>
-</p>
+<span class="like" (click)="addLike()">
+  <svg class="like-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+    <path fill="var(--icon-color)"
+          stroke="var(--icon-color)"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 1.5l2.318 4.695 5.182.757-3.75 3.653.885 5.16L9 13.327l-4.635 2.438.885-5.16L1.5 6.952l5.183-.757L9 1.5z"/></svg>
+  {{count}}
+</span>

@@ -1,33 +1,25 @@
-button {
-  color: var(--theme-black);
-  background-color: var(--theme-light-green);
-  border: 1px solid var(--theme-green);
-  border-radius: .3rem;
-  font-size: 1.15rem;
-  box-shadow: var(--app-box-shadow);
+:host {
+  --icon-color: var(--v2-red);
+}
+.like {
+  position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.heart {
-  cursor: pointer;
-  height: 32px;
-  width: 48px;
-  background-image: url("/assets/Heart-Fav.png");
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: 4200%;
-  display: inline-block;
-}
-
-.heart:hover {
-  background-position:right;
-}
-
-.is_animating {
-  animation: heart-burst .8s steps(39) 1;
-}
-
-@keyframes heart-burst {
-  from {background-position:left;}
-  to { background-position:right;}
+.like-icon {
+  padding-right: .65em;
+  width: auto;
+  height: 1.15em;
+  box-shadow: var(--elevate-1);
+  transition-property: color, fill, stroke, transform, height, width;
+  transition-duration: 200ms;
+  transition-timing-function: var(--theme-transistion-curve);
+  &:hover {
+    --icon-color: var(--dont-hate-start);
+    box-shadow: var(--elevate-2);
+    transform: translate(0, -2px);
+    height: 1.5em;
+  }
 }

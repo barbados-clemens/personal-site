@@ -1,0 +1,42 @@
+:host {
+  display: inline-block;
+  background-color: var(--app-card-bg);
+  color: var(--app-card-text-color);
+  box-shadow: 5px 6px 0 var(--dont-hate-end);
+  border-radius: .5em;
+  padding: 1.15em;
+  text-align: center;
+  transition: transform 200ms var(--theme-transistion-curve);
+
+  &:hover {
+    transform: translate(0, -4px);
+  }
+
+  .info {
+    display: block;
+    padding-bottom: .8em;
+  }
+
+  .btn {
+    margin-left: .8em;
+  }
+
+  .text-input {
+    border: 1px solid var(--app-bg-color);
+    background-color: var(--app-bg-color);
+    box-shadow: var(--elevate-1);
+
+    &:hover,
+    &:active, {
+      box-shadow: var(--elevate-2);
+    }
+
+    &:focus {
+      color: var(--app-text-color)
+    }
+  }
+}
+
+.bad-input {
+  color: var(--v2-red);
+}
