@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { noop, Observable, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-search',

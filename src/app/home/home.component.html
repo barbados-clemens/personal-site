@@ -15,7 +15,7 @@
 
 <section id="recent-posts">
   <h3 style="text-align: center;">Latest Posts</h3>
-  <div class="blog-container">
+  <div class="blog-container" [@fadeSlideIn]="(links$ | async)?.length">
     <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route">
       {{ p.title }} &nbsp;
       <span *ngIf="isNewPost(p.date)"

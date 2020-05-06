@@ -79,3 +79,10 @@ p > code {
   //box-shadow: var(--app-box-shadow);
   background-color: transparent;
 }
+
+
+.actions {
+  display: grid;
+  gap: 1.25em;
+
+}

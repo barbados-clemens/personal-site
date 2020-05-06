@@ -9,17 +9,16 @@
 }
 
 .like-icon {
-  padding-right: .65em;
   width: auto;
   height: 1.15em;
   box-shadow: var(--elevate-1);
   transition-property: color, fill, stroke, transform, height, width;
   transition-duration: 200ms;
   transition-timing-function: var(--theme-transistion-curve);
+  &:focus,
   &:hover {
     --icon-color: var(--dont-hate-start);
     box-shadow: var(--elevate-2);
-    transform: translate(0, -2px);
-    height: 1.5em;
+    transform: scale(1.5) rotate(144deg);
   }
 }

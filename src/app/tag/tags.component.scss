@@ -10,11 +10,14 @@
   display: inline-block;
   margin-bottom: .6em;
   background: var(--v2-red);
-  transition: box-shadow 250ms var(--theme-transistion-curve);
+  transition-property: box-shadow, transform;
+  transition-duration: 200ms;
+  transition-timing-function: var(--theme-transistion-curve);
   box-shadow: var(--elevate-1);
   &:hover {
     cursor: pointer;
     box-shadow: var(--elevate-2);
+    transform: translate(0, -2px);
     color: var(--white);
   }
 }
