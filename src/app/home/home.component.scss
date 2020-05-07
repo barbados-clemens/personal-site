@@ -4,6 +4,23 @@
   margin: auto;
 }
 
+
+.icon {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  padding-right: 1em;
+}
+
+.about-me  {
+  list-style: none;
+  li {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+}
+
 .blog-container {
 
   .post {
