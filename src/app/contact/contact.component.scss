@@ -8,6 +8,7 @@ form {
   display: grid;
   gap: 2em;
   grid-template-columns: 1fr 1fr;
+
   .full-width {
     grid-column: 1 / -1;
   }
@@ -17,6 +18,7 @@ input,
 textarea {
   width: 100%;
 }
+
 .input-error {
   color: var(--v2-red)
 }
@@ -24,5 +26,16 @@ textarea {
 @media (max-width: 520px) {
   form {
     grid-template-columns: 1fr;
+  }
+}
+
+.right {
+  grid-column: -2/-1;
+}
+
+button.btn:enabled {
+  transition: transform 250ms var(--theme-transistion-curve);
+  &:hover {
+    transform: scale(1.1), translate(0, -4px);
   }
 }

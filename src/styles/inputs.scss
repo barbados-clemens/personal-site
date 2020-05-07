@@ -10,6 +10,7 @@
   transition-duration: 200ms;
   transition-timing-function: var(--theme-transistion-curve);
   box-shadow: var(--elevate-0);
+  font-family: inherit;
   &:focus {
     color: var(--app-card-text-color);
     background: var(--white);
