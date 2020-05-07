@@ -1,47 +1,55 @@
-<!--<h1>About Caleb</h1>-->
+<h2>About</h2>
 
-<!--<p>-->
-<!--  I'm a software developer, technology enthusiast, and simply enjoy learning new things.-->
-<!--</p>-->
-<!--<p>-->
-<!--  I've been a professional software developer since 2017. Right before-->
-<!--  starting my career, I graduated with a B.S. in Electrical Engineering.-->
-<!--  I've been a problem solver for as long as I can remember, and I am-->
-<!--  always trying to find new things to learn.-->
-<!--</p>-->
-<!--<p>Learn more <a tabindex="0" routerLink="/about">about me</a></p>-->
-<!--<p>Check out my <a routerLink="/uses">/uses</a> page to see my gear.</p>-->
-<p> If you want to know what I use on a semi daily basis check out my <a routerLink="/uses">/uses</a> page</p>
-<div>
+<section id="me">
 
-  <h2>Projects</h2>
+  <h3>Me</h3>
+
   <p>
-    You can usually find out what I'm tinkering with by checking out my
-    <a
-      href="http://gitlab.com/caleb-ukle"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Gitlab
-    </a>
-    profile. You can also find me on
-    <a
-      href="http://twitter.com/cu_galaxy"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Twitter
-    </a>
-    .
+    My name is Caleb. I graduated with a Bachelors of Science in Electrical Engineering in 2017 and shortly after
+    started
+    working as a professional software developer.
   </p>
+
   <p>
-    If you have any questions or want to get in touch with me, then head
-    over to the <a routerLink="/contact">contact</a> page and leave me a
-    message.
+    I've been a problem solver for as long as I can remember and always on the lookout for new things to learn.
   </p>
-  <h3>Panorama</h3>
+</section>
+
+
+<section id="interests">
+
+  <h3>Interests</h3>
   <p>
-    <app-tags [tags]="['Angular', '.NET', 'SQL Server']"></app-tags>
+    Looking through my twitter <em>Why am I seeing this ad?</em> apparently my interests vary from airplanes to Fashion,
+    from Firefox to Golf, and from hobbies and interests to weather.
+    If that doesn't paint a complete picture, then I'm not sure what can. But I'll give it a try.
+  </p>
+
+  <p>
+    To give the highlights.
+  </p>
+  <h4>Professionally</h4>
+  <p>
+    I enjoy building tooling to improve processes, be it from building centralized web portals to automating everything
+    under the sub.
+  </p>
+
+  <h4>Personally</h4>
+  <p>
+    I love listening music in almost everything I do.
+    I listen to all types and genres. I simply enjoy the atmosphere and
+    power music can create.
+  </p>
+</section>
+
+<section id="projects">
+
+  <h3>Projects</h3>
+
+  <p>Here are some projects I'm particularly proud of</p>
+  <h4>Panorama</h4>
+  <p>
+    <app-tags [tags]="['Professional', 'Angular', '.NET', 'SQL Server']"></app-tags>
   </p>
   <p>
     This is my current on going project at work. This project is a web app built with Angular, .NET, and SQL
@@ -52,13 +60,14 @@
     Some features include:
   </p>
   <ul>
-    <li>Custom map components to visual customer data</li>
-    <li>Integrating with various enterprise applications</li>
+    <li>Custom map components to visual monitor status of customers</li>
+    <li>Integrating with various enterprise applications such as CRM Dynamics, Jira, Office 365</li>
     <li>Providing cross domain metric reports</li>
   </ul>
   <p>
-    This application is a never ending application as it is always being enhanced with user feedback and feature
-    sets. I consider it one of my pride and joys as I have built the entire frontend myself, with some libraries,
+    This application is a never ending application. Enhancements from user feedback and feature
+    requests make sure of that. I consider it one of my pride and joys as I have built the entire frontend myself, with
+    some libraries,
     and aided in building the backend as well.
   </p>
   <p>
@@ -66,53 +75,90 @@
     routerLink="/contact">contact form</a> to learn more.
   </p>
 
-  <h3>Drag Draft</h3>
+  <h4>Drag Draft</h4>
   <p>
-    <app-tags [tags]="['Angular', 'Firebase']"></app-tags>
+    <app-tags [tags]="['Personal','Angular', 'Firebase']"></app-tags>
   </p>
   <p>
     Drag draft is a fantasy drafting application for <a href="http://www.vh1.com/shows/rupauls-drag-race"
                                                         target="_blank" rel="noreferrer noopener">RuPaul's Drag
     Race</a>. this web app is built with Angular and Firebase.
     The web app came as most ideas start; talking about an existing app, proclaiming <em>"I could do that"</em>,
-    buying a url, and spending the next 24 hours coding up an initial app.
+    buying a url, and spending the next 24 hours coding up a proof of concept.
   </p>
   <p>
-    This was the first time I have used firebase so most of that time was learning about the features and abilities
-    of firebase.
-  </p>
-  <p>
-    <a href="https://gitlab.com/caleb-ukle/drag-draft" target="_blank" rel="noreferrer noopener">View Code
-      Repository</a>
+    This was the first time I have used firebase so most of that time was learning about the features and abilities of
+    firebase.
   </p>
 
-  <h3>Shop The Fridge</h3>
   <p>
-    <app-tags [tags]="['Angular', 'NestJS', 'Postgres']"></app-tags>
-  </p>
-  <p>
-    Shop the fridge is an app aimed at keeping track of expiry dates of food. So this doesn't happen
-    <em>Hmm, when does the milk go bad? I guess I'll just buy more to be save.</em>
-  </p>
-  <p>
-    This is a collaboration project between a group of friends and can be found on my <a
-    href="https://github.com/barbados-clemens" target="_blank" rel="noreferrer noopener">Github</a> instead of my
-    <a href="https://gitlab.com/caleb-ukle" target="_blank" rel="noreferrer noopener">Gitlab</a>
-  </p>
-  <p>
-    This is the first real open source collab project I've worked on and it's very much an in progress.
-    Also, the first time I've used NestJS in an actual app.
-  </p>
-  <p>
-    <a href="https://github.com/barbados-clemens/shop-the-fridge" target="_blank" rel="noreferrer noopener">View Code
-      Repository</a>
-  </p>
-</div>
-<div>
+    Since v1 was built very hastily, I began working on a rewrite for the following season.
+    After getting about 75% of the way through the plug was pulled as it wasn't going to be utilized anymore. So I never
+    finished the app and it's no longer live. </p>
 
-  <h2>Experience</h2>
+
+  <h4>No More Missing Eggs</h4>
   <p>
-    My educational background is in engineering. While I currently don't do any electrical engineering work, I use
+    <app-tags [tags]="['Personal', 'Angular', 'NestJS', 'Postgres']"></app-tags>
+  </p>
+  <p>
+    This is a new project being worked on with in collaboration with some friends. The goal is to solve the issue of
+    being
+    at the grocery store and thinking <em>Wait... how many eggs do I have left? Crap I guess I'll just get more</em>.
+    <br>
+    It's essentially a CRM system for you kitchen, just want everyone wants!
+  </p>
+
+  <p>
+    I will be primarily working on making a design system and building the frontend.
+  </p>
+  <p>
+    This is the first time I'll be working with <a href="https://nestjs.com/" target="_blank" rel="nofollow">NestJS</a>
+    and
+    <a href="https://www.postgresql.org/" target="_blank" rel="nofollow">Postgres</a>. I typically work with microsoft
+    technologies, <a
+    href="https://dot.net" target="_blank" rel="nofollow">Dotnet</a> and <a
+    href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="nofollow">SQL
+    Server</a>
+  </p>
+
+  <p>
+    You can follow along with development progress <a href="https://github.com/karnthis/no-more-missing-eggs"
+                                                      target="_blank" rel="nofollow"></a>
+  </p>
+
+  <h4>Various Automation</h4>
+  <p>
+    <app-tags
+      [tags]="['Professional', 'Personal', 'Octopus Deploy', 'Gitlab CI/CD', 'Github Actions', 'Docker']"></app-tags>
+  </p>
+  <p>
+    I love automating. Plain and simple, I will set up an entire pipeline before even starting writing application code.
+    It's something that <strong>has</strong> to be done first.
+  </p>
+
+  <p>
+    Professionally, I write a lot of C# cli apps to aid in automating the deployment of more complex processes such as
+    non trivial database alterations. For continous deployment I'm very comfortable with
+    <a href="https://octopus.com" target="_blank" rel="nofollow">Octopus Deploy</a>.
+  </p>
+
+  <p>
+    Personally, I automate many thing with <a href="https://docker.com" target="_blank" rel="nofollow">Docker</a> such
+    as my home <a href="https://plex.tv" target="_blank" rel="nofollow">Plex</a> media server. I am familiar with
+    <a href="https://docs.gitlab.com/ee/ci/" target="_blank" rel="nofollow">Gitlab CI</a> and have begun experimenting
+    with <a href="https://github.com/features/actions" target="_blank" rel="nofollow">Github Actions</a> as well.
+  </p>
+
+</section>
+
+
+<section id="experience">
+
+  <h3>Experience</h3>
+  <p>
+    My educational background is in engineering.
+    While I currently don't do any electrical engineering work professionally, I use
     my problem solving skills every day as a software developer.
   </p>
   <p>
@@ -120,7 +166,7 @@
   </p>
   <ul>
     <li>
-      Javascript/Typescript
+      Javascript/TypeScript
       <ul>
         <li>Specifically Angular</li>
       </ul>
@@ -133,4 +179,4 @@
   <p>
     I have also spent time with various other technologies, just not as proficient with.
   </p>
-</div>
+</section>

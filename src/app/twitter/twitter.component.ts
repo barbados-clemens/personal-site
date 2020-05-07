@@ -10,13 +10,13 @@ import {animate, query, stagger, state, style, transition, trigger} from '@angul
   animations: [
     trigger('fadeSlideUp', [
       transition('*=>*', [
-        query(':enter', style({opacity: 0, transform: 'translate(0, 5em)'})),
+        query(':enter', style({opacity: 0, transform: 'translate(0, 5em)'}), {optional: true}),
 
         query(':enter', stagger('250ms', [
           animate('300ms cubic-bezier(0.4, 0.0, 0.2, 1)',
             style({opacity: 1, transform: 'translate(0,0)'})
           )
-        ]))
+        ]), {optional: true})
       ])
     ])
   ]
