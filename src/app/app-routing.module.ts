@@ -1,15 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
   {
-    path: 'blog',
-    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule),
+    path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule),
   },
   {
     path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
@@ -20,10 +18,11 @@ const routes: Routes = [
   {
     path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
   },
-  { path: 'recipe', loadChildren: () => import('./recipe/recipe.module').then(m => m.RecipeModule) },
   {
-    path: '**',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    path: 'verify', loadChildren: () => import('./verify/verify.module').then(m => m.VerifyModule)
+  },
+  {
+    path: '**', redirectTo: ''
   }
 ];
 

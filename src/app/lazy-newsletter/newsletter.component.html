@@ -1,24 +1,33 @@
-<label class="info h5" for="newsletter-email">Sign up for a monthly newsletter</label>
-<small class="info">Don't worry, I won't spam you! <br> One email a month at most which you can unsubscribe from at
-  anytime.</small>
+<form method="post" [formGroup]="newsletterForm">
 
-<input tabindex="0"
-       type="email"
-       class="text-input"
-       name="newsletter-email"
-       id="newsletter-email"
-       placeholder="Your Email"
-       aria-labelledby="Sign up for email newsletters"
-       [formControl]="email"
-/>
+  <label class="info h5" for="newsletter-email">Sign up for a monthly newsletter</label>
+  <small class="info">Don't worry, I won't spam you! <br> One email a month at most which you can unsubscribe from at
+    anytime.</small>
 
-<span class="text_small bad-input"
-      *ngIf="email.touched && email.dirty && email.hasError('email'); else submitBtn">
+  <input tabindex="0"
+         type="email"
+         class="text-input"
+         name="newsletter-email"
+         id="newsletter-email"
+         placeholder="Your Email"
+         aria-labelledby="Sign up for email newsletters"
+         formControlName="email"
+  />
+
+  <div hidden>
+    <label>
+      Don’t fill this out:
+      <input name="bot-field" formControlName="bot"/>
+    </label>
+  </div>
+
+
+  <span class="text_small bad-input"
+        *ngIf="newsletterForm.get('email').touched && newsletterForm.get('email').dirty && newsletterForm.get('email').hasError('email'); else submitBtn">
   &nbsp; Invalid email
 </span>
+</form>
 <ng-template #submitBtn>
-  <button class="btn" (click)="submit()" [disabled]="!email.valid">Submit</button>
+  <button class="btn" (click)="submit()" [disabled]="!newsletterForm.get('email').valid">Submit</button>
 </ng-template>
-
-
-
+<pre>{{newsletterForm.errors | json}}</pre>
