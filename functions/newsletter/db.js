@@ -23,16 +23,17 @@ exports.markUserAsVerified = async (docId) => {
  * @param {string} email
  * @param {string} signUpPage
  * @param {boolean} bot
- * @returns {Promise<FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>>}
+ * @param {string} token
+ *
+ * @return {Promise<WriteResult>}
  */
-exports.saveToDb = async function ({email, signUpPage, bot}) {
-  return  db.collection('users').add({
-    email,
-    signUpPage,
-    bot,
-    isVerified: false,
-    created_at: new Date(Date.now())
-  })
-
-
+exports.saveToDb = async function ({email, signUpPage, bot, token}) {
+  return db.collection('users').doc(token)
+    .set({
+      email,
+      token,
+      signUpPage,
+      bot,
+      created_at: new Date(Date.now())
+    }, {merge: true})
 }

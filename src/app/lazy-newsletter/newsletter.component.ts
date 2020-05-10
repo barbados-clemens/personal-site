@@ -1,18 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {NewsletterService} from './newsletter.service';
-import {Router} from '@angular/router';
-import {tap} from 'rxjs/operators';
+import {catchError, retryWhen, tap} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {genericRetryStrategy} from '../services/genericRetry.strategy';
 
 
 @Component({
   selector: 'app-newsletter',
   templateUrl: './newsletter.component.html',
-  styleUrls: ['./newsletter.component.scss']
+  styleUrls: ['./newsletter.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsletterComponent implements OnInit {
 
+  isLoading = false;
   newsletterForm: FormGroup;
+
+  signUpRes: Observable<any>;
 
   @Input()
   tags: string[] = ['Empty'];
@@ -20,7 +25,6 @@ export class NewsletterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private newsletterSrv: NewsletterService,
-    private router: Router,
   ) {
   }
 
@@ -35,15 +39,21 @@ export class NewsletterComponent implements OnInit {
     if (!this.newsletterForm.valid) {
       return;
     }
+    this.isLoading = true;
 
-    this.newsletterSrv.signUp(
+    this.signUpRes = this.newsletterSrv.signUp(
       this.newsletterForm.get('email').value,
       this.newsletterForm.get('bot').value,
       location.href,
     )
       .pipe(
-        tap(res => console.log('do some logic', res)),
-      )
-      .subscribe();
+        tap(r => console.log(r)),
+        retryWhen(genericRetryStrategy()),
+        catchError((e, c) => {
+          console.error(e);
+          return of({error: e, ...e});
+        }),
+        tap(_ => this.isLoading = false)
+      );
   }
 }

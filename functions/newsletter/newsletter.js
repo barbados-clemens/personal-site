@@ -1,4 +1,4 @@
-const {sendEmail} = require("./email");
+const {sendEmail, generateToken} = require("./email");
 const {markUserAsVerified, saveToDb} = require("./db")
 
 
@@ -43,55 +43,73 @@ const verifyPayload = (payload) => {
 }
 
 
+/**
+ *
+ * @param {Object} payload
+ * @return {Promise<boolean>}
+ */
 const signUpUser = async (payload) => {
-  const {id} = await saveToDb(payload)
+  const token = await generateToken(payload.email);
+  console.log('doc id', token)
 
-  console.log('doc id', id)
-  return sendEmail(payload.email, id);
+  const dbInfo = {...payload, token};
+  console.log(dbInfo)
+  await saveToDb(dbInfo)
+
+  return sendEmail(payload.email, token);
 }
 
 exports.handler = async function (event, context, callback) {
-  if (event.httpMethod !== 'POST') {
+  try {
+
+    if (event.httpMethod !== 'POST') {
+      callback(null, {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({error: 'invalid HTTP verb', verb: event.httpMethod})
+      })
+    }
+    const payload = JSON.parse(event.body);
+
+    const {statusCode, message} = verifyPayload(payload);
+
+    if (statusCode !== 200) {
+      callback(null, {
+        statusCode,
+        headers,
+        body: JSON.stringify(message)
+      })
+    }
+
+
+    switch (payload.type) {
+      case 'signup':
+        await signUpUser(payload);
+        break;
+      case 'check':
+        await markUserAsVerified(payload.token);
+        break;
+      default:
+        callback(null, {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({error: `unknown type: ${payload.type}`})
+        })
+        break;
+
+    }
+
     callback(null, {
       statusCode: 200,
       headers,
-      body: JSON.stringify({error: 'invalid HTTP verb', verb: event.httpMethod})
+      body: JSON.stringify({success: `Thank you! Check your email, ${payload.email}, for a verification link`})
     })
-  }
-  const payload = JSON.parse(event.body);
-
-  const {statusCode, message} = verifyPayload(payload);
-
-  if (statusCode !== 200) {
+  } catch (e) {
     callback(null, {
-      statusCode,
+      statusCode: 500,
       headers,
-      body: JSON.stringify(message)
+      body: JSON.stringify({error: 'Unknown error', ...e})
     })
   }
-
-
-  switch (payload.type) {
-    case 'signup':
-      await signUpUser(payload);
-      break;
-    case 'check':
-      await markUserAsVerified(payload.token);
-      break;
-    default:
-      callback(null, {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({error: `unknown type: ${payload.type}`})
-      })
-      break;
-
-  }
-
-  callback(null, {
-    statusCode: 200,
-    headers,
-    body: JSON.stringify({success: `Thank you! Check your email, ${payload.email}, for a verification link`})
-  })
 }
 
