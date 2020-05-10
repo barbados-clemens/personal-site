@@ -8,7 +8,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  workingTime = this.timeSince(new Date('2017-05-30'));
+  // workingTime = this.timeSince(new Date('2017-05-30'));
 
   constructor() {
   }
@@ -17,9 +17,12 @@ export class AboutComponent implements OnInit {
   }
 
   private timeSince(start: Date): string {
+
     // @ts-ignore
     const rtf = new Intl.RelativeTimeFormat(navigator.language, {style: 'narrow'});
 
     return rtf.format((new Date(Date.now()).valueOf() - start.valueOf()) / 86400000, 'day');
+
+
   }
 }
