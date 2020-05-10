@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "netlify dev",
     "build": "ng build && scully --nw --scan",
     "move": "mkdir -p public && cp -rf dist/static/* public",
     "build:prod": "ng build --prod && scully --nw --scan",
@@ -47,7 +48,6 @@
     "prismjs": "^1.19.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "xstate": "^4.7.8",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {

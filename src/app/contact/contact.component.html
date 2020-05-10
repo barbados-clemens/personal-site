@@ -18,12 +18,16 @@
       </label>
     </div>
 
-    <label>
+    <div>
+      <label>
+        Name
+      </label><br>
 
       <input
         aria-label="Input your name"
         Name="input"
         type="text"
+        class="text-input"
         name="name"
         formControlName="name"
         id="name"
@@ -34,15 +38,17 @@
           A name is required
         </small>
       </ng-container>
-    </label>
+    </div>
 
-    <label>
-
+    <div>
+      <label>
+        Email
+      </label><br>
       <input
         aria-label="Input your email"
-        class="input"
         type="email"
         name="email"
+        class="text-input input"
         formControlName="email"
         id="email"
         placeholder="Your Email"
@@ -56,25 +62,29 @@
           Invalid email
         </small>
       </ng-container>
-    </label>
+    </div>
 
-    <label>
-  <textarea
-    aria-label="Input your message"
-    class="textarea"
-    name="msg"
-    formControlName="msg"
-    id="message"
-    placeholder="Your Message"
-    rows=10></textarea>
+    <div class="full-width">
+
+      <label>
+        Message
+      </label><br>
+      <textarea
+        aria-label="Input your message"
+        name="msg"
+        formControlName="msg"
+        class="textarea textarea-input"
+        id="message"
+        placeholder="Your Message"
+        rows=10></textarea>
       <ng-container *ngIf="contactForm.get('msg').errors && contactForm.get('msg').dirty">
         <small class="input-error" *ngIf="contactForm.get('msg').hasError('required')">
           A message is required
         </small>
       </ng-container>
+    </div>
 
-    </label>
-    <button tabindex="0" aria-label="Submit form" type="submit" [disabled]="!contactForm.valid">
+    <button tabindex="0" aria-label="Submit form" type="submit" class="btn right" [disabled]="!contactForm.valid">
       Send
     </button>
   </form>

@@ -2,19 +2,7 @@ form {
   display: grid;
   place-items: center;
   gap: .5em;
-  padding: 0;
-  input {
-    line-height: 1.15;
-    font-size: .9em;
-    border: 1px solid var(--app-border-color);
-    background-color: var(--app-card-bg);
-    color: var(--app-text-color);
-    border-radius: .3rem;
-    padding: 1em;
-    margin-bottom: 1em;
-    width: 100%;
-    max-width: 500px;
-  }
+  padding: 1em 2em;
 }
 
 h3 {
@@ -23,7 +11,13 @@ h3 {
 
 
 .result-cards {
+  padding-top: 1.15em;
   display: grid;
   gap: 1.15em;
   margin-bottom: 1.15rem;
+}
+
+.algolia-insta-search {
+  display: flex;
+  align-items: center;
 }

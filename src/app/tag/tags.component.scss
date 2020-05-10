@@ -2,19 +2,22 @@
 .tag-container {}
 
 .tag {
-  color: var(--theme-off-white);
+  color: var(--white);
   border-radius: 1.3em;
   text-decoration: none;
   padding: .1em .75em;
   margin-right: 10px;
-  text-decoration: none;
   display: inline-block;
   margin-bottom: .6em;
-  background-color: var(--theme-blue);
-  transition: box-shadow 250ms var(--theme-transistion-curve);
+  background: var(--v2-red);
+  transition-property: box-shadow, transform;
+  transition-duration: 200ms;
+  transition-timing-function: var(--theme-transistion-curve);
+  box-shadow: var(--elevate-1);
   &:hover {
     cursor: pointer;
-    box-shadow: var(--app-box-shadow);
-    color: var(--theme-off-white);
+    box-shadow: var(--elevate-2);
+    transform: translate(0, -2px);
+    color: var(--white);
   }
 }

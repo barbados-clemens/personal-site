@@ -1,25 +1,77 @@
 <section id="greeting" class="greeting-container">
-  <h1>👋 Hi, I'm Caleb</h1>
+  <h1 class="blocky"> Hey there 👋</h1>
+  <h1 class="blocky">My name is Caleb</h1>
   <p>
-    I'm a software developer, technology enthusiast, and simply enjoy learning new things.
+    I'm a ...
   </p>
-  <p>
-    I've been a professional software developer since 2017. Right before
-    starting my career, I graduated with a B.S. in Electrical Engineering.
-    I've been a problem solver for as long as I can remember, and I am
-    always trying to find new things to learn.
-  </p>
-  <p>Learn more <a tabindex="0" routerLink="/about">about me</a></p>
-  <p>Check out my <a routerLink="/uses">/uses</a> page to see my gear.</p>
+  <ul class="about-me">
+    <li> <span class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+  <defs/>
+  <g stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#clip0)">
+    <path d="M13.5 3h-9A1.5 1.5 0 003 4.5v9A1.5 1.5 0 004.5 15h9a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0013.5 3z"/>
+    <path
+      d="M6.75 6.75h4.5v4.5h-4.5v-4.5zM6.75.75V3M11.25.75V3M6.75 15v2.25M11.25 15v2.25M15 6.75h2.25M15 10.5h2.25M.75 6.75H3M.75 10.5H3"/>
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <path fill="#fff" d="M0 0h18v18H0z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+    </span> technology enthusiast
+    </li>
+    <li>
+      <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+  <defs/>
+  <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M13.5 15.75a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM4.5 6.75a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM9.75 4.5H12A1.5 1.5 0 0113.5 6v5.25M4.5 6.75v9"/>
+</svg>
+
+      </span>
+      software explorer
+    </li>
+    <li>
+      <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+  <defs/>
+  <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M2.25 13.5V9a6.75 6.75 0 0113.5 0v4.5"/>
+  <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M15.75 14.25a1.5 1.5 0 01-1.5 1.5h-.75a1.5 1.5 0 01-1.5-1.5V12a1.5 1.5 0 011.5-1.5h2.25v3.75zm-13.5 0a1.5 1.5 0 001.5 1.5h.75a1.5 1.5 0 001.5-1.5V12a1.5 1.5 0 00-1.5-1.5H2.25v3.75z"/>
+</svg>
+
+      </span>
+      music enjoyer
+    </li>
+    <li>
+      <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+  <defs/>
+  <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M9 16.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15z"/>
+  <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M6.817 6.75a2.25 2.25 0 014.373.75c0 1.5-2.25 2.25-2.25 2.25M9 12.75h.008"/>
+</svg>
+
+      </span>
+      and &nbsp;<a href="/about">more</a></li>
+  </ul>
 </section>
 
 
 <section id="recent-posts">
   <h3 style="text-align: center;">Latest Posts</h3>
-  <div class="blog-container">
+  <div class="blog-container" [@fadeSlideIn]="(links$ | async)?.length">
     <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route">
       {{ p.title }} &nbsp;
-      <app-tags style="display: inline-block;" *ngIf="isNewPost(p.date)" [tags]="['NEW']"></app-tags>
+      <span *ngIf="isNewPost(p.date)"
+            class="special-tag text_small"
+      >
+        NEW
+      </span>
     </div>
     <p style="text-align: center;">
       Check out more posts <a routerLink="/blog">here</a>.

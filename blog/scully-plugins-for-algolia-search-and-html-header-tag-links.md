@@ -4,12 +4,13 @@ date: 2020-02-16
 image: 'https://media.calebukle.com/uploads/scullyio-logo.png'
 description: >-
   While converting this blog over to Scully, I ended up writing plugins for
-  updating an Algoia index and providing links to header locations and a some
-  other help ones. Check them all out here.
-publish: false
+  updating an Algoia index and providing links to header locations, and a some
+  other helpful ones. Check them all out here!
+publish: true
 tags:
   - Scully
   - Algoila
+  - Firebase
   - Plugins
 ---
 

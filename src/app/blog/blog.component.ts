@@ -1,6 +1,6 @@
 import {AfterContentChecked, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
-import {filter, switchMap, take, takeUntil, tap} from 'rxjs/operators';
+import {filter, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {HighlightService} from './services/highlight/highlight.service';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
 import {BlogDbService} from './services/blogDb/blog-db.service';
@@ -18,6 +18,7 @@ export class BlogComponent implements AfterContentChecked, OnDestroy {
   meta$: Observable<IBlogFrontmatter> = this.scully.getCurrent()
     .pipe(
       takeUntil(this.subs),
+      shareReplay(),
       tap(m => this.metaSrv.update({
         title: m.title,
         desc: m.description,

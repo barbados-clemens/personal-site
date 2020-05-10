@@ -6,7 +6,7 @@ tags:
   - Scully
   - Gatsby
   - Plugins
-publish: false
+publish: true
 image: https://media.calebukle.com/uploads/2020/04/wk-UvyRivfCxl.gif
 ---
 

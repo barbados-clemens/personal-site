@@ -4,12 +4,26 @@ import {map} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
 import {DateHelperService} from '../../../services/date-helper.service';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-blog-overview',
   templateUrl: './blog-overview.component.html',
   styleUrls: ['./blog-overview.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('fadeSlideUp', [
+      transition('*=>*', [
+        query(':enter', style({opacity: 0, transform: 'translate(0, 5em)'}), {optional: true}),
+
+        query(':enter', stagger('250ms', [
+          animate('350ms cubic-bezier(0.4, 0.0, 0.2, 1)',
+            style({opacity: 1, transform: 'translate(0,0)'})
+          )
+        ]), {optional: true})
+      ])
+    ])
+  ]
 })
 
 export class BlogOverviewComponent {
