@@ -2,10 +2,16 @@
 
 <h1 id="top">{{ (meta$ | async)?.title }}</h1>
 
-<app-like-ui (like)="addLike()" [count]="likes$ | async"></app-like-ui>
-<p class="text_small published">{{ (meta$ | async)?.date | date:"longDate" }}</p>
+<p class="sub-header">
+  <span class="author">By Caleb Ukle</span>
+  <span class="published">{{ (meta$ | async)?.date | date:"longDate" }}</span>
+  <app-like-ui (like)="addLike()" [count]="likes$ | async"></app-like-ui>
+</p>
 
-<app-tags [tags]="(meta$ | async)?.tags"></app-tags>
+<p class="tags">
+  <app-tags [tags]="(meta$ | async)?.tags"></app-tags>
+
+</p>
 
 <section class="post-content" appBlurUp>
   <p> {{ (meta$ | async)?.description }}</p>
@@ -13,4 +19,7 @@
 </section>
 <a appTooltip position="start" toolTipText="Back To Top" class="top-link clean_link"
    href="{{(meta$ | async)?.route}}#top">⏫</a>
-<app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>
+<div class="actions">
+<!--  <app-newsletter [tags]="(meta$ |async)?.tags"></app-newsletter>-->
+  <app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>
+</div>

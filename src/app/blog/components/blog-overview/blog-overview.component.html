@@ -1,23 +1,40 @@
+<h2>Blog</h2>
+<p>I try to write at least once a month. What I write can vary but typically related to whatever I've been hacking on,
+  experimenting with, or just enjoying in my spare time.</p>
 
 <p>
-  Here are some things I've written. I aim to write once a month, but sometimes I miss or double up. I try to explain things in a user friendly way. I never write in the <em>foo, bar, baz</em> code examples. My goal is to provide practical and easy to understand code examples and directions.
+  Most of my posts aim at being documentation for myself so I can remember how I did something before. Because they
+  serve this purpose, the posts aren't full of <em>foo, bar, baz</em> type examples. Typically a runnable code snippets
+  or repo links will be provided.
 </p>
+
 <p>
-  You can easily search all my previous posts <a href="/blog#search">down below</a>.
-  Click on the blue tags will also search for those topics as well.
+  Down below are a few posts, but you can search <a href="/blog#search">down below</a> if you can't find what you're looking for.
 </p>
+
 <p>
-  Thanks for reading!
+  You can send a tweet <a
+  href="https://twitter.com/intent/tweet?text=hey&url=https://calebukle.com/blog&via=CU_galaxy`">at me</a> or use my <a
+  href="/contact">contact form</a> if you need help, want to get in touch, or just want to say how awesome I am. I won't
+  stop you 😉.
 </p>
-<div class="post-container">
+
+<p>
+  I also have all the gear I use on my <a href="/uses">/uses</a> page, if you'd like to check that out.
+</p>
+
+<p>Thanks for reading!</p>
+
+<div class="post-container" [@fadeSlideUp]="(links$ |async)?.length">
   <div *ngFor="let l of links$ | async; let isFirst = first;">
-    <h4 [id]="l.date" class="title" [ngStyle]="{'margin-top': isFirst ? 0 : '1.953em'}" >{{ l.date }}</h4>
+    <h4 [id]="l.date" class="title" [ngClass]="{'first': isFirst}">{{ l.date }}</h4>
     <app-card class="post" *ngFor="let p of l.posts" [cardInfo]="p"></app-card>
   </div>
 </div>
 
-<p style="text-align: center"> If you want to know what I use on a semi daily basis check out my <a routerLink="/uses">/uses</a> page</p>
+<p style="text-align: center"> If you want to know what I use on a semi daily basis check out my <a routerLink="/uses">/uses</a>
+  page</p>
 <section id="search">
   <h4 style="text-align: center;">Didn't find what you're looking for?</h4>
-  <app-search index="Blog_Posts"></app-search>
+  <app-search index="blog"></app-search>
 </section>

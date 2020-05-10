@@ -1,7 +1,56 @@
+:host {
+  --twitter-color: var(--light-gray-1);
+  --facebook-color: var(--light-gray-1);
+  --email-color: var(--light-gray-1);
+  --rss-color: var(--light-gray-1);
+
+  --rss-orange: orange;
+  --email-orange: tomato;
+  --facebook-blue: rgb(59,89,152);
+}
+
 .share-sheet {
   text-align: center;
   a {
     margin: 0 6px;
     cursor: pointer;
+  }
+}
+
+
+.share-btn {
+  transition-property: transform, color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: var(--theme-transistion-curve);
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+}
+
+
+.twitter {
+  &:hover,&:focus {
+    --twitter-color: var(--twitter-blue);
+  }
+}
+
+.facebook {
+  &:hover,&:focus {
+    --facebook-color: var(--facebook-blue);
+  }
+}
+
+.email {
+  &:hover,&:focus {
+    --email-color: var(--email-orange);
+  }
+}
+
+.rss {
+  &:hover,&:focus {
+    --rss-color: var(--rss-orange);
   }
 }

@@ -1,15 +1,16 @@
 {
-  "name": "forms",
+  "name": "newsletter",
   "version": "1.0.0",
   "description": "",
-  "main": "submission-created.js",
+  "main": "newsletter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/aws-lambda": "^8.10.51"
+  "dependencies": {
+    "@sendgrid/mail": "^7.1.0",
+    "firebase-admin": "^8.11.0"
   }
 }
