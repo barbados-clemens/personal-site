@@ -6,8 +6,10 @@ require("./plugins/blurUp.plugin.js");
 // require("@notiz/scully-plugin-lazy-images");
 // require("@notiz/scully-plugin-fouc");
 
-const {RouteTypes} = require('@scullyio/scully');
+const {RouteTypes, setPluginConfig} = require('@scullyio/scully');
 const {Sitemap} = require('@gammastream/scully-plugin-sitemap');
+// does this work??
+setPluginConfig('md', {enableSyntaxHighlighting: true})
 
 const sitemapOptions = {
   urlPrefix: 'https://calebukle.com',
