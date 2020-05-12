@@ -17,8 +17,8 @@
   <p> {{ (meta$ | async)?.description }}</p>
   <scully-content></scully-content>
 </section>
-<a appTooltip position="start" toolTipText="Back To Top" class="top-link clean_link"
-   href="{{(meta$ | async)?.route}}#top">⏫</a>
+<!--<a appTooltip position="start" toolTipText="Back To Top" class="top-link clean_link"-->
+<!--   href="{{(meta$ | async)?.route}}#top">⏫</a>-->
 <div class="actions">
 <!--  <app-newsletter [tags]="(meta$ |async)?.tags"></app-newsletter>-->
   <app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>

@@ -15,7 +15,7 @@ const sitemapOptions = {
   urlPrefix: 'https://calebukle.com',
   sitemapFilename: 'sitemap.xml',
   changeFreq: 'monthly',
-  priority: ['0.7','0.7', '0.7'],
+  priority: ['0.7', '0.7', '0.7'],
   ignoredRoutes: ['/404', '/contact/thanks', '/contact']
 };
 

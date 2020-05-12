@@ -1,10 +1,10 @@
-import {AfterContentChecked, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {AfterContentChecked, AfterContentInit, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
-import {filter, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
-import {HighlightService} from './services/highlight/highlight.service';
+import {delay, filter, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
 import {BlogDbService} from './services/blogDb/blog-db.service';
 import {Observable, Subject} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -13,7 +13,7 @@ import {Observable, Subject} from 'rxjs';
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogComponent implements AfterContentChecked, OnDestroy {
+export class BlogComponent implements OnDestroy, AfterContentInit {
   subs = new Subject();
   meta$: Observable<IBlogFrontmatter> = this.scully.getCurrent()
     .pipe(
@@ -35,17 +35,26 @@ export class BlogComponent implements AfterContentChecked, OnDestroy {
 
   constructor(
     private scully: ScullyRoutesService,
-    private highlightSrv: HighlightService,
     private metaSrv: MetadataService,
     private blogDb: BlogDbService,
+    private route: ActivatedRoute,
   ) {
   }
 
-  ngAfterContentChecked() {
-    // TODO fix this hack
-    setTimeout(() => {
-      this.highlightSrv.highlightAll();
-    }, 500);
+  ngAfterContentInit() {
+    this.route.fragment
+      .pipe(
+        takeUntil(this.subs),
+        delay(250),
+      )
+      .subscribe(f => {
+        console.log(f);
+        console.log(document.querySelector(`#${f}`)
+          ?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          }));
+      });
   }
 
   addLike() {
@@ -55,7 +64,7 @@ export class BlogComponent implements AfterContentChecked, OnDestroy {
         take(1),
         switchMap(m => this.blogDb.addLike(m.route)),
       )
-      .subscribe(r => {
+      .subscribe(_ => {
       });
   }
 
