@@ -21,7 +21,7 @@ export class LikeUiComponent {
   }
 
   addLike() {
-    // this.like.emit(true);
+    this.like.emit(true);
     this.count++;
   }
 
