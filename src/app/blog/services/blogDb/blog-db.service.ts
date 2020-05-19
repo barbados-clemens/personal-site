@@ -16,9 +16,9 @@ export class BlogDbService {
   ) {
   }
 
-  likes$ = docPath => this.afs.doc<IBlogDoc>(docPath).valueChanges()
+  likes$ = (docPath) => this.afs.doc<IBlogDoc>(docPath).valueChanges()
     .pipe(
-      map(value => value?.likes ?? 0),
+      map((value) => value?.likes ?? 0),
     )
 
 
@@ -29,7 +29,7 @@ export class BlogDbService {
     }
     return this.http.post<any>(`/.netlify/functions/like`, {route: docPath})
       .pipe(
-        map(res => {
+        map((res) => {
           this.saveLocalLikes(docPath);
           return {
             isMax: false,

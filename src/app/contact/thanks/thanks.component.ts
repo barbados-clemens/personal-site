@@ -12,9 +12,9 @@ export class ThanksComponent {
 
   cardInfo$ = this.scully.available$
     .pipe(
-      map(posts => posts
+      map((posts) => posts
         .sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
-      map(links => links.filter(l => l.route.startsWith('/blog/'))[0]),
+      map((links) => links.filter((l) => l.route.startsWith('/blog/'))[0]),
     );
 
   constructor(

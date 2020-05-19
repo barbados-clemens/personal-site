@@ -30,15 +30,15 @@ export class BlogOverviewComponent {
 
   links$: Observable<any[]> = this.scully.available$
     .pipe(
-      map(posts => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
-      map(links => links.filter(l => l.route.startsWith('/blog/')).slice(0, 10)),
-      map(posts => {
-        const dates = new Set(posts.map(p => this.dateSrv.parseDateToTitle(p.date)));
+      map((posts) => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
+      map((links) => links.filter((l) => l.route.startsWith('/blog/')).slice(0, 10)),
+      map((posts) => {
+        const dates = new Set(posts.map((p) => this.dateSrv.parseDateToTitle(p.date)));
         return Array.from(dates)
-          .map(d => {
+          .map((d) => {
             return {
               date: d,
-              posts: posts.filter(p => this.dateSrv.parseDateToTitle(p.date) === d)
+              posts: posts.filter((p) => this.dateSrv.parseDateToTitle(p.date) === d)
             };
           });
       })

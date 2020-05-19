@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   links$: Observable<IBlogFrontmatter[]> = this.scully.available$
     .pipe(
       takeUntil(this.sub),
-      map(posts => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
-      map(links => links.filter(l => l.route.startsWith('/blog/')).slice(0, 4)),
+      map((posts) => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
+      map((links) => links.filter((l) => l.route.startsWith('/blog/')).slice(0, 4)),
       // map(posts => {
       //   const dates = new Set(posts.map(p => this.parseDateToTitle(p.date)));
       //   return Array.from(dates)

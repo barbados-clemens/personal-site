@@ -1,38 +1,47 @@
 :host {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+
   background-color: var(--app-card-bg);
   color: var(--app-card-text-color);
   box-shadow: 5px 6px 0 var(--dont-hate-end);
   border-radius: .5em;
-  padding: 1.15em;
+  padding: 2.25rem;
   text-align: center;
   transition: transform 200ms var(--theme-transistion-curve);
+
+  h4 {
+    margin-top: 0;
+  }
 
   &:hover {
     transform: translate(0, -4px);
   }
 
-  .info {
-    display: block;
-    padding-bottom: .8em;
+  .btn {
+    width: 100%;
   }
 
-  .btn {
-    margin-left: .8em;
+  form {
+    display: grid;
+    gap: 1.15em;
+    place-content: center;
   }
 
   .text-input {
     border: 1px solid var(--app-bg-color);
-    background-color: var(--app-bg-color);
+    background-color: var(--white);
     box-shadow: var(--elevate-1);
+    color: var(--app-bg-color);
 
     &:hover,
     &:active, {
-      box-shadow: var(--elevate-2);
     }
 
     &:focus {
-      color: var(--app-text-color)
+      border-radius: 1rem;
+      color: var(--app-bg-color);
     }
   }
 }

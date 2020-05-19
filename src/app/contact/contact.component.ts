@@ -39,7 +39,7 @@ export class ContactComponent implements OnInit {
     }
 
     this.contactFormSrv.submit(this.contactFormRef.nativeElement)
-      .subscribe(t => {
+      .subscribe((t) => {
         if (t?.error) {
           alert('Issue submitting form 🙁. Try again.');
         } else {

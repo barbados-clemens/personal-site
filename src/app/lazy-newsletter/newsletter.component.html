@@ -1,53 +1,83 @@
-<p *ngIf="signUpRes | async as res;else form">
-  <ng-container *ngIf="res?.error">
-    There was a problem signing up 🙁
-    <br>
-    <span style="color: var(--v2-red);">
-    {{!!res?.error?.error ? res?.error?.error : res.error}}
-    </span>
-    <br>
-    <button class="btn" (click)="signUpRes = null">Try Again</button>
+<div class="left">
+  <h4>Join the Newsletter</h4>
+
+  <p>Subscribing gets a monthly newsletter in your inbox. I won't send you spam, I promise. Unsubscribe at any time.</p>
+</div>
+
+<div class="right">
+
+  <ng-container *ngIf="signUpRes | async as res; else form">
+    <ng-container *ngIf="res?.error">
+      <p>
+        🤔 hmm something went wrong.
+      </p>
+      <button class="btn" type="button" (click)="signUpRes = null">Try Again</button>
+    </ng-container>
+
+    <ng-container *ngIf="res?.status === 'success'">
+      <p>
+        Success! Now check your email to confirm your subscription.
+      </p>
+    </ng-container>
+
+    <ng-container *ngIf="res?.status !== 'success'">
+      <p>
+        Oops issue signing up. <br>
+        <button type="button" class="btn" (click)="signUpRes = null">Try Again</button>
+      </p>
+    </ng-container>
   </ng-container>
-  <ng-container *ngIf="res?.success">
-    {{res?.success}}
-  </ng-container>
-</p>
-
-<ng-template #form>
-  <form method="post" [formGroup]="newsletterForm">
-
-    <label class="info h5" for="newsletter-email">Sign up for a monthly newsletter</label>
-    <small class="info">Don't worry, I won't spam you! <br> One email a month at most which you can unsubscribe from at
-      anytime.</small>
-
-    <input tabindex="0"
-           type="email"
-           class="text-input"
-           name="newsletter-email"
-           id="newsletter-email"
-           placeholder="Your Email"
-           aria-labelledby="Sign up for email newsletters"
-           formControlName="email"
-    />
-
-    <div hidden>
-      <label>
-        Don’t fill this out:
-        <input name="bot-field" formControlName="bot"/>
-      </label>
-    </div>
 
 
-    <span class="text_small bad-input"
-          *ngIf="newsletterForm.get('email').touched
-        && newsletterForm.get('email').dirty
-        && newsletterForm.get('email').hasError('email');
-        else submitBtn">
-  &nbsp; Invalid email
-</span>
-  </form>
-  <ng-template #submitBtn>
-    <button class="btn" (click)="submit()" [disabled]="!newsletterForm.get('email').valid">Submit</button>
+  <ng-template #form>
+
+    <form
+      [action]="formUrl"
+      method="post"
+      (ngSubmit)="submit($event)"
+      [formGroup]="newsletterForm"
+    >
+      <input type="text"
+             aria-label="Your name"
+             name="fields[first_name]"
+             placeholder="Your name"
+             formControlName="name"
+             class="text-input"
+      >
+
+      <input type="email"
+             aria-label="Your email"
+             name="email_address"
+             placeholder="Your email address"
+             formControlName="email"
+             class="text-input"
+      >
+
+      <ng-container *ngIf="tagMap$ | async">
+        <input
+          *ngFor="let t of formattedTags(this.tags || [])"
+          type="checkbox"
+          id="tag-{{subFormId}}-{{t}}"
+          style="display: none;"
+          checked
+          name="tags[]"
+          [value]="t"
+        >
+      </ng-container>
+
+      <p>
+        <button class="btn"
+                type="submit"
+                [disabled]="!newsletterForm.valid"
+        >
+          Subscribe
+        </button>
+        <br>
+        <small>Powered By <a
+          href="https://convertkit.com?utm_source=dynamic&utm_medium=referral&utm_campaign=poweredby&utm_content=form"
+          target="_blank" rel="nofollow">ConvertKit</a></small>
+      </p>
+
+    </form>
   </ng-template>
-  {{ isLoading }}
-</ng-template>
+</div>

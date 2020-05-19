@@ -34,7 +34,7 @@ export class FooterComponent implements OnInit {
     }
 
     this.contactSrv.submit(this.newsletterFormRef.nativeElement)
-      .subscribe(t => {
+      .subscribe((t) => {
         if (t?.error) {
           alert('Issue submitting form 🙁. Try again.');
           console.warn(t.error);

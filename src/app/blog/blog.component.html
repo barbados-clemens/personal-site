@@ -20,6 +20,18 @@
 <!--<a appTooltip position="start" toolTipText="Back To Top" class="top-link clean_link"-->
 <!--   href="{{(meta$ | async)?.route}}#top">⏫</a>-->
 <div class="actions">
-<!--  <app-newsletter [tags]="(meta$ |async)?.tags"></app-newsletter>-->
+  <h3>Found this post helpful?</h3>
+  <p>
+    I'd really appreciate it you'd share this article if you found it interesting or helpful.
+    <a [href]="shareTwitterLink" target="_blank" rel="nofollow">
+      You can share on twitter by clicking here</a>.
+  </p>
+  <p>
+    Also, You can follow me, <a href="https://twitter.com/cu_galaxy" target="_blank" rel="nofollow">@CU_Galaxy</a>, on twitter.
+  </p>
+  <p id="newsletter">
+
+  <app-newsletter [tags]="(meta$ |async)?.tags"></app-newsletter>
+  </p>
   <app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>
 </div>

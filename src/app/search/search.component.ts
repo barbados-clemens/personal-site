@@ -42,7 +42,7 @@ export class SearchComponent implements AfterContentInit, OnDestroy {
     this.searchResults$ = this.searchService.results$
       .pipe(
         takeUntil(this.cleanUp$.asObservable()),
-        tap(r => !!r ? this.scrollToInput() : noop()),
+        tap((r) => !!r ? this.scrollToInput() : noop()),
       );
 
     this.searchForm.get('text').valueChanges
@@ -50,17 +50,17 @@ export class SearchComponent implements AfterContentInit, OnDestroy {
         takeUntil(this.cleanUp$.asObservable()),
         debounceTime(250),
       )
-      .subscribe(q => {
+      .subscribe((q) => {
         this.searchService.searchTextSub.next(q ?? null);
       });
 
     this.route.queryParamMap
       .pipe(
         takeUntil(this.cleanUp$.asObservable()),
-        map(q => q.get('tag')),
-        filter(t => !!t),
+        map((q) => q.get('tag')),
+        filter((t) => !!t),
       )
-      .subscribe(tag => {
+      .subscribe((tag) => {
         this.searchService.searchTextSub.next(tag ?? null);
         this.searchForm.patchValue({
           text: tag,

@@ -4,22 +4,22 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    path: '', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule),
+    path: 'blog', loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
   },
   {
-    path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
+    path: 'contact', loadChildren: () => import('./contact/contact.module').then((m) => m.ContactModule),
   },
   {
-    path: 'uses', loadChildren: () => import('./uses/uses.module').then(m => m.UsesModule),
+    path: 'uses', loadChildren: () => import('./uses/uses.module').then((m) => m.UsesModule),
   },
   {
-    path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
+    path: 'about', loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
   },
   {
-    path: 'verify', loadChildren: () => import('./verify/verify.module').then(m => m.VerifyModule)
+    path: 'verify', loadChildren: () => import('./verify/verify.module').then((m) => m.VerifyModule)
   },
   {
     path: '**', redirectTo: ''

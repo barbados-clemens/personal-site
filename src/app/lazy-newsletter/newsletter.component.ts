@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {NewsletterService} from './newsletter.service';
+import {IConvertKitFormResponse, NewsletterService} from './newsletter.service';
 import {catchError, retryWhen, tap} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {genericRetryStrategy} from '../services/genericRetry.strategy';
@@ -14,13 +14,17 @@ import {genericRetryStrategy} from '../services/genericRetry.strategy';
 })
 export class NewsletterComponent implements OnInit {
 
-  isLoading = false;
   newsletterForm: FormGroup;
 
-  signUpRes: Observable<any>;
-
+  tagMap$: Observable<any>;
+  tagMap: { [name: string]: string };
   @Input()
-  tags: string[] = ['Empty'];
+  tags: string[] = [];
+  @Input()
+  subFormId = '3957';
+  @Input()
+  formUrl = 'https://app.convertkit.com/forms/1401295/subscriptions';
+  signUpRes: Observable<IConvertKitFormResponse>;
 
   constructor(
     private fb: FormBuilder,
@@ -28,32 +32,47 @@ export class NewsletterComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
-    this.newsletterForm = this.fb.group({
-      email: ['', [Validators.email]],
-      bot: [false]
-    });
+  formattedTags = (tags: string[]): string[] => {
+    return tags.map((t) => this.tagMap[t.toLowerCase()]).filter((t) => !!t);
   }
 
-  submit() {
+  ngOnInit(): void {
+    this.newsletterForm = this.fb.group({
+      email: ['', [Validators.email, Validators.required]],
+      name: ['', [Validators.required]]
+    });
+
+    this.tagMap$ = this.newsletterSrv.getTags()
+      .pipe(
+        tap((t) => this.tagMap = t),
+      );
+  }
+
+  submit($event) {
+    $event.preventDefault();
+
     if (!this.newsletterForm.valid) {
       return;
     }
-    this.isLoading = true;
+    const data = new FormData($event.target);
 
     this.signUpRes = this.newsletterSrv.signUp(
-      this.newsletterForm.get('email').value,
-      this.newsletterForm.get('bot').value,
-      location.href,
+      data,
+      this.formUrl
     )
       .pipe(
-        tap(r => console.log(r)),
+        tap((r) => console.log(r)),
         retryWhen(genericRetryStrategy()),
         catchError((e, c) => {
           console.error(e);
           return of({error: e, ...e});
         }),
-        tap(_ => this.isLoading = false)
+        tap((r) => {
+          if (r?.consent?.enabled) {
+            window.open(r.consent.url);
+          }
+        })
       );
+
   }
 }

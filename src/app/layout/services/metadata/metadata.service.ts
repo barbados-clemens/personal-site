@@ -50,7 +50,7 @@ export class MetadataService {
 
     this.meta.updateTag({
       rel: 'canonical', href: metadata.url
-    })
+    });
   }
 }
 

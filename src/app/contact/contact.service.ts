@@ -21,12 +21,12 @@ export class ContactService {
     // @ts-ignore
     return this.http.post<any>(form.getAttribute('name'), data, { responseType: 'text' })
       .pipe(
-        map(_ => {
+        map((_) => {
           return {
             action: form.getAttribute('action'),
           };
         }),
-        catchError(e => {
+        catchError((e) => {
           console.error('issue posting form', e);
           return of({
             error: 'Try Again',

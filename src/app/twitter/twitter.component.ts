@@ -25,7 +25,7 @@ export class TwitterComponent {
 
   tweets$ = this.twitterSrv.getTweets()
     .pipe(
-      map(tweets => tweets.map(t => {
+      map((tweets) => tweets.map((t) => {
         return {
           ...t,
           full_text: `${t.full_text.split('https://t.co')
@@ -34,7 +34,7 @@ export class TwitterComponent {
         };
 
       })),
-      tap(t => console.log(t)),
+      tap((t) => console.log(t)),
     );
 
   constructor(
