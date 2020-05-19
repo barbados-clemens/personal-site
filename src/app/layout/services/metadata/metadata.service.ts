@@ -47,6 +47,10 @@ export class MetadataService {
     this.meta.updateTag({
       property: 'og:image', content: metadata.image || 'https://media.calebukle.com/uploads/icon-48x48.png'
     });
+
+    this.meta.updateTag({
+      property: 'canonical', href: metadata.url
+    })
   }
 }
 
