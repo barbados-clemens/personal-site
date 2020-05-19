@@ -49,7 +49,7 @@ export class MetadataService {
     });
 
     this.meta.updateTag({
-      property: 'canonical', href: metadata.url
+      rel: 'canonical', href: metadata.url
     })
   }
 }
