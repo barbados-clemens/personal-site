@@ -23,23 +23,26 @@ status = 301
 force = true
 
 [[redirects]]
-from = "https://calebukle/com/.env"
+from = "https://calebukle.com/.env"
 to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 status = 301
 force = true
 
 [[redirects]]
-from = "https://calebukle/com/wp-login.php"
+from = "https://calebukle.com/wp-login.php"
 to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 status = 301
 force = true
 
 [[redirects]]
-from = "https://calebukle/com/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php"
+from = "https://calebukle.com/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php"
 to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 status = 301
 force = true
 
+
+[[plugins]]
+package = "@netlify/plugin-functions-install-core"
 
 [[plugins]]
 package = "netlify-plugin-rss"
