@@ -49,3 +49,10 @@
 .bad-input {
   color: var(--v2-red);
 }
+
+
+@media (max-width: 520px) {
+  :host {
+    grid-template-columns: 1fr;
+  }
+}
