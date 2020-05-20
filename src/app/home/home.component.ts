@@ -4,7 +4,8 @@ import {Observable, Subject} from 'rxjs';
 import {map, takeUntil} from 'rxjs/operators';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
 import {IBlogFrontmatter} from '../blog/blog.component';
-import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
+import {animate, query, stagger, style, transition, trigger, useAnimation} from '@angular/animations';
+import {staggerEnter} from '../../animations/animations';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +14,12 @@ import {animate, query, stagger, style, transition, trigger} from '@angular/anim
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeSlideIn', [
-      transition('*=>*', [
-        query(':enter', style({opacity: 0, transform: 'translate(-10em,0)'}), {optional: true}),
-
-        query(':enter', stagger('250ms', [
-          animate('300ms cubic-bezier(0.4, 0.0, 0.2, 1)',
-            style({opacity: 1, transform: 'translate(0,0)'})
-          )
-        ]), {optional: true})
+      transition(':enter', [
+        useAnimation(staggerEnter, {
+          params: {
+            transform: 'translate(-10em,0)'
+          }
+        })
       ])
     ])
   ]

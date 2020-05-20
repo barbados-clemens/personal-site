@@ -31,6 +31,7 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
     .pipe(
       takeUntil(this.subs),
       switchMap((m) => this.blogDb.likes$(m.route)),
+      shareReplay(),
     );
 
   constructor(

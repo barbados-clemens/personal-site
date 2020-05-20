@@ -26,12 +26,16 @@
     <a [href]="shareTwitterLink" target="_blank" rel="nofollow">
       You can share on twitter by clicking here</a>.
   </p>
+  <p>You can also show you're support by liking this article, just give a star here →
+    <app-like-ui style="display: inline-block;" (like)="addLike()" [count]="likes$ | async"></app-like-ui>
+  </p>
   <p>
-    Also, You can follow me, <a href="https://twitter.com/cu_galaxy" target="_blank" rel="nofollow">@CU_Galaxy</a>, on twitter.
+    Also, you can follow me, <a href="https://twitter.com/cu_galaxy" target="_blank" rel="nofollow">@CU_Galaxy</a>, on
+    twitter.
   </p>
   <p id="newsletter">
 
-  <app-newsletter [tags]="(meta$ |async)?.tags"></app-newsletter>
+    <app-newsletter [tags]="(meta$ |async)?.tags"></app-newsletter>
   </p>
   <app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>
 </div>
