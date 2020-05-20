@@ -90,3 +90,9 @@ p > code {
 #newsletter {
   padding: 1.15em;
 }
+
+@media (max-width: 520px) {
+  #newsletter {
+    padding: 0;
+  }
+}
