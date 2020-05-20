@@ -52,7 +52,7 @@ export class BlurUpDirective implements AfterViewChecked, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.listeners.forEach(remove => remove());
+    this.listeners.forEach((remove) => remove());
   }
 
 }

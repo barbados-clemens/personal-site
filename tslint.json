@@ -2,7 +2,7 @@
   "extends": "tslint:recommended",
   "rules": {
     "array-type": false,
-    "arrow-parens": false,
+    "arrow-parens": true,
     "deprecation": {
       "severity": "warning"
     },
@@ -38,6 +38,7 @@
         "order": [
           "static-field",
           "instance-field",
+          "constructor",
           "static-method",
           "instance-method"
         ]
@@ -71,7 +72,7 @@
       true,
       "single"
     ],
-    "trailing-comma": false,
+    "trailing-comma": true,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,

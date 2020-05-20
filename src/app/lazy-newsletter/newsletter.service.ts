@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {EMPTY, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({
+    accept: 'application/json',
+    'cache-control': 'no-cache'
+  })
 };
 
 @Injectable({
@@ -18,22 +21,26 @@ export class NewsletterService {
   }
 
 
-  signUp(email: string, bot: boolean, signUpPage: string): Observable<any> {
-    if (bot) {
-      return EMPTY;
-    }
+  getTags(): Observable<{ [name: string]: string }> {
+    return this.http.get<any>('../../assets/tags/tags.json', httpOptions);
+  }
 
-    const body = {
-      email,
-      bot,
-      signUpPage,
-      type: 'signup',
-      token: ''
-    };
 
-    return this.http.post('/.netlify/functions/newsletter',
-      body,
+  signUp(formData: FormData, url: string): Observable<IConvertKitFormResponse> {
+    return this.http.post<IConvertKitFormResponse>(url,
+      formData,
       httpOptions
     );
   }
+}
+
+
+export interface IConvertKitFormResponse {
+  consent: {
+    enabled: boolean;
+    url: string;
+  };
+  status: 'success' | 'error';
+  redirect_url: string;
+  error?: any;
 }

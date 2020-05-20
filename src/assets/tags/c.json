@@ -1,0 +1,8 @@
+{
+  "consent": {
+    "enabled": false,
+    "url": "https://app.convertkit.com/forms/consents/68470079?redirect=https%3A%2F%2Fapp.convertkit.com%2Fforms%2Fsuccess%3Fform_id%3D1401295&response_format=json"
+  },
+  "status": "error",
+  "redirect_url": "https://app.convertkit.com/forms/success?form_id=1401295"
+}

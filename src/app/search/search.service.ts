@@ -16,7 +16,7 @@ export class SearchService {
   results$ = this.searchTextSub.asObservable()
     .pipe(
       switchMap((query) => !!query ? this.index.search(query) : of(null)),
-      catchError(error => of({ error })),
+      catchError((error) => of({ error })),
     );
 
   constructor() {

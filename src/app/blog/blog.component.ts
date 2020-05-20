@@ -1,4 +1,4 @@
-import {AfterContentChecked, AfterContentInit, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {AfterContentInit, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
 import {delay, filter, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
@@ -19,7 +19,7 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
     .pipe(
       takeUntil(this.subs),
       shareReplay(),
-      tap(m => this.metaSrv.update({
+      tap((m) => this.metaSrv.update({
         title: m.title,
         desc: m.description,
         url: `https://calebukle.com${m.route}`,
@@ -30,7 +30,8 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
   likes$ = this.scully.getCurrent()
     .pipe(
       takeUntil(this.subs),
-      switchMap(m => this.blogDb.likes$(m.route)),
+      switchMap((m) => this.blogDb.likes$(m.route)),
+      shareReplay(),
     );
 
   constructor(
@@ -41,13 +42,20 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
   ) {
   }
 
+  get shareTwitterLink() {
+    // @ts-ignore
+    const content = document.querySelector('[property="og:title"]').content ?? 'Check out this article';
+
+    return `https://twitter.com/intent/tweet?text=${content}&url=${location.href}&via=CU_galaxy`;
+  }
+
   ngAfterContentInit() {
     this.route.fragment
       .pipe(
         takeUntil(this.subs),
         delay(250),
       )
-      .subscribe(f => {
+      .subscribe((f) => {
         console.log(f);
         console.log(document.querySelector(`#${f}`)
           ?.scrollIntoView({
@@ -60,11 +68,11 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
   addLike() {
     this.meta$
       .pipe(
-        filter(m => !!m.route),
+        filter((m) => !!m.route),
         take(1),
-        switchMap(m => this.blogDb.addLike(m.route)),
+        switchMap((m) => this.blogDb.addLike(m.route)),
       )
-      .subscribe(_ => {
+      .subscribe((_) => {
       });
   }
 

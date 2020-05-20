@@ -18,7 +18,7 @@ export const genericRetryStrategy = (
       // or response is a status code we don't wish to retry, throw error
       if (
         retryAttempt > maxRetryAttempts ||
-        excludedStatusCodes.find(e => e === error.status)
+        excludedStatusCodes.find((e) => e === error.status)
       ) {
         return throwError(error);
       }
