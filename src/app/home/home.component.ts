@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
 import {Observable, Subject} from 'rxjs';
-import {map, takeUntil} from 'rxjs/operators';
+import {map, takeUntil, tap} from 'rxjs/operators';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
 import {IBlogFrontmatter} from '../blog/blog.component';
 import {animate, query, stagger, style, transition, trigger, useAnimation} from '@angular/animations';
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     .pipe(
       takeUntil(this.sub),
       map((posts) => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
-      map((links) => links.filter((l) => l.route.startsWith('/blog/')).slice(0, 4)),
+      map((links) => links.filter((l) => l.sourceFile !== '.DS_Store' && l.route.startsWith('/blog/')).slice(0, 4)),
       // map(posts => {
       //   const dates = new Set(posts.map(p => this.parseDateToTitle(p.date)));
       //   return Array.from(dates)

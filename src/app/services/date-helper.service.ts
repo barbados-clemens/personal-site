@@ -9,6 +9,9 @@ export class DateHelperService {
   }
 
   parseDateToTitle(date: string): string {
+    if (!date) {
+      return date;
+    }
     return new Intl.DateTimeFormat(
       navigator.language,
       {month: 'long', year: 'numeric'}
