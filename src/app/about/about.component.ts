@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {MetadataService} from '../layout/services/metadata/metadata.service';
 
 @Component({
   selector: 'app-about',
@@ -10,10 +11,17 @@ export class AboutComponent implements OnInit {
 
   // workingTime = this.timeSince(new Date('2017-05-30'));
 
-  constructor() {
+  constructor(
+    private meta: MetadataService,
+  ) {
   }
 
   ngOnInit(): void {
+    this.meta.update({
+      title: 'About',
+      desc: 'Learn more about Caleb such as background and projects',
+      url: 'https://calebukle.com/about'
+    });
   }
 
   private timeSince(start: Date): string {

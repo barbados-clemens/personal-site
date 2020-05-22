@@ -1,11 +1,12 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
-import {map} from 'rxjs/operators';
+import {map, takeUntil} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {DateHelperService} from '../../../services/date-helper.service';
 import {animate, query, stagger, style, transition, trigger, useAnimation} from '@angular/animations';
 import {staggerEnter} from '../../../../animations/animations';
+import {MetadataService} from '../../../layout/services/metadata/metadata.service';
 
 @Component({
   selector: 'app-blog-overview',
@@ -25,7 +26,7 @@ import {staggerEnter} from '../../../../animations/animations';
   ]
 })
 
-export class BlogOverviewComponent {
+export class BlogOverviewComponent implements OnInit {
 
   links$: Observable<any[]> = this.scully.available$
     .pipe(
@@ -47,6 +48,16 @@ export class BlogOverviewComponent {
     private route: ActivatedRoute,
     private scully: ScullyRoutesService,
     private dateSrv: DateHelperService,
+    private meta: MetadataService,
   ) {
   }
+
+  ngOnInit() {
+    this.meta.update({
+      title: 'Blog',
+      desc: 'See the most recent blog posts',
+      url: 'https://calebukle.com/blog'
+    });
+  }
+
 }
