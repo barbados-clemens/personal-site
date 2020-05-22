@@ -35,7 +35,31 @@ status = 301
 force = true
 
 [[redirects]]
-from = "https://calebukle.com/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php"
+from = "https://calebukle.com/administrator/"
+to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://calebukle.com/vendor/*"
+to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://calebukle.com/plugins/*"
+to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://calebukle.com/misc/*"
+to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://calebukle.com/wp-includes/*"
 to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 status = 301
 force = true

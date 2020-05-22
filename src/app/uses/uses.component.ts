@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {MetadataService} from '../layout/services/metadata/metadata.service';
 
 @Component({
   selector: 'app-uses',
@@ -6,8 +7,19 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./uses.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsesComponent {
+export class UsesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private meta: MetadataService
+  ) {
+  }
+
+  ngOnInit() {
+    this.meta.update({
+      title: 'Uses',
+      desc: 'See what Caleb uses from software, hardware, and various gear.',
+      url: 'https://calebukle.com/uses'
+    });
+  }
 
 }

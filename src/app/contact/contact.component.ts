@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } fro
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from './contact.service';
 import { Router } from '@angular/router';
+import {MetadataService} from '../layout/services/metadata/metadata.service';
 
 @Component({
   selector: 'app-contact',
@@ -20,16 +21,22 @@ export class ContactComponent implements OnInit {
     private fb: FormBuilder,
     private contactFormSrv: ContactService,
     private router: Router,
+    private meta: MetadataService,
   ) {
   }
 
   ngOnInit(): void {
-
     this.contactForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required]],
       msg: ['', [Validators.required]],
       bot: [''],
+    });
+
+    this.meta.update({
+      title: 'Contact',
+      desc: 'Reach out to Caleb with any questions',
+      url: 'https://calebukle.com/contact',
     });
   }
 
