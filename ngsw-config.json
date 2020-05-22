@@ -1,6 +1,21 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "dataGroups": [
+    {
+      "name": "api",
+      "version": 1,
+      "cacheConfig": {
+        "maxAge": "30d",
+        "maxSize": 100,
+        "strategy": "freshness",
+        "timeout": "5s"
+      },
+      "urls": [
+        "/.netlify/functions/*"
+      ]
+    }
+  ],
   "assetGroups": [
     {
       "name": "app",
@@ -10,11 +25,28 @@
           "/favicon.ico",
           "/index.html",
           "/manifest.webmanifest",
+          "/assets/scully-routes.json",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "/about/**",
+          "/uses/**",
+          "/contact/**",
+          "/blog/index.html",
+          "404.html"
         ]
       }
-    }, {
+    },
+    {
+      "name": "posts",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+        "/blog/**/*.html"
+        ]
+      }
+    },
+    {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",

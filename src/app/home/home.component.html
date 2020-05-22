@@ -65,13 +65,13 @@
 </svg>
 
       </span>
-      and &nbsp;<a href="/about">more</a></li>
+      <a href="/about">learn more about me</a></li>
   </ul>
 </section>
 
 
 <section id="recent-posts">
-  <h3 style="text-align: center;">Latest Posts</h3>
+  <h2 style="text-align: center;">Latest Posts</h2>
   <div class="blog-container" [@fadeSlideIn]="(links$ | async)?.length">
     <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route" tabindex="0" >
       {{ p.title }} &nbsp;
@@ -82,7 +82,7 @@
       </span>
     </div>
     <p style="text-align: center;">
-      Check out more posts <a routerLink="/blog">here</a>.
+      Check out <a routerLink="/blog">more posts here</a>.
     </p>
   </div>
 </section>

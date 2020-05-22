@@ -59,7 +59,7 @@ const html = `
         Check out <a href="https://calebukle.com">calebukle.com</a>
     </p>
     <p>
-    <a href="https://twitter.com/cu_galaxy" rel="nofollow">
+    <a href="https://twitter.com/cu_galaxy" rel="noopener">
     <svg id="Logo_FIXED" width="24" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
     <defs>
     <style>.cls-1{fill:none;}.cls-2{fill:#1da1f2;}</style>

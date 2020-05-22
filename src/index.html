@@ -20,6 +20,11 @@
   <meta name="twitter:image" content="https://calebukle.com/icons/icon-48x48.png">
   <meta name="twitter:description" content="Hey, my name is Caleb">
   <link rel="canonical" href="https://calebukle.com" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/icon-96x96.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <style>
@@ -59,28 +64,9 @@
       transition: background-color 350ms cubic-bezier(0.4, 0.0, 0.2, 1), color 400ms cubic-bezier(.4, 0, .2, 1);
     }
   </style>
-  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<!--  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>-->
 </head>
 <body data-theme="dark">
-<!--<script>-->
-<!--  // Everyone gets dark theme now. Light theme just looks meh-->
-<!--  const preferDark = window.matchMedia("(prefers-color-scheme: dark)")-->
-<!--  const existingTheme = localStorage.getItem("theme")-->
-
-<!--  if (!!existingTheme) {-->
-<!--    setTheme(existingTheme)-->
-<!--  } else {-->
-<!--    if (!!preferDark && preferDark.matches) {-->
-<!--      setTheme("dark")-->
-<!--    }-->
-<!--  }-->
-
-<!--  function setTheme(theme) {-->
-<!--    document.body.setAttribute("data-theme", theme)-->
-<!--    localStorage.setItem("theme", theme)-->
-<!--  }-->
-
-<!--</script>-->
 <app-root></app-root>
 <noscript style="text-align: center;">While this site should work without JavaScript, a better experience is provided
   with JavaScript enabled
@@ -95,53 +81,6 @@
       }
     })
   }
-
-  // Fun with sounds
-  // const audioCtx = new window.AudioContext();
-  // const oscillator = audioCtx.createOscillator();
-  // oscillator.connect(audioCtx.destination);
-  // oscillator.type = "sine";
-  //
-  // let numItems = 0
-  //
-  // oscillator.frequency.setValueAtTime(
-  //   1,
-  //   audioCtx.currentTime
-  // );
-  //
-  // oscillator.start();
-  //
-  // const observer = new MutationObserver(function (mutationsList) {
-  //   numItems += mutationsList.length
-  //
-  //   oscillator.frequency.setValueAtTime(
-  //     Math.log(numItems + 1) * 440,
-  //     audioCtx.currentTime
-  //   );
-  //
-  //   setTimeout(() => {
-  //     numItems -= mutationsList.length
-  //     if (numItems === 0) {
-  //       oscillator.frequency.setValueAtTime(
-  //         1,
-  //         audioCtx.currentTime
-  //       )
-  //     } else {
-  //       oscillator.frequency.setValueAtTime(
-  //         Math.log(numItems + 1) * 440,
-  //         audioCtx.currentTime
-  //       )
-  //     }
-  //   }, 100)
-  // });
-  //
-  // observer.observe(document, {
-  //   attributes: true,
-  //   childList: true,
-  //   subtree: true,
-  //   characterData: true
-  // });
 </script>
-
 </body>
 </html>

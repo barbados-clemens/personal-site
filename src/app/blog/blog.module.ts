@@ -16,7 +16,7 @@ import 'firebase/firestore';
 import {TooltipModule} from '../tooltip/tooltip.module';
 import {SearchModule} from '../search/search.module';
 import {BlurUpDirective} from './blur-up.directive';
-import {NewsletterModule} from '../lazy-newsletter/newsletter.module';
+import {NewsletterModule} from '../newsletter/newsletter.module';
 
 @NgModule({
   declarations: [
