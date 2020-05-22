@@ -6,7 +6,9 @@
   </p>
   <ul class="about-me">
     <li> <span class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18"
+           role="img" aria-label="cpu icon"
+      >
   <defs/>
   <g stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#clip0)">
     <path d="M13.5 3h-9A1.5 1.5 0 003 4.5v9A1.5 1.5 0 004.5 15h9a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0013.5 3z"/>
@@ -24,7 +26,9 @@
     </li>
     <li>
       <span class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18"
+             role="img" aria-label="git merge icon"
+        >
   <defs/>
   <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
         d="M13.5 15.75a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM4.5 6.75a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM9.75 4.5H12A1.5 1.5 0 0113.5 6v5.25M4.5 6.75v9"/>
@@ -35,7 +39,9 @@
     </li>
     <li>
       <span class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18"
+             role="img" aria-label="headphone icon"
+        >
   <defs/>
   <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
         d="M2.25 13.5V9a6.75 6.75 0 0113.5 0v4.5"/>
@@ -48,7 +54,9 @@
     </li>
     <li>
       <span class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18"
+             role="img" aria-label="question mark icon"
+        >
   <defs/>
   <path stroke="#E2E2E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
         d="M9 16.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15z"/>
@@ -65,7 +73,7 @@
 <section id="recent-posts">
   <h3 style="text-align: center;">Latest Posts</h3>
   <div class="blog-container" [@fadeSlideIn]="(links$ | async)?.length">
-    <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route">
+    <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route" tabindex="0" >
       {{ p.title }} &nbsp;
       <span *ngIf="isNewPost(p.date)"
             class="special-tag text_small"

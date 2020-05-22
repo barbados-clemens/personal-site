@@ -2,7 +2,7 @@
 .tag-container {}
 
 .tag {
-  color: var(--white);
+  color: var(--dark-bg-blue);
   border-radius: 1.3em;
   text-decoration: none;
   padding: .1em .75em;
@@ -10,7 +10,7 @@
   display: inline-block;
   margin-bottom: .6em;
   background: var(--v2-red);
-  transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform, color;
   transition-duration: 200ms;
   transition-timing-function: var(--theme-transistion-curve);
   box-shadow: var(--elevate-1);
