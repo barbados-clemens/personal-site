@@ -1,9 +1,14 @@
-<span class="like" (click)="addLike()">
+<span class="like"
+      (click)="addLike()"
+      (keypress)="addLike()"
+      tabindex="0"
+      aria-label="click to like post"
+      title="click to like post">
 
   {{count}}
 
   &nbsp;
-  <svg class="like-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+  <svg class="like-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18" role="img" aria-label="clickable start icon">
     <path fill="var(--icon-color)"
           stroke="var(--icon-color)"
           stroke-linecap="round"

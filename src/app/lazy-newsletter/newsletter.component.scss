@@ -56,3 +56,15 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+
+a.ref-link {
+  color: currentColor;
+  &:visited {
+    color: currentColor;
+  }
+  &:hover {
+    color: var(--v2-red);
+  }
+}

@@ -12,7 +12,7 @@
   &:disabled {
     background: transparent;
     border: 1px solid var(--v2-red);
-    color: var(--app-text-color);
+    color: currentColor;
     cursor: not-allowed;
   }
 

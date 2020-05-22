@@ -18,6 +18,7 @@
 .btn--special {
   background-color: var(--v2-red);
   border: 1px solid var(--v2-red);
+  color: var(--dark-bg-blue) !important;
   box-shadow: var(--elevate-0);
   font-weight: bold;
   transition-property: box-shadow, transform;
@@ -39,7 +40,7 @@ a.active::after {
 a.nav-link {
   margin: 0 1em 0 0;
   display: inline-block;
-  color: var(--white);
+  color: var(--dark-bg-blue);
   text-decoration: none;
   font-weight: bold;
   transition: all 250ms var(--theme-transistion-curve);
@@ -49,19 +50,19 @@ a.nav-link {
     display: block;
     width: 0;
     height: 2px;
-    background: var(--white); //var(--theme-off-white);
+    background: var(--dark-bg-blue); //var(--theme-off-white);
     transition: width 0.3s;
   }
 
   &:hover::after,
   &:focus::after {
     width: 100%;
-    color: var(--white); // var(--theme-off-white);
+    color: var(--dark-bg-blue); // var(--theme-off-white);
   }
 }
 
 a.nav-link:hover,
 a.nav-link:focus,
 a.nav-link:active {
-  color: var(--white); // var(--theme-off-white);
+  color: var(--dark-bg-blue); // var(--theme-off-white);
 }
