@@ -1,4 +1,5 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
 import {Meta, Title} from '@angular/platform-browser';
 
 @Injectable({
@@ -9,6 +10,7 @@ export class MetadataService {
   constructor(
     private meta: Meta,
     private titleSrv: Title,
+    @Inject(DOCUMENT) private dom
   ) {
   }
 
@@ -48,9 +50,20 @@ export class MetadataService {
       property: 'og:image', content: metadata.image || 'https://media.calebukle.com/uploads/icon-48x48.png'
     });
 
-    this.meta.updateTag({
-      rel: 'canonical', href: metadata.url
-    });
+    this.updateCanonical(metadata.url || 'https://calebukle.com');
+  }
+
+
+  private updateCanonical(url: string) {
+    const head = this.dom.querySelector('head')[0];
+    let element: HTMLLinkElement = this.dom.querySelector(`link[rel='canonical']`) || null;
+    if (!element) {
+      element = this.dom.createElement('link') as HTMLLinkElement;
+      head.appendChild(element);
+    }
+    element.setAttribute('rel', 'canonical');
+    element.setAttribute('href', url);
+
   }
 }
 

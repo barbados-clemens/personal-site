@@ -31,7 +31,7 @@ export class BlogOverviewComponent implements OnInit {
   links$: Observable<any[]> = this.scully.available$
     .pipe(
       map((posts) => posts.sort((a, b) => new Date(a.date) > new Date(b.date) ? -1 : 1)),
-      map((links) => links.filter((l) => l.route.startsWith('/blog/')).slice(0, 10)),
+      map((links) => links.filter((l) => l.sourceFile !== '.DS_Store' && l.route.startsWith('/blog/')).slice(0, 10)),
       map((posts) => {
         const dates = new Set(posts.map((p) => this.dateSrv.parseDateToTitle(p.date)));
         return Array.from(dates)

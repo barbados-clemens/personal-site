@@ -13,8 +13,8 @@
 </p>
 
 <p>
-  You can send a tweet <a
-  href="https://twitter.com/intent/tweet?text=hey&url=https://calebukle.com/blog&via=CU_galaxy`">at me</a> or use my <a
+  You can send a <a
+  href="https://twitter.com/intent/tweet?text=hey&url=https://calebukle.com/blog&via=CU_galaxy`" target="_blank" rel="noopener">tweet at me</a> or use my <a
   href="/contact">contact form</a> if you need help, want to get in touch, or just want to say how awesome I am. I won't
   stop you 😉.
 </p>
@@ -27,7 +27,7 @@
 
 <div class="post-container" [@fadeSlideUp]="(links$ |async)?.length">
   <div *ngFor="let l of links$ | async; let isFirst = first;">
-    <h4 [id]="l.date" class="title" [ngClass]="{'first': isFirst}">{{ l.date }}</h4>
+    <h2 [id]="l.date" class="title" [ngClass]="{'first': isFirst}">{{ l.date }}</h2>
     <app-card class="post" *ngFor="let p of l.posts" [cardInfo]="p"></app-card>
   </div>
 </div>
