@@ -1,8 +1,6 @@
-<h2>Music, Playlists and the Gear</h2>
-
-
+<h2>Tunes and the Gear</h2>
 <section id="current-vibes">
-  <h3>Music I'm currently bumping to</h3>
+  <h3>Current Tunes</h3>
   <div class="item-container">
 
     <ng-container *ngFor="let m of music$ | async">
@@ -23,11 +21,11 @@
 </section>
 
 <section id="gear">
-  <h3>My current gear</h3>
+
   <blockquote>
     <p>Disclaimer: You do not need high end gear to enjoy music. Audio gear is a bit of a hobby for me is all. 😃</p>
   </blockquote>
-
+  <h3>My current gear</h3>
   <div class="item-container">
 
     <ng-container *ngIf="gear$ | async as gear">
