@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
-import { of } from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class ContactService {
   ) {
   }
 
-  submit(form: HTMLFormElement) {
+  submit(form: HTMLFormElement): Observable<any> {
     const data = new FormData(form);
 
     data.append('form-name', form.getAttribute('name'));

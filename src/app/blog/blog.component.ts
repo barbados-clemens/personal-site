@@ -42,14 +42,14 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
   ) {
   }
 
-  get shareTwitterLink() {
+  get shareTwitterLink(): string {
     // @ts-ignore
     const content = document.querySelector('[property="og:title"]').content ?? 'Check out this article';
 
     return `https://twitter.com/intent/tweet?text=${content}&url=${location.href}&via=CU_galaxy`;
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.route.fragment
       .pipe(
         takeUntil(this.subs),
@@ -65,7 +65,7 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
       });
   }
 
-  addLike() {
+  addLike(): void {
     this.meta$
       .pipe(
         filter((m) => !!m.route),

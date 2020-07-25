@@ -57,7 +57,7 @@ export class BlogDbService {
     return this.getLocalLikes(blogPath) >= max;
   }
 
-  saveLocalLikes(blogPath: string) {
+  saveLocalLikes(blogPath: string): void {
     let likes = JSON.parse(localStorage.getItem('likedItems')) as IBlogLike;
 
     if (!likes) {

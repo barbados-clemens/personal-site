@@ -1,6 +1,6 @@
-import { ErrorHandler, Injectable } from '@angular/core';
-import { captureException, captureMessage, init, Severity } from '@sentry/browser';
-import { environment } from '../environments/environment';
+import {ErrorHandler, Injectable} from '@angular/core';
+import {captureException, captureMessage, init, Severity} from '@sentry/browser';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class ErrorHandlerService implements ErrorHandler {
     });
   }
 
-  static SendToSentry(msg: string, level?: Severity) {
+  static sendToSentry(msg: string, level?: Severity): void {
     captureMessage(msg, level ?? Severity.Info);
   }
 

@@ -3,7 +3,7 @@
 const {newImgMarkUp} = require("./blurUp.healper.plugin");
 
 const {registerPlugin} = require("@scullyio/scully")
-const {log, yellow} = require("@scullyio/scully/utils/log")
+const {log, yellow} = require("@scullyio/scully")
 
 const jsdom = require("jsdom")
 const {JSDOM} = jsdom

@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import algoliasearch from 'algoliasearch';
-import { environment } from '../../environments/environment';
-import { of, ReplaySubject } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import {environment} from '../../environments/environment';
+import {of, ReplaySubject} from 'rxjs';
+import {catchError, switchMap} from 'rxjs/operators';
 
 
 @Injectable()
@@ -16,13 +16,13 @@ export class SearchService {
   results$ = this.searchTextSub.asObservable()
     .pipe(
       switchMap((query) => !!query ? this.index.search(query) : of(null)),
-      catchError((error) => of({ error })),
+      catchError((error) => of({error})),
     );
 
   constructor() {
   }
 
-  initIndex(index: string) {
+  initIndex(index: string): void {
     this.index = this.client.initIndex(index);
   }
 }

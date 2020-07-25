@@ -28,15 +28,17 @@ export class FooterComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (!this.newsletterForm.valid) {
       alert('Form invalid. Try again');
     }
 
     this.contactSrv.submit(this.newsletterFormRef.nativeElement)
       .subscribe((t) => {
+        // @ts-ignore
         if (t?.error) {
           alert('Issue submitting form 🙁. Try again.');
+          // @ts-ignore
           console.warn(t.error);
         } else {
           console.log(t);

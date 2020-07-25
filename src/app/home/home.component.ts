@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.metaSrv.update({
       title: 'Home',
       url: 'https://calebukle.com',
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     return new Date(date).valueOf() > this.oneMonthAgo;
   }
 
-  private parseDateToTitle(date: string) {
+  private parseDateToTitle(date: string): string {
     return new Intl.DateTimeFormat(
       navigator.language,
       {month: 'long', year: 'numeric'}

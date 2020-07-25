@@ -10,6 +10,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+// @ts-ignore
 export class VerificationService {
 
   constructor(

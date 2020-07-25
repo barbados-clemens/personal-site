@@ -54,7 +54,7 @@ export class MetadataService {
   }
 
 
-  private updateCanonical(url: string) {
+  private updateCanonical(url: string): void {
     const head = this.dom.querySelector('head')[0];
     let element: HTMLLinkElement = this.dom.querySelector(`link[rel='canonical']`) || null;
     if (!element) {

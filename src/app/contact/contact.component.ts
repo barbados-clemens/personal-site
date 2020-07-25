@@ -40,7 +40,7 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (!this.contactForm.valid) {
       alert('form not valid');
     }

@@ -35,7 +35,7 @@
  * will put import in the top of bundle, so user need to create a separate file
  * in this directory (for example: zone-flags.ts), and put the following flags
  * into that file, and then add the following code before importing zone.js.
- * import './zone-flags.ts';
+ * import './zone-flags';
  *
  * The flags allowed in zone-flags.ts are listed here.
  *
@@ -55,20 +55,15 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone'; // Included with Angular CLI.
-/***************************************************************************************************
- * SCULLY IMPORTS
- */
-// tslint:disable-next-line: align
-import 'zone.js/dist/task-tracking';
+import 'zone.js/dist/zone';  // Included with Angular CLI.
 
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
 
-
-// See: https://github.com/algolia/angular-instantsearch/issues/90
-(window as any).process = {
-  env: { DEBUG: undefined },
-};
+/***************************************************************************************************
+* SCULLY IMPORTS
+*/
+// tslint:disable-next-line: align
+import 'zone.js/dist/task-tracking';

@@ -1,5 +1,5 @@
 const {registerPlugin} = require("@scullyio/scully")
-const {log, logError, red, green, logWarn, orange} = require("@scullyio/scully/utils/log")
+const {log, logError, red, green, logWarn, orange} = require("@scullyio/scully")
 const admin = require("firebase-admin")
 const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
 

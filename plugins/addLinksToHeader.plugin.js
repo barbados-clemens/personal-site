@@ -1,5 +1,5 @@
 const { registerPlugin } = require("@scullyio/scully")
-const { log, yellow, green, red, logError } = require("@scullyio/scully/utils/log")
+const { log, yellow, green, red, logError } = require("@scullyio/scully")
 const jsdom = require("jsdom")
 const { JSDOM } = jsdom
 
