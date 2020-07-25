@@ -1,0 +1,58 @@
+[
+  {
+    "type": "headphone",
+    "name": "Sennheiser HD6xx",
+    "link": "https://drop.com/buy/massdrop-sennheiser-hd6xx",
+    "img": "https://massdrop-s3.imgix.net/product-images/massdrop-sennheiser-hd6xx/FP/cJolRuxYSgqdFtmFawp8_yJ6M80CfTZGYMcNKc5of_0cYrqmTrQFOf4cbRVO6t_H6xx%20Reshoot32572.png?auto=format&fm=jpg&fit=crop&w=300&h=300&bg=f0f0f0&dpr=2&q=35",
+    "desc": "My main choice for listening, but being open back I can only use while at home, typically sitting at my desk"
+  },
+  {
+    "type": "headphone",
+    "name": "Sennheiser IE 80",
+    "link": "https://en-us.sennheiser.com/earbuds-high-end-hifi-stereo-passive-noise-reduction-ie-80",
+    "img": "https://assets.sennheiser.com/img/17312/product_detail_x1_desktop_IE_80_Set_Sennheiser_01.jpg",
+    "desc": "My on the go ear buds and what I wear while following asleep. I typically don't like ear buds for long sessions, but these work well enough in the comfort department. Have been replaced by IE 80 S now."
+  },
+  {
+    "type": "headphone",
+    "name": "WH-1000xm3",
+    "link": "https://www.sony.com/electronics/headband-headphones/wh-1000xm3",
+    "img": "https://www.sony.com/image/eb0062b3db03748efc7f5ca3fd82ccc5?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF",
+    "desc": "For any travel or slightly noisy office environments, these are my current go too"
+  },
+  {
+    "type": "headphone",
+    "name": "Apple Airpods Pro",
+    "link": "https://www.apple.com/airpods-pro/",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5%2C0.5&.v=1591634795000",
+    "desc": "For quick and easy use for listening to stuff on the go, or single earbud-ing it while listening to podcasts. They don't fit in my ears very well \uD83D\uDE14"
+  },
+  {
+    "type": "amp",
+    "name": "SMSL SP 200",
+    "link": "https://www.amazon.com/S-M-S-L-Headphone-Technology-Balanced-Amplifier/dp/B07ZJ6S1DX",
+    "img": "https://cdn.shopify.com/s/files/1/0031/0453/8673/products/smsl-sp200-thx-hp-xlr-balance-headphone-amp-thx-aaa-888-pre-amplifier-hifigo-115865_512x512.jpg?v=1585412299",
+    "desc": "Really great amp, using the THX AAA tech making it super clean sounding. That tilt is very odd choice SMSL. \uD83E\uDD14 "
+  },
+  {
+    "type": "dac",
+    "name": "SMSL M100",
+    "link": "https://www.amazon.com/gp/product/B07KLRDVGX/",
+    "img": "https://i.ebayimg.com/images/g/gN4AAOSw6JZc0blp/s-l300.jpg",
+    "desc": "A decent entry level DAC, there's probably better for around this price at this point in time."
+  },
+  {
+    "type": "dap",
+    "name": "Hiby R3 Pro",
+    "link": "https://store.hiby.com/products/hiby-r3-pro",
+    "img": "https://cdn.shopify.com/s/files/1/0018/6649/8115/products/5_4a7faba2-3fc5-43b8-96a9-d5d68a8f639d_1500x.jpg?v=1586313245",
+    "desc": "A great little DAP, though the software could use some love. Maybe one day I'll learn to build an OS for it. #ReasonsToLearnRust"
+  },
+  {
+    "type": "cable",
+    "name": "Hart Audio Cables",
+    "link": "https://hartaudiocables.com/collections/headphone-cables",
+    "img": "https://cdn.shopify.com/s/files/1/0106/8253/1921/products/HC-5_1296x.jpg?v=1588546299",
+    "desc": "The inner connect system, build quality, customizations of these cables make it works it. If you think fancy cables make your music sound better, we'll I got news for you."
+  }
+]
