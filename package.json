@@ -40,7 +40,7 @@
     "@angular/service-worker": "^10.0.5",
     "@barbados-clemens/scully-plugin-algolia": "latest",
     "@barbados-clemens/scully-plugin-blur-up-images": "latest",
-    "@barbados-clemens/scully-plugin-firebase-likes": "0.0.10",
+    "@barbados-clemens/scully-plugin-firebase-likes": "latest",
     "@barbados-clemens/scully-plugin-header-links": "latest",
     "@scullyio/init": "^1.0.0-beta.0",
     "@scullyio/ng-lib": "^1.0.0-beta.0",

@@ -1,24 +1,26 @@
-require('dotenv').config()
-import {log, ScullyConfig, setPluginConfig, yellow} from '@scullyio/scully';
-import {AddLinksToHeader, HeaderLinksDefaultConfig} from '@barbados-clemens/scully-plugin-header-links'
+require('dotenv').config();
+import {ScullyConfig, setPluginConfig} from '@scullyio/scully';
+import {AddLinksToHeader, HeaderLinksDefaultConfig} from '@barbados-clemens/scully-plugin-header-links';
 import {AddPostToFirebase, IFirebasePluginSettings} from '@barbados-clemens/scully-plugin-firebase-likes';
 
 
 setPluginConfig('md', {enableSyntaxHighlighting: true});
-setPluginConfig(AddLinksToHeader, HeaderLinksDefaultConfig)
+setPluginConfig(AddLinksToHeader, HeaderLinksDefaultConfig);
 const firebaseConfig: IFirebasePluginSettings = {
   databaseUrl: 'https://portfolio-82e83.firebaseio.com',
-  serviceAccount: JSON.parse(process.env.FIREBASE_CONFIG),
+  serviceAccount: JSON.parse(process.env.FIREBASE_CONFIG || '{}'),
   dryRun: false,
-  debug: true,
-}
-console.log(firebaseConfig)
-setPluginConfig(AddPostToFirebase, firebaseConfig)
+  debug: false,
+};
+
+console.log(firebaseConfig);
+
+setPluginConfig(AddPostToFirebase, firebaseConfig);
 
 const blogPostRenderers = [
   AddLinksToHeader,
   AddPostToFirebase,
-]
+];
 
 // if (process.env.NODE_ENV.toLowerCase() === 'production') {
 //   const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
