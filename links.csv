@@ -1,9 +1,0 @@
-"[PsCustomObject]@{hash=$_.Hash.SubString(0,5).ToLower();path= $_.Path}"
-"@{hash=15fde; path=C:\Sandbox\portfolio\blog\a-beginners-intro-to-rxjs-with-examples.md}"
-"@{hash=601e9; path=C:\Sandbox\portfolio\blog\angular-code-coverage-badge-with-gitlab-ci.md}"
-"@{hash=fb496; path=C:\Sandbox\portfolio\blog\easy-object-detection-with-custom-vision-ai.md}"
-"@{hash=6602e; path=C:\Sandbox\portfolio\blog\moving-from-gatsby-to-scully-the-angular-static-site-generator.md}"
-"@{hash=9791a; path=C:\Sandbox\portfolio\blog\ODBC-Driver-and-OLEDB-Provider-Issues-and-Potential-Fixes.md}"
-"@{hash=82ad8; path=C:\Sandbox\portfolio\blog\scully-plugins-for-algolia-search-and-html-header-tag-links.md}"
-"@{hash=0bbd8; path=C:\Sandbox\portfolio\blog\use-mapbox-deckgl-angular-together-with-realtime-data.md}"
-

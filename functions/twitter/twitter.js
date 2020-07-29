@@ -47,6 +47,7 @@ async function getTweets() {
 }
 
 exports.handler = async function (event, context, callback) {
+  // TODO look for query param for specific hashtags
   const tweets = await getTweets();
   callback(null, {
     statusCode: 200,

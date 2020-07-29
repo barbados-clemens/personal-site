@@ -1,0 +1,13 @@
+<div class="card--product" tabindex="0">
+  <p class="product__container--img">
+    <img loading="lazy" class="product--img" [src]="product.img" alt="{{product?.name}} image">
+  </p>
+  <h4 class="product--title">{{product?.name}}</h4>
+  <app-tags *ngIf="product?.tags" [tags]="product.tags"></app-tags>
+  <p class="product--desc">{{product?.desc}}</p>
+  <div class="card--product--spacer"></div>
+  <p class="product--link btn">
+    <a *ngIf="product?.link" [href]="product.link" target="_blank" rel="noopener" class="clean_link">More product
+      info</a>
+  </p>
+</div>

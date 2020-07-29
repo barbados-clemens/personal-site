@@ -52,7 +52,7 @@ export class BlogOverviewComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.meta.update({
       title: 'Blog',
       desc: 'See the most recent blog posts',

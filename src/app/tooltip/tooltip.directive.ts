@@ -1,7 +1,7 @@
-import { ComponentRef, Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
-import { ConnectedPosition, Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { TooltipComponent } from './tooltip.component';
+import {ComponentRef, Directive, ElementRef, HostListener, Input, OnInit} from '@angular/core';
+import {ConnectedPosition, Overlay, OverlayPositionBuilder, OverlayRef} from '@angular/cdk/overlay';
+import {ComponentPortal} from '@angular/cdk/portal';
+import {TooltipComponent} from './tooltip.component';
 
 @Directive({
   selector: '[appTooltip]',
@@ -24,7 +24,7 @@ export class TooltipDirective implements OnInit {
 
   @HostListener('focus')
   @HostListener('mouseenter')
-  show() {
+  show(): void {
     try {
       const tooltipPortal = new ComponentPortal(TooltipComponent);
 
@@ -44,7 +44,7 @@ export class TooltipDirective implements OnInit {
 
   @HostListener('blur')
   @HostListener('mouseout')
-  hide() {
+  hide(): void {
     try {
       this.overlayRef.detach();
     } catch (e) {
@@ -55,7 +55,7 @@ export class TooltipDirective implements OnInit {
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     let tooltipPosition: ConnectedPosition;
     switch (this.position) {
       case 'bottom':
@@ -101,7 +101,7 @@ export class TooltipDirective implements OnInit {
     const positionStrategy = this.positionBuilder
       .flexibleConnectedTo(this.elRef)
       .withPositions([tooltipPosition]);
-    this.overlayRef = this.overlay.create({ positionStrategy });
+    this.overlayRef = this.overlay.create({positionStrategy});
   }
 
 }

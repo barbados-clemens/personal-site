@@ -14,7 +14,7 @@ export class UsesComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.meta.update({
       title: 'Uses',
       desc: 'See what Caleb uses from software, hardware, and various gear.',

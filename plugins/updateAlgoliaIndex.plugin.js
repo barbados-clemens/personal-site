@@ -1,5 +1,5 @@
 const { registerPlugin } = require("@scullyio/scully")
-const { log, logWarn, orange, green, red, logError } = require("@scullyio/scully/utils/log")
+const { log, logWarn, orange, green, red, logError } = require("@scullyio/scully")
 const algoliasearch = require("algoliasearch")
 
 
