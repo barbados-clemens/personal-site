@@ -7,7 +7,7 @@ import {ScullyConfig, setPluginConfig} from '@scullyio/scully';
 import {AddLinksToHeader, HeaderLinksDefaultConfig} from '@barbados-clemens/scully-plugin-header-links';
 import {AddPostToFirebase, IFirebasePluginSettings} from '@barbados-clemens/scully-plugin-firebase-likes';
 import {IAlgoliaPluginConfig, UpdateAlgoliaIndex} from "@barbados-clemens/scully-plugin-algolia";
-import {BlurUpImages, IBlurUpConfig} from "@barbados-clemens/scully-plugin-blur-up-images";
+// import {BlurUpImages, IBlurUpConfig} from "@barbados-clemens/scully-plugin-blur-up-images";
 
 
 const firebaseConfig: IFirebasePluginSettings = {
@@ -23,12 +23,12 @@ const algoliaConfig: IAlgoliaPluginConfig = {
   isDryRun: false,
   indexName: 'blog',
 }
+//
+// const blurUpImgConfg: IBlurUpConfig = {
+//   isDebug: true,
+// }
 
-const blurUpImgConfg: IBlurUpConfig = {
-  isDebug: true,
-}
-
-setPluginConfig(BlurUpImages, blurUpImgConfg);
+// setPluginConfig(BlurUpImages, blurUpImgConfg);
 setPluginConfig(UpdateAlgoliaIndex, algoliaConfig);
 setPluginConfig(AddPostToFirebase, firebaseConfig);
 setPluginConfig('md', {enableSyntaxHighlighting: true});
@@ -38,7 +38,7 @@ const blogPostRenderers = [
   AddLinksToHeader,
   AddPostToFirebase,
   UpdateAlgoliaIndex,
-  BlurUpImages,
+  // BlurUpImages,
 ];
 
 // if (process.env.NODE_ENV.toLowerCase() === 'production') {
