@@ -16,7 +16,8 @@ import 'firebase/firestore';
 import {TooltipModule} from '../tooltip/tooltip.module';
 import {SearchModule} from '../search/search.module';
 import {NewsletterModule} from '../newsletter/newsletter.module';
-import {BlurUpModule} from '@barbados-clemens/scully-plugin-blur-up-images';
+// why is this broken?
+// import {BlurUpModule} from '@barbados-clemens/scully-plugin-blur-up-images';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import {BlurUpModule} from '@barbados-clemens/scully-plugin-blur-up-images';
     TooltipModule,
     SearchModule,
     NewsletterModule,
-    BlurUpModule
+    // BlurUpModule
   ],
 })
 export class BlogModule {
