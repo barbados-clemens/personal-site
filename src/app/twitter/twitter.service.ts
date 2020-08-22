@@ -14,7 +14,7 @@ export class TwitterService {
   }
 
 
-  getTweets(): Observable<Tweet[]> {
-    return this.http.get<Tweet[]>(`/.netlify/functions/twitter`);
+  getTweets(tags: string[]): Observable<Tweet[]> {
+    return this.http.get<Tweet[]>(`/.netlify/functions/twitter?tags=${tags.join(',')}`);
   }
 }

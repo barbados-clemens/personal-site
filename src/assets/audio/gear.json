@@ -8,6 +8,13 @@
   },
   {
     "type": "headphone",
+    "name": "HIFIMAN HE4xx",
+    "link": "https://drop.com/buy/drop-hifiman-he4xx-planar-magnetic-headphones",
+    "img": "https://massdrop-s3.imgix.net/product-images/drop-hifiman-he4xx-planar-magnetic-headphones/FP/BwpDhv6uTaG6QL09FIWI_4704x3136_Massdrop_x_HIFIMAN_HE4XX_Planar_Magnetic_Headphones03-newlogo-page-pc.png?auto=format&fm=jpg&fit=max&w=1300&h=758&dpr=2&q=40&bg=f0f0f0",
+    "desc": "My first pair of planar magnetic headphones, and let me tell you. I'm really enjoying them. Primary listening choice when I wanna jam out or when setting on the couch"
+  },
+  {
+    "type": "headphone",
     "name": "Sennheiser IE 80",
     "link": "https://en-us.sennheiser.com/earbuds-high-end-hifi-stereo-passive-noise-reduction-ie-80",
     "img": "https://assets.sennheiser.com/img/17312/product_detail_x1_desktop_IE_80_Set_Sennheiser_01.jpg",
@@ -38,7 +45,7 @@
     "type": "dac",
     "name": "SMSL M100",
     "link": "https://www.amazon.com/gp/product/B07KLRDVGX/",
-    "img": "https://i.ebayimg.com/images/g/gN4AAOSw6JZc0blp/s-l300.jpg",
+    "img": "https://www.xtenik.com/wp-content/uploads/2019/11/smsl-m100-7.jpg",
     "desc": "A decent entry level DAC, there's probably better for around this price at this point in time."
   },
   {

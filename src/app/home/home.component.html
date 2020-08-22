@@ -73,7 +73,7 @@
 <section id="recent-posts">
   <h2 style="text-align: center;">Latest Posts</h2>
   <div class="blog-container" [@fadeSlideIn]="(links$ | async)?.length">
-    <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route" tabindex="0" >
+    <div *ngFor="let p of links$ | async" class="post" [routerLink]="p?.route" tabindex="0">
       {{ p.title }} &nbsp;
       <span *ngIf="isNewPost(p.date)"
             class="special-tag text_small"
@@ -87,5 +87,5 @@
   </div>
 </section>
 
-<app-twitter></app-twitter>
+<app-twitter [tags]="['webdev', 'dev']"></app-twitter>
 

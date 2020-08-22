@@ -5,7 +5,9 @@
 
     <ng-container *ngFor="let m of music$ | async">
       <div>
+        <div style="text-align: center;">
         <img loading="lazy" class="music-img" [src]="m.img" alt="{{m.name}} image">
+        </div>
         <h4 style="margin-top: 0;">
           {{m.name}}
         </h4>
@@ -49,5 +51,6 @@
 
 <section id="music-tweets">
   <h3>Music related Tweets</h3>
-  <!--  <app-twitter></app-twitter>-->
+  <p>Here is what I've been playing recently</p>
+    <app-twitter [tags]="['nowplaying', 'music']"></app-twitter>
 </section>

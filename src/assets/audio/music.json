@@ -1,4 +1,24 @@
 [
+
+  {
+    "type": "Album",
+    "name": "The Future and The Past",
+    "img": "https://resources.tidal.com/images/e2b27309/c1c7/4633/872b/3b02194bd2fc/640x640.jpg",
+    "links": [
+      {
+        "service": "Tidal",
+        "link": "https://tidal.com/browse/album/122488850"
+      },
+      {
+        "service": "Spotify",
+        "link": "https://open.spotify.com/album/3qCiiXddLzOGmofZt1oJBc"
+      },
+      {
+        "service": "Apple Music",
+        "link": "https://music.apple.com/us/album/the-future-and-the-past/1428716178"
+      }
+    ]
+  },
   {
     "type": "Album",
     "name": "No Pressure By Logic",
