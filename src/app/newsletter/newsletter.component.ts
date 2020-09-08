@@ -48,7 +48,7 @@ export class NewsletterComponent implements OnInit {
       );
   }
 
-  submit($event) {
+  submit($event): void {
     $event.preventDefault();
 
     if (!this.newsletterForm.valid) {

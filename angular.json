@@ -18,6 +18,14 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/calebukle-com",
+            "allowedCommonJsDependencies": [
+              "@firebase/util",
+              "@firebase/component",
+              "@firebase/functions",
+              "@firebase/app",
+              "@firebase/firestore",
+              "firebase/app"
+            ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -99,7 +107,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/robots.txt",
+              "src/manifest.webmanifest",
+              {
+                "input": "src/admin/",
+                "glob": "**/*",
+                "output": "./admin/"
+              }
             ],
             "styles": [
               "src/styles/styles.scss"
@@ -141,6 +155,6 @@
   },
   "defaultProject": "calebukle-com",
   "cli": {
-    "analytics": "b49e7d69-f04f-4a57-89d1-6af6b1ca1b3f"
+    "analytics": false
   }
 }

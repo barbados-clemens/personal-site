@@ -15,15 +15,16 @@ import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import 'firebase/firestore';
 import {TooltipModule} from '../tooltip/tooltip.module';
 import {SearchModule} from '../search/search.module';
-import {BlurUpDirective} from './blur-up.directive';
 import {NewsletterModule} from '../newsletter/newsletter.module';
+// why is this broken?
+// import {BlurUpModule} from '@barbados-clemens/scully-plugin-blur-up-images';
 
 @NgModule({
   declarations: [
     BlogComponent,
     HeaderComponent,
     BlogOverviewComponent,
-    BlurUpDirective,
+    // BlurUpDirective,
   ],
   imports: [
     CommonModule,
@@ -38,7 +39,8 @@ import {NewsletterModule} from '../newsletter/newsletter.module';
     LikeModule,
     TooltipModule,
     SearchModule,
-    NewsletterModule
+    NewsletterModule,
+    // BlurUpModule
   ],
 })
 export class BlogModule {

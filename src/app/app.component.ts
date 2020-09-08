@@ -16,7 +16,7 @@ export class AppComponent {
   ) {
   }
 
-  toggleTheme() {
+  toggleTheme(): void {
     const theme = this.theme.toggleTheme();
     this.render.setAttribute(document.body, 'data-theme', theme);
     this.icon = theme === 'dark' ? '🌞' : '🌚';

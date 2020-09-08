@@ -1,0 +1,78 @@
+[
+
+  {
+    "type": "Album",
+    "name": "The Future and The Past",
+    "img": "https://resources.tidal.com/images/e2b27309/c1c7/4633/872b/3b02194bd2fc/640x640.jpg",
+    "links": [
+      {
+        "service": "Tidal",
+        "link": "https://tidal.com/browse/album/122488850"
+      },
+      {
+        "service": "Spotify",
+        "link": "https://open.spotify.com/album/3qCiiXddLzOGmofZt1oJBc"
+      },
+      {
+        "service": "Apple Music",
+        "link": "https://music.apple.com/us/album/the-future-and-the-past/1428716178"
+      }
+    ]
+  },
+  {
+    "type": "Album",
+    "name": "No Pressure By Logic",
+    "img": "https://resources.tidal.com/images/529e3244/a3b3/4dff/9d4f/d4b5cd6ff5df/640x640.jpg",
+    "links": [
+      {
+        "service": "Tidal",
+        "link": "https://tidal.com/browse/album/148995697"
+      },
+      {
+        "service": "Spotify",
+        "link": "https://open.spotify.com/album/5pF05wJrbrIvqunE41vWP8"
+      },
+      {
+        "service": "Apple Music",
+        "link": "https://music.apple.com/us/album/no-pressure/1523964228"
+      }
+    ]
+  },
+  {
+    "type": "Playlist",
+    "name": "OST Hype",
+    "img": "https://media.calebukle.com/uploads/2020/07/ost.webp",
+    "links": [
+      {
+        "service": "Tidal",
+        "link": "https://tidal.com/browse/playlist/4dd1abed-05e9-401e-b49e-2f12cd79bee2"
+      }
+    ]
+  },
+  {
+    "type": "Playlist",
+    "name": "Lush Lofi",
+    "img": "https://media.calebukle.com/uploads/2020/07/lofi.webp",
+    "links": [
+      {
+        "service": "Tidal",
+        "link": "https://tidal.com/browse/playlist/822a049b-77e2-48d2-b63a-6371934ed644"
+      },
+      {
+        "service": "Spotify",
+        "link": "https://open.spotify.com/playlist/37i9dQZF1DXc8kgYqQLMfH"
+      }
+    ]
+  },
+  {
+    "type": "Playlist",
+    "name": "Tweetables",
+    "img": "https://media.calebukle.com/uploads/2020/07/tweets.webp",
+    "links": [
+      {
+        "service": "Tidal",
+        "link": "https://tidal.com/browse/playlist/2d8c01d6-a822-4663-8a55-8d9e9e1a8159"
+      }
+    ]
+  }
+]

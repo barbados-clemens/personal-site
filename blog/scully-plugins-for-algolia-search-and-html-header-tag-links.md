@@ -39,7 +39,7 @@ I like the ability to directly link to a section of an article , and I wanted to
 
 
 ```typescript
-/* addLinksToHeader.plugin.js */
+/* addLinksToHeader.plugin.ts */
 
 const { registerPlugin } = require("@scullyio/scully")
 const { log, yellow, green, red, logError } = require("@scullyio/scully/utils/log")
@@ -275,7 +275,7 @@ I also save the posts in Firestore which powers the like/heart/favorite feature 
  
 
 ```typescript
-/* addPostToFirebase.plugin.js */
+/* addPostToFirebase.plugin.ts */
 
 const { registerPlugin } = require("@scullyio/scully")
 const { log, logError, red, green } = require("@scullyio/scully/utils/log")
@@ -323,9 +323,9 @@ All of the plugins shown are _render_ plugins. There are other plugins such as _
 require("dotenv").config()
 
 // import plugins
-require("./plugins/addLinksToHeader.plugin.js")
+require("./plugins/addLinksToHeader.plugin.ts")
 require("./plugins/updateAlgoliaIndex.plugin.js")
-require("./plugins/addPostToFirebase.plugin.js")
+require("./plugins/addPostToFirebase.plugin.ts")
 exports.config = {
   projectRoot: "./src",
   projectName: "calebukle-com",

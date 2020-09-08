@@ -1,0 +1,48 @@
+<h2>Tunes and the Gear</h2>
+<section id="current-vibes">
+  <h3>Current Tunes</h3>
+  <div class="item-container">
+
+    <ng-container *ngFor="let m of music$ | async">
+      <div>
+        <div style="text-align: center;">
+          <img loading="lazy" class="music-img" [src]="m.img" alt="{{m.name}} image">
+        </div>
+        <h4 style="margin-top: 0;">
+          {{m.name}}
+        </h4>
+        <ul>
+          <li *ngFor="let l of m.links">
+            <a [href]="l.link">Listen on {{l.service}}</a>
+          </li>
+        </ul>
+      </div>
+
+    </ng-container>
+  </div>
+</section>
+
+<section id="gear">
+
+  <blockquote>
+    <p>Disclaimer: You do not need high end gear to enjoy music. Audio gear is a bit of a hobby for me is all. 😃</p>
+  </blockquote>
+  <h3>My current gear</h3>
+  <div class="item-container">
+
+    <ng-container *ngIf="gear$ | async as gear">
+      <app-product-card *ngFor="let g of gear" [product]="{
+     link: g.link,
+     name: g.name,
+     desc: g.desc,
+     img: g.img,
+    tags: [g.type]
+      }"></app-product-card>
+
+    </ng-container>
+  </div>
+</section>
+
+<section id="music-tweets">
+  <app-twitter [tags]="['nowplaying', 'music']"></app-twitter>
+</section>

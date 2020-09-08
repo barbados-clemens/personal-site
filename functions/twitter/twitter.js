@@ -14,14 +14,21 @@ const client = new Twitter(auth);
 
 const cache = {
   lastFetch: 0,
-  tweets: [],
+  tweets: new Map(),
 };
 
-async function getTweets() {
+
+async function getTweets(tags) {
+  if (!Array.isArray(tags)) {
+    return null;
+  }
+
   const timeSinceLastFetch = Date.now() - cache.lastFetch;
-  if (timeSinceLastFetch <= 300000) {
+  const key = tags.join(',');
+
+  if (timeSinceLastFetch <= 300000 && cache.tweets.has(key)) {
     // less 5 mins, serve up cache
-    return cache.tweets;
+    return cache.tweets.get(key);
   }
   const tweets = await client.get('statuses/user_timeline', {
     screen_name: 'cu_galaxy',
@@ -32,22 +39,24 @@ async function getTweets() {
     trim_user: true,
     tweet_mode: 'extended',
   });
-
-  cache.tweets = tweets
+  const freshTweets = tweets
     .filter(
       tweet =>
         // not cool enough to have more than 5 RTs or 10 favs. so filtering on #tags
         //     tweet.retweet_count > 5 || tweet.favorite_count > 10
-        tweet.full_text.toLowerCase().includes('#webdev') ||
-        tweet.full_text.toLowerCase().includes('#dev')
+        // tweet.full_text.toLowerCase().includes('#webdev') ||
+        // tweet.full_text.toLowerCase().includes('#dev')
+        tags.some(t => tweet.full_text.toLowerCase().includes(t))
     )
     .slice(0, 3);
   cache.lastFetch = Date.now();
-  return cache.tweets;
+  cache.tweets.set(key, freshTweets);
+  return cache.tweets.get(key);
 }
 
 exports.handler = async function (event, context, callback) {
-  const tweets = await getTweets();
+  const tags = event.queryStringParameters.tags.split(',').map(t => `#${t}`)
+  const tweets = await getTweets(tags);
   callback(null, {
     statusCode: 200,
     headers: {

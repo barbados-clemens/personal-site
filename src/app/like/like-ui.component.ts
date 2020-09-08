@@ -20,7 +20,7 @@ export class LikeUiComponent {
   constructor() {
   }
 
-  addLike() {
+  addLike(): void {
     this.like.emit(true);
     this.count++;
   }

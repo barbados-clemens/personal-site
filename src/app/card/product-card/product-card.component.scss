@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  color: var(--app-card-text-color);
+  border-radius: .5em;
+  border: 1px solid var(--dark-gray-1);
+  background-color: var(--app-card-bg);
+  transition: box-shadow 250ms var(--theme-transistion-curve), transform 250ms var(--theme-transistion-curve);
+  box-shadow: var(--elevate-1);
+  padding: 1.25em 1.25em 0;
+
+  &:focus,
+  &:active,
+  &:hover {
+    //cursor: pointer;
+    box-shadow: var(--elevate-2);
+    transform: translate(0, -4px);
+  }
+}
+
+.card--product {
+  height: 100%;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+
+  &--spacer {
+    display: flex;
+    flex: 1;
+  }
+
+}
+
+a {
+  color: var(--app-card-text);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:visited,
+  &:hover {
+    color: var(--app-card-text)
+  }
+}
+
+.product--link,
+.product__container--img {
+  text-align: center;
+}
+
+.product--title {
+  margin-top: 0;
+}
+
+.product--img {
+  width: 250px;
+  height: auto;
+  border: 1px solid var(--dark-gray-1);
+  border-radius: .5rem;
+}

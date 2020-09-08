@@ -73,7 +73,7 @@ export class SearchComponent implements AfterContentInit, OnDestroy {
     this.cleanUp$.complete();
   }
 
-  private scrollToInput() {
+  private scrollToInput(): void {
     setTimeout(() => {
       this.searchInput.nativeElement.scrollIntoView({
         behavior: 'smooth',
