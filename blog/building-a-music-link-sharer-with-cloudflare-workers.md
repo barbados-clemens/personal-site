@@ -136,7 +136,7 @@ The workflow for adding a new item to the site isn't that _graceful_. You can se
 1. Perform a _search_ `https://music.calebukle.com/?q=some music I want to share`
 1. Go to each link, find the correct result
 1. Copy and paste the link to the respective link in the JSON
-1. Find the albumn art link and add to the JSON
+1. Find the album art link and add to the JSON
 1. Save a unique key, currently is a hash of the search plus some text to identify the album
 1. Run a local script to generate all the missing base64 images. 
   - There's a default base64 image if I haven't done this yet.
@@ -152,3 +152,5 @@ The workflow for adding a new item to the site isn't that _graceful_. You can se
 1. Add any other music services used by friends
     - Reach out if  I'm missing your favorite
 1. Add Easter Eggs 😉
+
+> [Check out the source code](https://gitlab.com/caleb-ukle/music-url-links)
