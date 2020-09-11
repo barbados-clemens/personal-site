@@ -38,7 +38,7 @@ So I decided to kick the tires a little and give it a shot.
 So my first self assigned task was to use XState to power the logic behind a _simple_ search frontend app I built for work, powered by [Meilisearch](https://www.meilisearch.com/). The app is pretty simple. 
 
 1. User types into a search box
-1. Query is sent to an api after 200ms of typing inactivity
+1. Query is sent to an api after 300ms of typing inactivity
 1. Transform the result some
 1. Display the results
 
@@ -329,7 +329,7 @@ Okay! That should give us a working machine in Angular.
 
 ## The Problem
 
-While this machine works, it misses one one important UX part. Being able to cancel the ongoing request when a user types a new request while the ongoing request is pending.
+While this machine works, it misses one important UX part. Being able to cancel the ongoing request when a user types a new request while the ongoing request is pending.
 
 You can see this by typing something in the input, wait a second then type more. The second query doesn't execute because the machine is in the `searching` state and not able to handle the 'search' event.
 
