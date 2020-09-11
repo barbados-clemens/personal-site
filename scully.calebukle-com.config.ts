@@ -40,9 +40,9 @@ const blogPostRenderers = [
 ];
 
 
-console.log('NODE_ENV', process.env.NODE_ENV);
+console.log('Build Context:', process.env.CONTEXT);
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.CONTEXT === 'production') {
   blogPostRenderers.push(...[
       AddPostToFirebase,
       UpdateAlgoliaIndex
