@@ -21,20 +21,25 @@
 <!--   href="{{(meta$ | async)?.route}}#top">⏫</a>-->
 <div class="actions">
   <h3>Found this post helpful?</h3>
-  <p>
+  <p id="share-me">
     I'd really appreciate it you'd share this article if you found it interesting or helpful.
-    <a [href]="shareTwitterLink" target="_blank" rel="noopener">
+    <a [href]="shareTwitterLink">
       You can share on twitter by clicking here</a>.
   </p>
-  <p>You can also show you're support by liking this article, just give a star here →
+  <p id="support-me">
+    You can also show you're support by liking this article, just give a star here →
     <app-like-ui style="display: inline-block;" (like)="addLike()" [count]="likes$ | async"></app-like-ui>
   </p>
-  <p>
-    Also, you can follow me, <a href="https://twitter.com/cu_galaxy" target="_blank" rel="noopener">@CU_Galaxy</a>, on
+  <p id="follow-me">
+    Also, you can follow me, <a href="https://twitter.com/cu_galaxy">@CU_Galaxy</a>, on
     twitter.
   </p>
-  <p id="newsletter">
+  <p id="edit-me">
+    Found something wrong or missing? Feel free to <a
+    [href]="'https://gitlab.com/caleb-ukle/portfolio/-/blob/release' + (meta$ | async)?.route + '.md'">make an edit</a>.
+  </p>
 
+  <p id="newsletter">
     <app-newsletter [tags]="(meta$ |async)?.tags"></app-newsletter>
   </p>
   <app-share-sheet [shareUrl]="(meta$ | async)?.route" [shareTitle]="(meta$ | async)?.title"></app-share-sheet>

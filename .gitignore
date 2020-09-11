@@ -69,3 +69,7 @@ coverage/
 
 # Local Netlify folder
 .netlify
+
+.env copy
+
+scully.log
