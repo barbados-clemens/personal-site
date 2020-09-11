@@ -3,14 +3,25 @@
   --facebook-color: var(--light-gray-1);
   --email-color: var(--light-gray-1);
   --rss-color: var(--light-gray-1);
+  --tumblr-color: var(--light-gray-1);
+  --reddit-color: var(--light-gray-1);
+  --pinterest-color: var(--light-gray-1);
+  --linkedin-color: var(--light-gray-1);
+  --copy-color: var(--light-gray-1);
 
   --rss-orange: orange;
   --email-orange: tomato;
-  --facebook-blue: rgb(59,89,152);
+  --facebook-blue: rgb(59, 89, 152);
+  --reddit-orange: #FF5700;
+  --tumblr-blue: #35465c;
+  --pinterest-red: #e60023;
+  --linkedin-blue: #2867b2;
+  --copy-blue: var(--dont-hate-start)
 }
 
 .share-sheet {
   text-align: center;
+
   a {
     margin: 0 6px;
     cursor: pointer;
@@ -32,25 +43,64 @@
 
 
 .twitter {
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     --twitter-color: var(--twitter-blue);
   }
 }
 
 .facebook {
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     --facebook-color: var(--facebook-blue);
   }
 }
 
 .email {
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     --email-color: var(--email-orange);
   }
 }
 
 .rss {
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     --rss-color: var(--rss-orange);
+  }
+}
+
+.reddit {
+  &:hover,
+  &:focus {
+    --reddit-color: var(--reddit-orange);
+  }
+}
+
+.tumblr {
+  &:hover,
+  &:focus {
+    --tumblr-color: var(--tumblr-blue);
+  }
+}
+
+.pinterest {
+  &:hover,
+  &:focus {
+    --pinterest-color: var(--pinterest-red);
+  }
+}
+
+.linkedin {
+  &:hover,
+  &:focus {
+    --linkedin-color: var(--linkedin-blue);
+  }
+}
+
+.copy {
+  &:hover,
+  &:focus {
+    --copy-color: var(--copy-blue);
   }
 }

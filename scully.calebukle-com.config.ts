@@ -25,7 +25,7 @@ const algoliaConfig: IAlgoliaPluginConfig = {
 };
 
 const blurUpImgConfg: IBlurUpConfig = {
-  isDebug: true,
+  isDebug: false,
 };
 
 setPluginConfig(BlurUpImages, blurUpImgConfg);
@@ -36,10 +36,20 @@ setPluginConfig(AddLinksToHeader, HeaderLinksDefaultConfig);
 
 const blogPostRenderers = [
   AddLinksToHeader,
-  AddPostToFirebase,
-  UpdateAlgoliaIndex,
   BlurUpImages,
 ];
+
+
+console.log('Build Context:', process.env.CONTEXT);
+
+if (process.env.CONTEXT === 'production') {
+  blogPostRenderers.push(...[
+      AddPostToFirebase,
+      UpdateAlgoliaIndex
+    ]
+  );
+}
+
 
 // if (process.env.NODE_ENV.toLowerCase() === 'production') {
 //   const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
