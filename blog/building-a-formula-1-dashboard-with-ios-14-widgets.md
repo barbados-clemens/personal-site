@@ -1,17 +1,20 @@
 ---
 title: Building a Formula 1 Dashboard with iOS 14 Widgets
 date: 2020-09-21T11:48:47.170Z
-image: https://media.calebukle.com/uploads/2020/09/f1-dashboard.png
+image: https://media.calebukle.com/uploads/2020/09/ios14-f1-dashboard.png
 description: iOS 14 introduce a breakthrough new feature called widgets. Never
-  has the world seen such innovation in mobile phone operating systems. Um, well
-  okay yeah not really, but here is how I built myself a little dashboard for
-  all my Formula 1 needs, and how you can too!
+  has the world seen such innovation in mobile phone operating system features.
+  Um, well okay yeah not really, but hey we got this feature so why not use it.
+  Here is how I built myself a little dashboard for all my Formula 1 wants, and
+  how you can do it too!
 publish: true
 tags:
   - iOS
   - Formula 1
   - JavaScript
 ---
+![My F1 Dashboard on iOS 14](https://media.calebukle.com/uploads/2020/09/ios14-f1-dashboard.png)
+
 Of the 4 widgets on my dashboard only 2 are custom ones. The other two are from [Apollo, an iOS Reddit client](https://apolloapp.io/). 
 
 My two custom widgets include showing the time until the next F1 event and the latest articles from [f1.com](https://www.formula1.com/en/latest.html).
