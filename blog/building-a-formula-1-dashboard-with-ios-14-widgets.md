@@ -54,7 +54,7 @@ This widget takes a calendar, grabs the most recent event (within the next 30 da
 // Calendar name to grab events from. Find this in your calendar app
 let calName = "f1calendar.com/download/f1-calendar_p1_p2_p3_q_gp.ics"
 // get the calendar 
-let cal = await loadCalendar()
+let cal = await loadCalendar(calName)
 // format event data
 let event = await formatData(cal)
 // build widget
