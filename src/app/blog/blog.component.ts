@@ -1,10 +1,10 @@
 import {AfterContentInit, Component, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {ScullyRoutesService} from '@scullyio/ng-lib';
+import {Observable, Subject} from 'rxjs';
 import {delay, filter, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {MetadataService} from '../layout/services/metadata/metadata.service';
 import {BlogDbService} from './services/blogDb/blog-db.service';
-import {Observable, Subject} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -56,12 +56,11 @@ export class BlogComponent implements OnDestroy, AfterContentInit {
         delay(250),
       )
       .subscribe((f) => {
-        console.log(f);
-        console.log(document.querySelector(`#${f}`)
+        document.querySelector(`#${f}`)
           ?.scrollIntoView({
             behavior: 'smooth',
             block: 'start',
-          }));
+          });
       });
   }
 

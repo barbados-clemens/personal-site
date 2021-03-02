@@ -61,7 +61,6 @@ export class NewsletterComponent implements OnInit {
       this.formUrl
     )
       .pipe(
-        tap((r) => console.log(r)),
         retryWhen(genericRetryStrategy()),
         catchError((e, c) => {
           console.error(e);
